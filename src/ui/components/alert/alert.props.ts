@@ -1,19 +1,14 @@
-import type { UIComponentProps } from "../../types"
+import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-export type AlertRootProps = UIComponentProps<"div"> & {
-	/**
-	 * The visual style of the component.
-	 * @default "primary"
-	 */
-	variant?: "primary" | "secondary"
+export type AlertRootProps = BaseUIComponentProps<"div", unknown> & {
 	/**
 	 * The visual status of the component.
 	 * @default "neutral"
 	 */
-	status?: "neutral" | "info" | "success" | "warning" | "danger"
+	status?: "neutral" | "info" | "success" | "warning" | "error"
 }
 
-export type AlertIndicatorProps = UIComponentProps<"span">
-export type AlertContentProps = UIComponentProps<"div">
-export type AlertTitleProps = UIComponentProps<"div">
-export type AlertDescriptionProps = UIComponentProps<"p">
+export type AlertIndicatorProps = BaseUIComponentProps<"span", unknown>
+export type AlertContentProps = BaseUIComponentProps<"div", unknown>
+export type AlertTitleProps = BaseUIComponentProps<"div", unknown>
+export type AlertDescriptionProps = BaseUIComponentProps<"p", unknown>

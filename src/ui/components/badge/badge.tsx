@@ -4,7 +4,7 @@ import type { BadgeRootProps, BadgeIndicatorProps } from "./badge.props"
 import type { BadgeContextValue, BadgeProviderProps } from "./badge.types"
 
 import { useMemo } from "react"
-import { useBadgeContext } from "./badge.context"
+import { useBadgeContext } from "./badge.hooks"
 
 import { applyCn, toDataAttrs } from "../../utils"
 
@@ -38,7 +38,7 @@ const BadgeProvider = (props: BadgeProviderProps) => {
 
 export const BadgeRoot = (props: BadgeRootProps) => {
 	const {
-		invisible,
+		invisible = false,
 		side = "top",
 		align = "end",
 		size = "md",
@@ -60,6 +60,7 @@ export const BadgeRoot = (props: BadgeRootProps) => {
 				{...restProps}
 				{...toDataAttrs({ invisible, side, align, size, status })}
 				defaultTagName="span"
+				state={{ invisible }}
 				data-slot="badge"
 				className={applyCn("badge", className)}
 			>
@@ -70,13 +71,13 @@ export const BadgeRoot = (props: BadgeRootProps) => {
 }
 
 export const BadgeIndicator = (props: BadgeIndicatorProps) => {
+	const { invisible, side, align, size, status } = useBadgeContext()
+
 	const {
 		className,
 		children,
 		...restProps
 	} = props
-
-	const { invisible, side, align, size, status } = useBadgeContext()
 
 	const dot = !children
 
@@ -93,5 +94,6 @@ export const BadgeIndicator = (props: BadgeIndicatorProps) => {
 	)
 }
 
+BadgeProvider.displayName = "Badge.Provider"
 BadgeRoot.displayName = "Badge.Root"
 BadgeIndicator.displayName = "Badge.Indicator"

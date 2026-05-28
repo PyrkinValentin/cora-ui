@@ -14,10 +14,15 @@ export type ButtonProps = BaseButtonProps & {
 	 * The visual style of the component.
 	 * @default "primary"
 	 */
-	variant?: "primary" | "secondary" | "outline" | "ghost" | "danger"
+	variant?: "primary" | "secondary" | "outline" | "ghost"
 	/**
 	 * The size of the component, affecting padding, font size, and height.
 	 * @default "md"
 	 */
 	size?: "sm" | "md" | "lg"
+	/**
+	 * The color theme of the component.
+	 * @default "info"
+	 */
+	color?: "neutral" | "info" | "success" | "warning" | "error"
 }

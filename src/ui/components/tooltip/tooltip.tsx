@@ -126,8 +126,6 @@ export const TooltipArrow = (props: TooltipArrowProps) => {
 	)
 }
 
-export const tooltipCreateHandle = Tooltip.createHandle
-
 TooltipProvider.displayName = "Tooltip.Provider"
 TooltipRoot.displayName = "Tooltip.Root"
 TooltipTrigger.displayName = "Tooltip.Trigger"

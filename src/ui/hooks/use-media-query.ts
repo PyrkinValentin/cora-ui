@@ -1,3 +1,5 @@
+"use client"
+
 import type { UseMediaQueryOptions } from "@base-ui/react/unstable-use-media-query"
 
 import { useMediaQuery as usePrimitive } from "@base-ui/react/unstable-use-media-query"
@@ -16,15 +18,15 @@ type QueryBuilder = {
 	colorScheme: (scheme: ColorScheme) => string
 }
 
-const BREAKPOINTS = {
+const BREAKPOINTS: Record<Breakpoint, number> = {
 	sm: 640,
 	md: 768,
 	lg: 1024,
 	xl: 1280,
 	"2xl": 1536,
-} as const
+}
 
-const BREAKPOINT_KEYS = Object.keys(BREAKPOINTS) as Breakpoint[]
+const BREAKPOINT_KEYS: Breakpoint[] = ["sm", "md", "lg", "xl", "2xl"]
 
 const NEXT_BREAKPOINT_MAP = new Map(
 	BREAKPOINT_KEYS.map((key, i) => {

@@ -172,7 +172,6 @@ export const PopoverDescription = (props: PopoverDescriptionProps) => {
 
 export const PopoverClose = (props: PopoverCloseProps) => {
 	const {
-		className,
 		children,
 		...restProps
 	} = props
@@ -181,14 +180,11 @@ export const PopoverClose = (props: PopoverCloseProps) => {
 		<Popover.Close
 			{...restProps}
 			data-slot="popover-close"
-			className={applyCn("popover__close", className)}
 		>
 			{children}
 		</Popover.Close>
 	)
 }
-
-export const popoverCreateHandle = Popover.createHandle
 
 PopoverRoot.displayName = "Popover.Root"
 PopoverTrigger.displayName = "Popover.Trigger"

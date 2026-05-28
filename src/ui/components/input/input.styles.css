@@ -1,51 +1,27 @@
 .input {
-  @apply w-full min-w-0 block placeholder:text-muted appearance-none transition motion-reduce:transition-none;
+  @apply min-w-0 block outline-none text-surface-foreground text-sm placeholder:text-muted appearance-none;
 
-  &[data-variant="primary"] {
-    @apply bg-surface text-surface-foreground;
+  &:not([data-group]) {
+    @apply px-4 w-full h-10 rounded-md bg-surface transition motion-reduce:transition-none;
 
     &:hover {
       @apply bg-surface-hover;
     }
-  }
 
-  &[data-variant="secondary"] {
-    @apply bg-secondary text-secondary-foreground;
+    &:focus {
+      @apply status-focus bg-surface;
+    }
 
-    &:hover {
-      @apply bg-secondary-hover;
+    &[data-disabled] {
+      @apply status-disable;
+    }
+
+    &[data-invalid] {
+      @apply status-invalid;
     }
   }
 
-  &[data-size="sm"] {
-    @apply px-3 h-8 text-xs rounded-sm;
-  }
-
-  &[data-size="md"] {
-    @apply px-4 h-10 text-sm rounded-md;
-  }
-
-  &[data-size="lg"] {
-    @apply px-5 h-12 text-base rounded-lg;
-  }
-
-  &:focus {
-    @apply status-focus;
-
-    &[data-variant="primary"] {
-      @apply bg-surface;
-    }
-
-    &[data-variant="secondary"] {
-      @apply bg-secondary;
-    }
-  }
-
-  &[data-disabled] {
-    @apply status-disable;
-  }
-
-  &[data-invalid] {
-    @apply status-invalid;
+  &[data-group] {
+    @apply flex-1 h-full;
   }
 }

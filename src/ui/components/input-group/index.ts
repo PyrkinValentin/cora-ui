@@ -1,6 +1,1 @@
-import { InputGroupRoot, InputGroupInput } from "./input-group"
-
-export const InputGroup = {
-	Root: InputGroupRoot,
-	Input: InputGroupInput,
-}
+export { InputGroup } from "./input-group"

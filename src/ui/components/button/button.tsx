@@ -2,16 +2,22 @@
 
 import type { ButtonProps } from "./button.props"
 
+import { useButtonGroupContext } from "../button-group/button-group.hooks"
+
 import { applyCn, toDataAttrs } from "../../utils"
 
 import { Button as BaseUIButton } from "@base-ui/react/button"
 
 export const Button = (props: ButtonProps) => {
+	const { group, ...contextValue } = useButtonGroupContext()
+
 	const {
-		iconOnly,
-		fullWidth,
-		variant = "primary",
-		size = "md",
+		disabled = contextValue.disabled,
+		iconOnly = contextValue.iconOnly,
+		fullWidth = contextValue.fullWidth,
+		variant = contextValue.variant ?? "primary",
+		size = contextValue.size ?? "md",
+		color = contextValue.color ?? "info",
 		className,
 		children,
 		...restProps
@@ -20,7 +26,8 @@ export const Button = (props: ButtonProps) => {
 	return (
 		<BaseUIButton
 			{...restProps}
-			{...toDataAttrs({ iconOnly, fullWidth, variant, size })}
+			{...toDataAttrs({ group, iconOnly, fullWidth, variant, size, color })}
+			disabled={disabled}
 			data-slot="button"
 			className={applyCn("button", className)}
 		>

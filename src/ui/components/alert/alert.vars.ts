@@ -7,5 +7,5 @@ export const ALERT_INDICATORS: AlertIndicators = {
 	info: Info,
 	success: CircleCheck,
 	warning: TriangleAlert,
-	danger: CircleAlert,
+	error: CircleAlert,
 }

@@ -1,20 +1,13 @@
 import type { MouseEvent } from "react"
+import type { BaseUIEvent } from "@base-ui/react"
 
-export const focusInputSlot = (ev: MouseEvent<HTMLElement>, input: HTMLInputElement) => {
-	const target = ev.target as HTMLElement
+export const focusInputSlot = (ev: BaseUIEvent<MouseEvent<HTMLDivElement>>, input: HTMLInputElement) => {
+	const target = ev.target as HTMLDivElement
 
 	if (target.closest("button, [role='button'], a, input, select, textarea")) return
 
-	if (
-		input &&
-		target !== input &&
-		!input.contains(target)
-	) {
+	if (input && !input.contains(target)) {
 		ev.preventDefault()
-
-		const length = input.value.length
-
 		input.focus({ preventScroll: true })
-		input.setSelectionRange(length, length)
 	}
 }

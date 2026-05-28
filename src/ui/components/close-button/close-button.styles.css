@@ -1,5 +1,5 @@
 .close-button {
-  @apply shrink-0 flex items-center justify-center bg-secondary text-muted select-none transition
+  @apply shrink-0 flex items-center justify-center bg-neutral text-muted select-none transition
   motion-reduce:transition-none;
 
   &[data-size="sm"] {
@@ -11,7 +11,7 @@
   }
 
   &:hover {
-    @apply bg-secondary-hover;
+    @apply bg-neutral-hover;
   }
 
   &:focus-visible {
@@ -23,6 +23,6 @@
   }
 
   &[data-floating] {
-    @apply z-10 absolute top-2.5 right-2.5;
+    @apply z-10 absolute top-4 right-4;
   }
 }

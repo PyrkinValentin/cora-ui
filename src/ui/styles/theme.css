@@ -1,0 +1,80 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --text-tiny: 0.625rem;
+
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+
+  --color-white: oklch(100% 0 0);
+  --snow: oklch(0.9911 0 0);
+  --color-eclipse: oklch(0.2103 0.0059 285.89);
+
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-eclipse);
+
+  --color-surface: oklch(96% 0.001 286.375);
+  --color-surface-foreground: var(--color-foreground);
+  --color-surface-hover: color-mix(in oklab, var(--color-surface) 96%, var(--color-surface-foreground) 4%);
+
+  --color-info: oklch(56.71% 0.209 257.94);
+  --color-info-foreground: var(--snow);
+  --color-info-hover: color-mix(in oklab, var(--color-info) 90%, var(--color-info-foreground) 10%);
+  --color-info-soft: color-mix(in oklab, var(--color-info) 10%, transparent);
+  --color-info-soft-hover: color-mix(in oklab, var(--color-info) 20%, transparent);
+
+  --color-neutral: oklch(92% 0.001 286.375);
+  --color-neutral-foreground: var(--color-foreground);
+  --color-neutral-hover: color-mix(in oklab, var(--color-neutral) 96%, var(--color-neutral-foreground) 4%);
+  --color-neutral-soft: color-mix(in oklab, var(--color-neutral) 30%, transparent);
+  --color-neutral-soft-hover: color-mix(in oklab, var(--color-neutral) 60%, transparent);
+
+  --color-success: oklch(0.7329 0.1935 150.81);
+  --color-success-foreground: var(--color-eclipse);
+  --color-success-hover: color-mix(in oklab, var(--color-success) 90%, var(--color-success-foreground) 10%);
+  --color-success-soft: color-mix(in oklab, var(--color-success) 10%, transparent);
+  --color-success-soft-hover: color-mix(in oklab, var(--color-success) 20%, transparent);
+
+  --color-warning: oklch(0.7819 0.1585 72.33);
+  --color-warning-foreground: var(--color-eclipse);
+  --color-warning-hover: color-mix(in oklab, var(--color-warning) 90%, var(--color-warning-foreground) 10%);
+  --color-warning-soft: color-mix(in oklab, var(--color-warning) 10%, transparent);
+  --color-warning-soft-hover: color-mix(in oklab, var(--color-warning) 20%, transparent);
+
+  --color-error: oklch(0.6532 0.2328 25.74);
+  --color-error-foreground: var(--snow);
+  --color-error-hover: color-mix(in oklab, var(--color-error) 90%, var(--color-error-foreground) 10%);
+  --color-error-soft: color-mix(in oklab, var(--color-error) 10%, transparent);
+  --color-error-soft-hover: color-mix(in oklab, var(--color-error) 20%, transparent);
+
+  --color-muted: oklch(0.5517 0.0138 285.94);
+  --color-focus: var(--color-info);
+  --color-backdrop: rgba(0, 0, 0, 0.3);
+  --color-scrollbar: oklch(87.1% 0.006 286.286);
+
+  --color-border: oklch(90% 0.004 286.32);
+  --color-border-secondary: color-mix(in oklab, var(--color-surface) 78%, var(--color-surface-foreground) 22%);
+}
+
+@layer theme {
+  .dark {
+    --color-background: oklch(12% 0.005 285.823);
+    --color-foreground: var(--snow);
+
+    --color-surface: oklch(0.2103 0.0059 285.89);
+    --color-neutral: oklch(27.4% 0.006 286.033);
+    --color-warning: oklch(0.8203 0.1388 76.34);
+    --color-error: oklch(0.594 0.1967 24.63);
+
+    --color-muted: oklch(70.5% 0.015 286.067);
+    --color-backdrop: rgba(0, 0, 0, 0.6);
+    --color-scrollbar: oklch(70.5% 0.015 286.067);
+
+    --color-border: oklch(28% 0.006 286.033);
+  }
+}

@@ -1,12 +1,13 @@
+"use client"
+
 import type { BadgeContextValue } from "./badge.types"
 
-import { createContext, use } from "react"
+import { createContext } from "react"
 
 export const BadgeContext = createContext<BadgeContextValue>({
+	invisible: false,
 	side: "top",
 	align: "end",
 	size: "md",
 	status: "neutral",
 })
-
-export const useBadgeContext = () => use(BadgeContext)

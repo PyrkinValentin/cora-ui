@@ -3,19 +3,19 @@
 }
 
 .badge__indicator {
-  @apply z-10 absolute px-0.5 flex items-center justify-center gap-0.5 rounded-full border border-background
+  @apply z-10 absolute px-1 flex items-center justify-center gap-0.5 rounded-md border border-background
   font-medium tabular-nums whitespace-nowrap pointer-events-none transition-transform motion-reduce:transition-none;
 
   &[data-size="sm"] {
-    @apply min-w-4.5 min-h-4.5 text-tiny icon-tiny;
+    @apply min-w-4.5 h-4.5 text-tiny icon-tiny;
   }
 
   &[data-size="md"] {
-    @apply min-w-5 min-h-5 text-xs icon-xs;
+    @apply min-w-5 h-5 text-xs icon-xs;
   }
 
   &[data-size="lg"] {
-    @apply min-w-5.5 min-h-5.5 text-sm icon-sm;
+    @apply min-w-5.5 h-5.5 text-sm icon-sm;
   }
 
   &[data-side="top"] {
@@ -39,11 +39,11 @@
   }
 
   &[data-status="neutral"] {
-    @apply bg-secondary text-secondary-foreground;
+    @apply bg-neutral text-neutral-foreground;
   }
 
   &[data-status="info"] {
-    @apply bg-primary text-primary-foreground;
+    @apply bg-info text-info-foreground;
   }
 
   &[data-status="success"] {
@@ -54,27 +54,27 @@
     @apply bg-warning text-warning-foreground;
   }
 
-  &[data-status="danger"] {
-    @apply bg-danger text-danger-foreground;
-  }
-
-  &[data-dot] {
-    @apply min-w-auto min-h-auto;
-
-    &[data-size="sm"] {
-      @apply size-4;
-    }
-
-    &[data-size="md"] {
-      @apply size-4.5;
-    }
-
-    &[data-size="lg"] {
-      @apply size-5;
-    }
+  &[data-status="error"] {
+    @apply bg-error text-error-foreground;
   }
 
   &[data-invisible] {
     @apply scale-0;
+  }
+
+  &[data-dot] {
+    @apply min-w-auto h-auto;
+
+    &[data-size="sm"] {
+      @apply size-3.5;
+    }
+
+    &[data-size="md"] {
+      @apply size-4;
+    }
+
+    &[data-size="lg"] {
+      @apply size-4.5;
+    }
   }
 }

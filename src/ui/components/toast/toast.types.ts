@@ -1,0 +1,75 @@
+import {
+	ToastRootProps,
+	ToastObject,
+	ToastManagerEvent,
+	ToastManagerAddOptions as BaseToastManagerAddOptions,
+	ToastManagerUpdateOptions as BaseToastManagerUpdateOptions,
+} from "@base-ui/react/toast"
+
+import type { ComponentType, ReactNode } from "react"
+import type { LucideProps } from "lucide-react"
+import type { ToastProviderProps } from "./toast.props"
+
+export type ToastOptions = {
+	/**
+	 * An icon or element displayed next to the toast content to indicate its status.
+	 */
+	indicator?: ReactNode
+	/**
+	 * The visual status of the component.
+	 * @default "neutral"
+	 */
+	status?: "neutral" | "info" | "success" | "warning" | "error"
+}
+
+export type ToastSwipeDirection = NonNullable<ToastRootProps["swipeDirection"]>
+
+type ToastSide = NonNullable<ToastProviderProps["side"]>
+type ToastAlign = NonNullable<ToastProviderProps["align"]>
+type ToastStatus = NonNullable<ToastOptions["status"]>
+
+export type ToastContextValue = {
+	side: ToastSide
+	align: ToastAlign
+}
+
+export type ToastRootContextValue = {
+	type?: string
+	duplicate: boolean
+	anchor: boolean
+	status: ToastStatus
+	indicator?: ReactNode
+}
+
+export type ToastRootProviderProps = ToastRootContextValue & {
+	children: ReactNode
+}
+
+export type ToastIndicators = Record<ToastStatus, ComponentType<LucideProps>>
+
+export type ToastData = Record<string, unknown>
+export type ToastManagerAddOptions<Data extends ToastData> = BaseToastManagerAddOptions<Data> & ToastOptions
+export type ToastManagerUpdateOptions<Data extends ToastData> = BaseToastManagerUpdateOptions<Data> & ToastOptions
+
+export type ToastManagerPromiseOptions<Value, Data extends ToastData> = {
+	loading: string | ToastManagerUpdateOptions<Data>
+	success: string | ToastManagerUpdateOptions<Data> | ((result: Value) => string | ToastManagerUpdateOptions<Data>)
+	error: string | ToastManagerUpdateOptions<Data> | ((error: unknown) => string | ToastManagerUpdateOptions<Data>)
+}
+
+export type ToastManager<Data extends ToastData = ToastData> = {
+	' subscribe': (listener: (data: ToastManagerEvent) => void) => () => void
+	add: <T extends Data = Data>(options: ToastManagerAddOptions<T>) => string
+	close: (id?: string) => void
+	update: <T extends Data = Data>(id: string, options: ToastManagerUpdateOptions<T>) => void
+	promise: <Value, T extends Data = Data>(promise: Promise<Value>, options: ToastManagerPromiseOptions<Value, T>) => Promise<Value>
+}
+
+export type UseToastManagerReturn<Data extends ToastData = ToastData> = Omit<ToastManager<Data>, " subscribe"> & {
+	toasts: ToastObject<Data>[]
+}
+
+export type UseToastSwipeDirectionOptions = {
+	side: ToastSide
+	align: ToastAlign
+}

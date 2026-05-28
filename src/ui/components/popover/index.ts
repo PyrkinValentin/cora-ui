@@ -9,8 +9,9 @@ import {
 	PopoverTitle,
 	PopoverDescription,
 	PopoverClose,
-	popoverCreateHandle,
 } from "./popover"
+
+import { popoverCreateHandle } from "./popover.utils"
 
 export const Popover = {
 	Root: PopoverRoot,

@@ -1,16 +1,8 @@
 .alert {
-  @apply relative px-4 py-3 w-full flex items-center gap-4 rounded-lg;
+  @apply relative p-4 w-full flex items-center gap-4 rounded-lg bg-surface;
 
-  &:has(.alert__description) {
+  &:has(.alert__title):has(.alert__description) {
     @apply items-start;
-  }
-
-  &[data-variant="primary"] {
-    @apply bg-surface;
-  }
-
-  &[data-variant="secondary"] {
-    @apply bg-secondary;
   }
 }
 
@@ -23,14 +15,14 @@
 }
 
 .alert__title {
-  @apply font-medium text-sm text-foreground text-pretty;
+  @apply font-medium text-sm text-pretty;
 }
 
 .alert__description {
   @apply text-sm text-muted text-pretty;
 
   .alert__title + & {
-    @apply mt-1;
+    @apply mt-0.5;
   }
 }
 
@@ -41,7 +33,7 @@
   }
 
   &[data-status="info"] {
-    @apply text-primary;
+    @apply text-info;
   }
 
   &[data-status="success"] {
@@ -52,7 +44,7 @@
     @apply text-warning;
   }
 
-  &[data-status="danger"] {
-    @apply text-danger;
+  &[data-status="error"] {
+    @apply text-error;
   }
 }

@@ -7,7 +7,7 @@
 }
 
 @utility status-invalid {
-  @apply z-10 ring-2 ring-danger ring-offset-2 ring-offset-background outline-none;
+  @apply z-10 ring-2 ring-error ring-offset-2 ring-offset-background outline-none;
 }
 
 @utility icon-tiny {
@@ -47,23 +47,28 @@
 }
 
 @utility floating-arrow {
-  @apply -z-10 size-2.5 bg-inherit border border-transparent border-b-inherit border-r-inherit rounded-br-[3px];
+  @apply relative block w-3 h-1.5 overflow-clip;
+
+  &:before {
+    @apply content-[""] absolute bottom-0 left-1/2 size-[calc(6px*sqrt(2))] bg-background border border-border
+    rounded-[1px] -translate-x-1/2 translate-y-1/2 rotate-45;
+  }
 
   &[data-side="top"] {
-    @apply bottom-0 translate-y-1/2 rotate-45;
+    @apply -bottom-1.5 rotate-180;
   }
 
   &[data-side="bottom"] {
-    @apply top-0 -translate-y-1/2 rotate-225;
+    @apply -top-1.5;
   }
 
   &[data-side="left"],
   &[data-side="inline-start"] {
-    @apply right-0 translate-x-1/2 -rotate-45;
+    @apply -right-2.25 rotate-90;
   }
 
   &[data-side="right"],
   &[data-side="inline-end"] {
-    @apply left-0 -translate-x-1/2 rotate-135;
+    @apply -left-2.25 -rotate-90;
   }
 }

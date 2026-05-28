@@ -1,67 +1,24 @@
 .input-group {
-  @apply w-full flex items-center cursor-text transition motion-reduce:transition-none;
-
-  &[data-variant="primary"] {
-    @apply bg-surface text-surface-foreground;
-
-    &:hover {
-      @apply bg-surface-hover;
-    }
-  }
-
-  &[data-variant="secondary"] {
-    @apply bg-secondary text-secondary-foreground;
-
-    &:hover {
-      @apply bg-secondary-hover;
-    }
-  }
-
-  &[data-size="sm"] {
-    @apply px-3 h-8 gap-1.5 text-xs icon-xs rounded-sm;
-  }
-
-  &[data-size="md"] {
-    @apply px-4 h-10 gap-2 text-sm icon-sm rounded-md;
-  }
-
-  &[data-size="lg"] {
-    @apply px-5 h-12 gap-2.5 text-base icon-md rounded-lg;
-  }
-
-  &:has(.input-group__input:focus) {
-    @apply status-focus;
-
-    &[data-variant="primary"] {
-      @apply bg-surface;
-    }
-
-    &[data-variant="secondary"] {
-      @apply bg-secondary;
-    }
-  }
-
-  &:has(.input-group__input[data-disabled]) {
-    @apply status-disable;
-  }
-
-  &:has(.input-group__input[data-invalid]) {
-    @apply status-invalid;
-  }
+  @apply px-4 w-full h-10 flex items-center gap-2 rounded-md bg-surface text-sm icon-sm text-surface-foreground
+  cursor-text transition motion-reduce:transition-none;
 
   & > svg {
     @apply text-muted;
   }
-}
 
-.input-group__input {
-  @apply flex-1 min-w-0 h-full block placeholder:text-muted outline-none appearance-none;
-
-  &[data-variant="primary"] {
-    @apply text-surface-foreground;
+  &:hover {
+    @apply bg-surface-hover;
   }
 
-  &[data-variant="secondary"] {
-    @apply text-secondary-foreground;
+  &:has(.input:focus) {
+    @apply status-focus bg-surface;
+  }
+
+  &:has(.input[data-disabled]) {
+    @apply status-disable;
+  }
+
+  &:has(.input[data-invalid]) {
+    @apply status-invalid;
   }
 }

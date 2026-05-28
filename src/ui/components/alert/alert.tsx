@@ -11,7 +11,7 @@ import type {
 import type { AlertProviderProps, AlertContextValue } from "./alert.types"
 
 import { useMemo } from "react"
-import { useAlertContext } from "./alert.context"
+import { useAlertContext } from "./alert.hooks"
 
 import { applyCn, toDataAttrs } from "../../utils"
 import { computeAlertRole } from "./alert.utils"
@@ -23,15 +23,13 @@ import { AlertContext } from "./alert.context"
 
 const AlertProvider = (props: AlertProviderProps) => {
 	const {
-		variant,
 		status,
 		children,
 	} = props
 
 	const contextValue = useMemo<AlertContextValue>(() => ({
-		variant,
 		status
-	}), [variant, status])
+	}), [status])
 
 	return (
 		<AlertContext value={contextValue}>
@@ -42,7 +40,6 @@ const AlertProvider = (props: AlertProviderProps) => {
 
 export const AlertRoot = (props: AlertRootProps) => {
 	const {
-		variant = "primary",
 		status = "neutral",
 		className,
 		children,
@@ -50,13 +47,10 @@ export const AlertRoot = (props: AlertRootProps) => {
 	} = props
 
 	return (
-		<AlertProvider
-			variant={variant}
-			status={status}
-		>
+		<AlertProvider status={status}>
 			<Render
 				{...restProps}
-				{...toDataAttrs({ variant, status })}
+				{...toDataAttrs({ status })}
 				defaultTagName="div"
 				role={computeAlertRole(status)}
 				data-slot="alert"
@@ -69,43 +63,43 @@ export const AlertRoot = (props: AlertRootProps) => {
 }
 
 export const AlertIndicator = (props: AlertIndicatorProps) => {
+	const { status } = useAlertContext()
+
 	const {
 		className,
 		children,
 		...restProps
 	} = props
 
-	const { variant, status } = useAlertContext()
-
-	const Icon = ALERT_INDICATORS[status]
+	const Indicator = ALERT_INDICATORS[status]
 
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ variant, status })}
+			{...toDataAttrs({ status })}
 			defaultTagName="span"
 			aria-hidden={true}
 			data-slot="alert-indicator"
 			className={applyCn("alert__indicator", className)}
 		>
-			{children ?? <Icon/>}
+			{children ?? <Indicator/>}
 		</Render>
 	)
 }
 
 export const AlertContent = (props: AlertContentProps) => {
+	const { status } = useAlertContext()
+
 	const {
 		className,
 		children,
 		...restProps
 	} = props
 
-	const { variant, status } = useAlertContext()
-
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ variant, status })}
+			{...toDataAttrs({ status })}
 			defaultTagName="div"
 			data-slot="alert-content"
 			className={applyCn("alert__content", className)}
@@ -116,18 +110,18 @@ export const AlertContent = (props: AlertContentProps) => {
 }
 
 export const AlertTitle = (props: AlertTitleProps) => {
+	const { status } = useAlertContext()
+
 	const {
 		className,
 		children,
 		...restProps
 	} = props
 
-	const { variant, status } = useAlertContext()
-
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ variant, status })}
+			{...toDataAttrs({ status })}
 			defaultTagName="div"
 			data-slot="alert-title"
 			className={applyCn("alert__title", className)}
@@ -138,18 +132,18 @@ export const AlertTitle = (props: AlertTitleProps) => {
 }
 
 export const AlertDescription = (props: AlertDescriptionProps) => {
+	const { status } = useAlertContext()
+
 	const {
 		className,
 		children,
 		...restProps
 	} = props
 
-	const { variant, status } = useAlertContext()
-
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ variant, status })}
+			{...toDataAttrs({ status })}
 			defaultTagName="p"
 			data-slot="alert-description"
 			className={applyCn("alert__description", className)}
@@ -159,6 +153,7 @@ export const AlertDescription = (props: AlertDescriptionProps) => {
 	)
 }
 
+AlertProvider.displayName = "Alert.Provider"
 AlertRoot.displayName = "Alert.Root"
 AlertIndicator.displayName = "Alert.Indicator"
 AlertContent.displayName = "Alert.Content"

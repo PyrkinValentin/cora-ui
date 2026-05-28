@@ -1,13 +1,13 @@
 @layer base {
   html {
     @apply scroll-smooth;
-    
+
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply relative min-w-(--container-xs) bg-background text-foreground text-base antialiased;
+    @apply relative min-w-(--container-xs) min-h-full bg-background text-foreground text-base antialiased;
 
     font-synthesis: none;
     -moz-osx-font-smoothing: grayscale;
@@ -21,7 +21,7 @@
     @apply shrink-0;
   }
 
-  button {
+  a, button {
     @apply cursor-pointer;
   }
 }

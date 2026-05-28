@@ -1,6 +1,6 @@
-import type { UIComponentProps } from "../../types"
+import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-export type SpinnerProps = UIComponentProps<"span"> & {
+export type SpinnerProps = BaseUIComponentProps<"span", unknown> & {
 	/**
 	 * The size of the component, affecting padding, font size, and height.
 	 * @default "md"
@@ -10,5 +10,5 @@ export type SpinnerProps = UIComponentProps<"span"> & {
 	 * The color theme of the component.
 	 * @default "current"
 	 */
-	color?: "current" | "primary" | "success" | "warning" | "danger"
+	color?: "current" | "neutral" | "info" | "success" | "warning" | "error"
 }
