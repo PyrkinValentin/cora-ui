@@ -155,13 +155,8 @@ export const PaginationPrev = (props: PaginationPrevProps) => {
 	const handleClick = (ev: BaseUIEvent<MouseEvent<HTMLButtonElement>>) => {
 		onClick?.(ev)
 
-		if (disabled) {
-			ev.preventDefault()
-			ev.preventBaseUIHandler()
-			return
-		}
-
 		if (
+			!disabled &&
 			!ev.defaultPrevented &&
 			!ev.baseUIHandlerPrevented
 		) {
@@ -202,13 +197,8 @@ export const PaginationNext = (props: PaginationNextProps) => {
 	const handleClick = (ev: BaseUIEvent<MouseEvent<HTMLButtonElement>>) => {
 		onClick?.(ev)
 
-		if (disabled) {
-			ev.preventDefault()
-			ev.preventBaseUIHandler()
-			return
-		}
-
 		if (
+			!disabled &&
 			!ev.defaultPrevented &&
 			!ev.baseUIHandlerPrevented
 		) {
@@ -250,13 +240,8 @@ export const PaginationPage = (props: PaginationPageProps) => {
 	const handleClick = (ev: BaseUIEvent<MouseEvent<HTMLButtonElement>>) => {
 		onClick?.(ev)
 
-		if (disabled) {
-			ev.preventDefault()
-			ev.preventBaseUIHandler()
-			return
-		}
-
 		if (
+			!disabled &&
 			!ev.defaultPrevented &&
 			!ev.baseUIHandlerPrevented
 		) {
