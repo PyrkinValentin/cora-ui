@@ -2,7 +2,7 @@
 
 import type { UseMediaQueryOptions } from "@base-ui/react/unstable-use-media-query"
 
-import { useMediaQuery as usePrimitive } from "@base-ui/react/unstable-use-media-query"
+import { useMediaQuery as useBaseMediaQuery } from "@base-ui/react/unstable-use-media-query"
 
 type Breakpoint = "sm" | "md" | "lg" | "xl" | "2xl"
 type Preference = "reduce" | "no-preference"
@@ -64,10 +64,10 @@ const queryBuilder: QueryBuilder = {
 	colorScheme: (scheme) => `(prefers-color-scheme: ${scheme})`,
 }
 
-export const useMediaQuery = (query: MediaQuery, options: UseMediaQueryOptions = {}) => {
+export const useMediaQuery = (query: MediaQuery, options?: UseMediaQueryOptions) => {
 	const resolvedQuery = typeof query === "string"
 		? query
 		: query(queryBuilder)
 
-	return usePrimitive(resolvedQuery, options)
+	return useBaseMediaQuery(resolvedQuery, options ?? {})
 }

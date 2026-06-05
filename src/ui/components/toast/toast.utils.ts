@@ -8,5 +8,3 @@ import { Toast } from "@base-ui/react/toast"
 export const toastCreateManager = <Data extends ToastData = ToastData>(): ToastManager<Data> => {
 	return Toast.createToastManager<Data>()
 }
-
-export const toastDefaultManager = toastCreateManager()

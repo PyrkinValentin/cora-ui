@@ -1,43 +1,39 @@
-import type { ReactNode } from "react"
-import type { BaseUIChangeEventDetails } from "@base-ui/react"
-import type { PaginationRootProps } from "./pagination.props"
+import type {
+	PaginationRootChangeEventReason,
+	PaginationRootChangeEventDetails,
+	PaginationRootProps,
+} from "./pagination.props"
+
+export type PaginationEllipsisType = "ellipsis-start" | "ellipsis-end"
+export type PaginationEllipsis = Record<"ellipsisStart" | "ellipsisEnd", PaginationEllipsisType>
+export type PaginationReasons = Record<PaginationRootChangeEventReason, PaginationRootChangeEventReason>
 
 type PaginationSize = PaginationRootProps["size"]
 
-export type PaginationContextValue = {
+export type PaginationRootContextValue = {
 	size: PaginationSize
 	total: number
 	page: number
 	onPageChange?: (page: number, eventDetails: PaginationRootChangeEventDetails) => void
 }
 
-export type PaginationProviderProps = PaginationContextValue & {
-	children: ReactNode
-}
-
-export type PaginationReason = "prev" | "next" | "button"
-
-export type PaginationRootChangeEventDetails =
-	BaseUIChangeEventDetails<PaginationReason>
-
-export type PaginationEllipsis = "ellipsis-start" | "ellipsis-end"
-export type PaginationEllipsisType = Record<"ellipsisStart" | "ellipsisEnd", PaginationEllipsis>
-
 export type UsePaginationSyncOptions = {
 	page: number
 	total: number
-	onPageSync?: (page: number) => void
+	onPageChange?: (page: number, eventDetails: PaginationRootChangeEventDetails) => void
 }
 
-export type UsePaginationOptions = {
+export type UsePaginationManagerOptions = {
 	total: number
 	page: number
 	siblings?: number
 	boundaries?: number
+	onPageChange?: (page: number, eventDetails: PaginationRootChangeEventDetails) => void
 }
 
-export type UsePaginationReturn = {
-	currentPage: number
-	pages: (number | PaginationEllipsis)[]
+export type UsePaginationManagerReturn = {
+	page: number
+	pages: (number | PaginationEllipsisType)[]
 	total: number
+	onPageChange?: (page: number, eventDetails: PaginationRootChangeEventDetails) => void
 }

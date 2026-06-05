@@ -1,42 +1,30 @@
 "use client"
 
 import type { BadgeRootProps, BadgeIndicatorProps } from "./badge.props"
-import type { BadgeContextValue, BadgeProviderProps } from "./badge.types"
 
-import { useMemo } from "react"
-import { useBadgeContext } from "./badge.hooks"
-
-import { applyCn, toDataAttrs } from "../../utils"
+import { toClassNames, toDataAttrs } from "../../utils"
 
 import { Render } from "../render"
-import { BadgeContext } from "./badge.context"
 
-const BadgeProvider = (props: BadgeProviderProps) => {
+export const BadgeRoot = (props: BadgeRootProps) => {
 	const {
-		invisible,
-		side,
-		align,
-		size,
-		status,
+		className,
 		children,
+		...restProps
 	} = props
 
-	const contextValue = useMemo<BadgeContextValue>(() => ({
-		invisible,
-		side,
-		align,
-		size,
-		status,
-	}), [invisible, side, align, size, status])
-
 	return (
-		<BadgeContext value={contextValue}>
+		<Render
+			{...restProps}
+			defaultTagName="span"
+			className={toClassNames("badge", className)}
+		>
 			{children}
-		</BadgeContext>
+		</Render>
 	)
 }
 
-export const BadgeRoot = (props: BadgeRootProps) => {
+export const BadgeIndicator = (props: BadgeIndicatorProps) => {
 	const {
 		invisible = false,
 		side = "top",
@@ -48,52 +36,20 @@ export const BadgeRoot = (props: BadgeRootProps) => {
 		...restProps
 	} = props
 
-	return (
-		<BadgeProvider
-			invisible={invisible}
-			side={side}
-			align={align}
-			size={size}
-			status={status}
-		>
-			<Render
-				{...restProps}
-				{...toDataAttrs({ invisible, side, align, size, status })}
-				defaultTagName="span"
-				state={{ invisible }}
-				data-slot="badge"
-				className={applyCn("badge", className)}
-			>
-				{children}
-			</Render>
-		</BadgeProvider>
-	)
-}
-
-export const BadgeIndicator = (props: BadgeIndicatorProps) => {
-	const { invisible, side, align, size, status } = useBadgeContext()
-
-	const {
-		className,
-		children,
-		...restProps
-	} = props
-
 	const dot = !children
 
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ invisible, side, align, size, status, dot })}
+			{...toDataAttrs({ invisible, dot, side, align, size, status })}
 			defaultTagName="span"
-			data-slot="badge-indicator"
-			className={applyCn("badge__indicator", className)}
+			state={{ invisible }}
+			className={toClassNames("badge__indicator", className)}
 		>
 			{children}
 		</Render>
 	)
 }
 
-BadgeProvider.displayName = "Badge.Provider"
 BadgeRoot.displayName = "Badge.Root"
 BadgeIndicator.displayName = "Badge.Indicator"

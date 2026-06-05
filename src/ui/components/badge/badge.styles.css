@@ -1,21 +1,33 @@
 .badge {
-  @apply relative inline-flex;
+  @apply relative shrink-0 inline-flex;
 }
 
 .badge__indicator {
-  @apply z-10 absolute px-1 flex items-center justify-center gap-0.5 rounded-md border border-background
-  font-medium tabular-nums whitespace-nowrap pointer-events-none transition-transform motion-reduce:transition-none;
+  @apply z-1 absolute px-1 flex items-center justify-center rounded-full border border-background font-medium
+  pointer-events-none transition-transform motion-reduce:transition-none;
 
   &[data-size="sm"] {
-    @apply min-w-4.5 h-4.5 text-tiny icon-tiny;
+    @apply min-w-4.5 h-4.5 text-xs;
+
+    &[data-dot] {
+      @apply min-w-3 h-3;
+    }
   }
 
   &[data-size="md"] {
-    @apply min-w-5 h-5 text-xs icon-xs;
+    @apply min-w-5 h-5 text-sm;
+
+    &[data-dot] {
+      @apply min-w-3.5 h-3.5;
+    }
   }
 
   &[data-size="lg"] {
-    @apply min-w-5.5 h-5.5 text-sm icon-sm;
+    @apply min-w-5.5 h-5.5 text-base;
+
+    &[data-dot] {
+      @apply min-w-4 h-4;
+    }
   }
 
   &[data-side="top"] {
@@ -58,23 +70,11 @@
     @apply bg-error text-error-foreground;
   }
 
-  &[data-invisible] {
-    @apply scale-0;
+  &[data-dot] {
+    @apply px-0;
   }
 
-  &[data-dot] {
-    @apply min-w-auto h-auto;
-
-    &[data-size="sm"] {
-      @apply size-3.5;
-    }
-
-    &[data-size="md"] {
-      @apply size-4;
-    }
-
-    &[data-size="lg"] {
-      @apply size-4.5;
-    }
+  &[data-invisible] {
+    @apply scale-0;
   }
 }

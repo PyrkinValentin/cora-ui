@@ -1,0 +1,1 @@
+export type { SeparatorProps, SeparatorState } from "@base-ui/react/separator"

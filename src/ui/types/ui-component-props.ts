@@ -1,0 +1,1 @@
+export type { BaseUIComponentProps as UIComponentProps } from "@base-ui/react/internals/types"

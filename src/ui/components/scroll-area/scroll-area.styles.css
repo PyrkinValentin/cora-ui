@@ -1,0 +1,61 @@
+.scroll-area {
+  @apply h-full min-h-0 flex overflow-hidden transition motion-reduce:transition-none;
+
+  &:has(.scroll-area__viewport:focus-visible) {
+    @apply z-10 status-focus;
+  }
+}
+
+.scroll-area__viewport {
+  @apply w-full min-h-0 overflow-y-auto overscroll-contain outline-none;
+
+  &[data-scroll-fade] {
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        black min(40px, var(--scroll-area-overflow-y-start)),
+        black calc(100% - min(40px, var(--scroll-area-overflow-y-end, 40px))),
+        transparent 100%
+    );
+
+    @apply mask-no-repeat;
+  }
+}
+
+.scroll-area__scrollbar {
+  @apply p-0.5 rounded-full bg-scrollbar opacity-0 pointer-events-none transition-opacity
+  motion-reduce:transition-none;
+
+  &[data-hovering],
+  &[data-scrolling] {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  &[data-scrolling] {
+    @apply duration-0;
+  }
+
+  &[data-orientation="vertical"] {
+    @apply w-2.5;
+  }
+
+  &[data-orientation="horizontal"] {
+    @apply h-2.5;
+  }
+}
+
+.scroll-area__thumb {
+  @apply rounded-full bg-scrollbar-thumb transition-colors motion-reduce:transition-none;
+
+  &[data-orientation="vertical"] {
+    @apply w-full;
+  }
+
+  &[data-orientation="horizontal"] {
+    @apply h-full;
+  }
+
+  &:hover {
+    @apply bg-scrollbar-thumb-hover;
+  }
+}

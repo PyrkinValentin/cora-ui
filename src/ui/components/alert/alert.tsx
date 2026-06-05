@@ -6,39 +6,36 @@ import type {
 	AlertContentProps,
 	AlertTitleProps,
 	AlertDescriptionProps,
+	AlertCloseProps,
 } from "./alert.props"
 
-import type { AlertProviderProps, AlertContextValue } from "./alert.types"
+import { toClassNames, toDataAttrs } from "../../utils"
 
-import { useMemo } from "react"
-import { useAlertContext } from "./alert.hooks"
+import { STATUS_INDICATORS } from "../../constants"
 
-import { applyCn, toDataAttrs } from "../../utils"
-import { computeAlertRole } from "./alert.utils"
-
-import { ALERT_INDICATORS } from "./alert.vars"
-
+import { Button } from "@base-ui/react/button"
+import { X } from "lucide-react"
 import { Render } from "../render"
-import { AlertContext } from "./alert.context"
 
-const AlertProvider = (props: AlertProviderProps) => {
+export const AlertRoot = (props: AlertRootProps) => {
 	const {
-		status,
+		className,
 		children,
+		...restProps
 	} = props
 
-	const contextValue = useMemo<AlertContextValue>(() => ({
-		status
-	}), [status])
-
 	return (
-		<AlertContext value={contextValue}>
+		<Render
+			{...restProps}
+			defaultTagName="div"
+			className={toClassNames("alert", className)}
+		>
 			{children}
-		</AlertContext>
+		</Render>
 	)
 }
 
-export const AlertRoot = (props: AlertRootProps) => {
+export const AlertIndicator = (props: AlertIndicatorProps) => {
 	const {
 		status = "neutral",
 		className,
@@ -46,41 +43,14 @@ export const AlertRoot = (props: AlertRootProps) => {
 		...restProps
 	} = props
 
-	return (
-		<AlertProvider status={status}>
-			<Render
-				{...restProps}
-				{...toDataAttrs({ status })}
-				defaultTagName="div"
-				role={computeAlertRole(status)}
-				data-slot="alert"
-				className={applyCn("alert", className)}
-			>
-				{children}
-			</Render>
-		</AlertProvider>
-	)
-}
-
-export const AlertIndicator = (props: AlertIndicatorProps) => {
-	const { status } = useAlertContext()
-
-	const {
-		className,
-		children,
-		...restProps
-	} = props
-
-	const Indicator = ALERT_INDICATORS[status]
+	const Indicator = STATUS_INDICATORS[status]
 
 	return (
 		<Render
 			{...restProps}
 			{...toDataAttrs({ status })}
 			defaultTagName="span"
-			aria-hidden={true}
-			data-slot="alert-indicator"
-			className={applyCn("alert__indicator", className)}
+			className={toClassNames("alert__indicator", className)}
 		>
 			{children ?? <Indicator/>}
 		</Render>
@@ -88,8 +58,6 @@ export const AlertIndicator = (props: AlertIndicatorProps) => {
 }
 
 export const AlertContent = (props: AlertContentProps) => {
-	const { status } = useAlertContext()
-
 	const {
 		className,
 		children,
@@ -99,10 +67,8 @@ export const AlertContent = (props: AlertContentProps) => {
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ status })}
 			defaultTagName="div"
-			data-slot="alert-content"
-			className={applyCn("alert__content", className)}
+			className={toClassNames("alert__content", className)}
 		>
 			{children}
 		</Render>
@@ -110,8 +76,6 @@ export const AlertContent = (props: AlertContentProps) => {
 }
 
 export const AlertTitle = (props: AlertTitleProps) => {
-	const { status } = useAlertContext()
-
 	const {
 		className,
 		children,
@@ -121,10 +85,8 @@ export const AlertTitle = (props: AlertTitleProps) => {
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ status })}
 			defaultTagName="div"
-			data-slot="alert-title"
-			className={applyCn("alert__title", className)}
+			className={toClassNames("alert__title", className)}
 		>
 			{children}
 		</Render>
@@ -132,8 +94,6 @@ export const AlertTitle = (props: AlertTitleProps) => {
 }
 
 export const AlertDescription = (props: AlertDescriptionProps) => {
-	const { status } = useAlertContext()
-
 	const {
 		className,
 		children,
@@ -143,19 +103,40 @@ export const AlertDescription = (props: AlertDescriptionProps) => {
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ status })}
 			defaultTagName="p"
-			data-slot="alert-description"
-			className={applyCn("alert__description", className)}
+			className={toClassNames("alert__description", className)}
 		>
 			{children}
 		</Render>
 	)
 }
 
-AlertProvider.displayName = "Alert.Provider"
+export const AlertClose = (props: AlertCloseProps) => {
+	const {
+		nativeClose = true,
+		className,
+		children,
+		...restProps
+	} = props
+
+	return (
+		<Button
+			{...restProps}
+			{...toDataAttrs({ nativeClose })}
+			className={toClassNames("alert__close", className)}
+		>
+			{children ?? (
+				nativeClose
+					? <X/>
+					: null
+			)}
+		</Button>
+	)
+}
+
 AlertRoot.displayName = "Alert.Root"
 AlertIndicator.displayName = "Alert.Indicator"
 AlertContent.displayName = "Alert.Content"
 AlertTitle.displayName = "Alert.Title"
 AlertDescription.displayName = "Alert.Description"
+AlertClose.displayName = "Alert.Close"

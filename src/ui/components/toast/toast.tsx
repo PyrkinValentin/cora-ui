@@ -9,34 +9,32 @@ import type {
 	ToastArrowProps,
 	ToastContentProps,
 	ToastIndicatorProps,
-	ToastSummaryProps,
+	ToastGroupProps,
 	ToastTitleProps,
 	ToastDescriptionProps,
 	ToastActionProps,
 	ToastCloseProps,
 } from "./toast.props"
 
-import type { ToastData, ToastContextValue, ToastRootProviderProps, ToastRootContextValue } from "./toast.types"
+import type { ToastData, ToastContextValue, ToastRootContextValue } from "./toast.types"
 
 import { useMemo } from "react"
 import { useToastContext, useToastRootContext, useToastSwipeDirection } from "./toast.hooks"
 
-import { applyCn, toDataAttrs } from "../../utils"
-import { toastDefaultManager } from "./toast.utils"
+import { toClassNames, toDataAttrs } from "../../utils"
 
-import { TOAST_INDICATORS } from "./toast.vars"
+import { STATUS_INDICATORS } from "../../constants"
 
 import { Toast } from "@base-ui/react/toast"
+import { X } from "lucide-react"
 import { Render } from "../render"
 import { Spinner } from "../spinner"
-import { Button } from "../button"
 import { ToastContext, ToastRootContext } from "./toast.context"
 
 export const ToastProvider = (props: ToastProviderProps) => {
 	const {
 		side = "bottom",
 		align = "end",
-		toastManager = toastDefaultManager,
 		children,
 		...restProps
 	} = props
@@ -47,31 +45,22 @@ export const ToastProvider = (props: ToastProviderProps) => {
 	}), [side, align])
 
 	return (
-		<Toast.Provider
-			{...restProps}
-			toastManager={toastManager}
-		>
-			<ToastContext.Provider value={contextValue}>
+		<ToastContext value={contextValue}>
+			<Toast.Provider {...restProps}>
 				{children}
-			</ToastContext.Provider>
-		</Toast.Provider>
+			</Toast.Provider>
+		</ToastContext>
 	)
 }
 
 export const ToastPortal = (props: ToastPortalProps) => {
-	const { side, align } = useToastContext()
-
 	const {
 		children,
 		...restProps
 	} = props
 
 	return (
-		<Toast.Portal
-			{...restProps}
-			{...toDataAttrs({ side, align })}
-			data-slot="toast-portal"
-		>
+		<Toast.Portal {...restProps}>
 			{children}
 		</Toast.Portal>
 	)
@@ -81,6 +70,7 @@ export const ToastViewport = (props: ToastViewportProps) => {
 	const { side, align } = useToastContext()
 
 	const {
+		className,
 		children,
 		...restProps
 	} = props
@@ -89,8 +79,7 @@ export const ToastViewport = (props: ToastViewportProps) => {
 		<Toast.Viewport
 			{...restProps}
 			{...toDataAttrs({ side, align })}
-			data-slot="toast-viewport"
-			className="toast__viewport"
+			className={toClassNames("toast__viewport", className)}
 		>
 			{children}
 		</Toast.Viewport>
@@ -98,10 +87,9 @@ export const ToastViewport = (props: ToastViewportProps) => {
 }
 
 export const ToastPositioner = (props: ToastPositionerProps) => {
-	const { side, align } = useToastContext()
-
 	const {
 		sideOffset = 8,
+		className,
 		children,
 		...restProps
 	} = props
@@ -109,38 +97,11 @@ export const ToastPositioner = (props: ToastPositionerProps) => {
 	return (
 		<Toast.Positioner
 			{...restProps}
-			{...toDataAttrs({ side, align })}
-			data-slot="toast-positioner"
-			className="toast__positioner"
 			sideOffset={sideOffset}
+			className={toClassNames("toast__positioner", className)}
 		>
 			{children}
 		</Toast.Positioner>
-	)
-}
-
-const ToastRootProvider = (props: ToastRootProviderProps) => {
-	const {
-		type,
-		duplicate,
-		anchor,
-		status,
-		indicator,
-		children,
-	} = props
-
-	const contextValue = useMemo<ToastRootContextValue>(() => ({
-		type,
-		duplicate,
-		anchor,
-		status,
-		indicator,
-	}), [type, duplicate, anchor, status, indicator])
-
-	return (
-		<ToastRootContext.Provider value={contextValue}>
-			{children}
-		</ToastRootContext.Provider>
 	)
 }
 
@@ -148,60 +109,57 @@ export const ToastRoot = <Data extends ToastData>(props: ToastRootProps<Data>) =
 	const { side, align } = useToastContext()
 
 	const {
-		className,
+		swipeDirection,
 		toast,
+		className,
 		children,
 		...restProps
 	} = props
 
-	const duplicate = !!toast.updateKey
-	const anchor = !!toast.positionerProps?.anchor
+	const swipeDirectionProp = useToastSwipeDirection({ side, align, swipeDirection })
 
 	const status = toast.type === "success" || toast.type === "error"
 		? toast.type
 		: toast.status ?? "neutral"
 
-	const swipeDirection = useToastSwipeDirection({ side, align })
+	const updateAnimation = toast.updateKey
+		? toast.updateKey % 2 === 0
+			? "animate-jelly"
+			: "animate-jelly-odd"
+		: undefined
+
+	const contextValue = useMemo<ToastRootContextValue>(() => ({
+		type: toast.type,
+		status,
+		indicator: toast.indicator,
+	}), [toast.type, status, toast.indicator])
 
 	return (
-		<ToastRootProvider
-			type={toast.type}
-			duplicate={duplicate}
-			anchor={anchor}
-			status={status}
-			indicator={toast.indicator}
-		>
+		<ToastRootContext value={contextValue}>
 			<Toast.Root
 				{...restProps}
-				{...toDataAttrs({ side, align, duplicate, status, anchor })}
-				data-slot="toast"
-				className={applyCn("toast", className)}
+				{...toDataAttrs({ side, align })}
+				swipeDirection={swipeDirectionProp}
 				toast={toast}
-				swipeDirection={swipeDirection}
+				className={toClassNames(["toast", updateAnimation], className)}
 			>
 				{children}
 			</Toast.Root>
-		</ToastRootProvider>
+		</ToastRootContext>
 	)
 }
 
 export const ToastArrow = (props: ToastArrowProps) => {
-	const { duplicate, status, anchor } = useToastRootContext()
-
 	const {
 		className,
 		children,
 		...restProps
 	} = props
 
-	if (!anchor) return null
-
 	return (
 		<Toast.Arrow
 			{...restProps}
-			{...toDataAttrs({ duplicate, status, anchor })}
-			data-slot="toast-arrow"
-			className={applyCn("toast__arrow", className)}
+			className={toClassNames("toast__arrow", className)}
 		>
 			{children}
 		</Toast.Arrow>
@@ -209,9 +167,6 @@ export const ToastArrow = (props: ToastArrowProps) => {
 }
 
 export const ToastContent = (props: ToastContentProps) => {
-	const { side, align } = useToastContext()
-	const { duplicate, anchor, status } = useToastRootContext()
-
 	const {
 		className,
 		children,
@@ -221,9 +176,7 @@ export const ToastContent = (props: ToastContentProps) => {
 	return (
 		<Toast.Content
 			{...restProps}
-			{...toDataAttrs({ side, align, duplicate, anchor, status })}
-			data-slot="toast-content"
-			className={applyCn("toast__content", className)}
+			className={toClassNames("toast__content", className)}
 		>
 			{children}
 		</Toast.Content>
@@ -231,8 +184,7 @@ export const ToastContent = (props: ToastContentProps) => {
 }
 
 export const ToastIndicator = (props: ToastIndicatorProps) => {
-	const { side, align } = useToastContext()
-	const { type, duplicate, anchor, status, indicator } = useToastRootContext()
+	const { type, status, indicator } = useToastRootContext()
 
 	const {
 		className,
@@ -240,16 +192,14 @@ export const ToastIndicator = (props: ToastIndicatorProps) => {
 		...restProps
 	} = props
 
-	const Indicator = TOAST_INDICATORS[status]
+	const Indicator = STATUS_INDICATORS[status]
 
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ side, align, duplicate, anchor, status })}
+			{...toDataAttrs({ status })}
 			defaultTagName="span"
-			aria-hidden={true}
-			data-slot="toast-indicator"
-			className={applyCn("toast__indicator", className)}
+			className={toClassNames("toast__indicator", className)}
 		>
 			{type === "loading"
 				? <Spinner size="lg"/>
@@ -259,10 +209,7 @@ export const ToastIndicator = (props: ToastIndicatorProps) => {
 	)
 }
 
-export const ToastSummary = (props: ToastSummaryProps) => {
-	const { side, align } = useToastContext()
-	const { duplicate, anchor, status } = useToastRootContext()
-
+export const ToastGroup = (props: ToastGroupProps) => {
 	const {
 		className,
 		children,
@@ -272,10 +219,8 @@ export const ToastSummary = (props: ToastSummaryProps) => {
 	return (
 		<Render
 			{...restProps}
-			{...toDataAttrs({ side, align, duplicate, anchor, status })}
 			defaultTagName="div"
-			data-slot="toast-summary"
-			className={applyCn("toast__summary", className)}
+			className={toClassNames("toast__group", className)}
 		>
 			{children}
 		</Render>
@@ -283,9 +228,6 @@ export const ToastSummary = (props: ToastSummaryProps) => {
 }
 
 export const ToastTitle = (props: ToastTitleProps) => {
-	const { side, align } = useToastContext()
-	const { duplicate, anchor, status } = useToastRootContext()
-
 	const {
 		className,
 		children,
@@ -295,9 +237,7 @@ export const ToastTitle = (props: ToastTitleProps) => {
 	return (
 		<Toast.Title
 			{...restProps}
-			{...toDataAttrs({ side, align, duplicate, anchor, status })}
-			data-slot="toast-title"
-			className={applyCn("toast__title", className)}
+			className={toClassNames("toast__title", className)}
 		>
 			{children}
 		</Toast.Title>
@@ -305,9 +245,6 @@ export const ToastTitle = (props: ToastTitleProps) => {
 }
 
 export const ToastDescription = (props: ToastDescriptionProps) => {
-	const { side, align } = useToastContext()
-	const { duplicate, anchor, status } = useToastRootContext()
-
 	const {
 		className,
 		children,
@@ -317,9 +254,7 @@ export const ToastDescription = (props: ToastDescriptionProps) => {
 	return (
 		<Toast.Description
 			{...restProps}
-			{...toDataAttrs({ side, align, duplicate, anchor, status })}
-			data-slot="toast-description"
-			className={applyCn("toast__description", className)}
+			className={toClassNames("toast__description", className)}
 		>
 			{children}
 		</Toast.Description>
@@ -327,11 +262,9 @@ export const ToastDescription = (props: ToastDescriptionProps) => {
 }
 
 export const ToastAction = (props: ToastActionProps) => {
-	const { side, align } = useToastContext()
-	const { duplicate, anchor, status } = useToastRootContext()
-
 	const {
-		render,
+		nativeAction = true,
+		className,
 		children,
 		...restProps
 	} = props
@@ -339,9 +272,8 @@ export const ToastAction = (props: ToastActionProps) => {
 	return (
 		<Toast.Action
 			{...restProps}
-			{...toDataAttrs({ side, align, duplicate, anchor, status })}
-			render={render ?? <Button size="sm" color={status}/>}
-			data-slot="toast-action"
+			{...toDataAttrs({ nativeAction })}
+			className={toClassNames("toast__action", className)}
 		>
 			{children}
 		</Toast.Action>
@@ -349,10 +281,8 @@ export const ToastAction = (props: ToastActionProps) => {
 }
 
 export const ToastClose = (props: ToastCloseProps) => {
-	const { side, align } = useToastContext()
-	const { duplicate, anchor, status } = useToastRootContext()
-
 	const {
+		nativeClose = true,
 		className,
 		children,
 		...restProps
@@ -361,11 +291,14 @@ export const ToastClose = (props: ToastCloseProps) => {
 	return (
 		<Toast.Close
 			{...restProps}
-			{...toDataAttrs({ side, align, duplicate, anchor, status })}
-			data-slot="toast-close"
-			className={applyCn("toast__close", className)}
+			{...toDataAttrs({ nativeClose })}
+			className={toClassNames("toast__close", className)}
 		>
-			{children}
+			{children ?? (
+				nativeClose
+					? <X/>
+					: null
+			)}
 		</Toast.Close>
 	)
 }
@@ -374,12 +307,11 @@ ToastProvider.displayName = "Toast.Provider"
 ToastPortal.displayName = "Toast.Portal"
 ToastViewport.displayName = "Toast.Viewport"
 ToastPositioner.displayName = "Toast.Positioner"
-ToastRootProvider.displayName = "Toast.RootProvider"
 ToastRoot.displayName = "Toast.Root"
 ToastArrow.displayName = "Toast.Arrow"
 ToastContent.displayName = "Toast.Content"
 ToastIndicator.displayName = "Toast.Indicator"
-ToastSummary.displayName = "Toast.Summary"
+ToastGroup.displayName = "Toast.Group"
 ToastTitle.displayName = "Toast.Title"
 ToastDescription.displayName = "Toast.Description"
 ToastAction.displayName = "Toast.Action"

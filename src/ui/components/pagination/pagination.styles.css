@@ -8,27 +8,39 @@
 
 .pagination__prev,
 .pagination__next,
-.pagination__button,
+.pagination__page,
 .pagination__ellipsis {
   @apply flex items-center justify-center;
 
   &[data-size="sm"] {
-    @apply size-6 rounded-xs icon-xs;
+    @apply size-6 rounded-xs;
+
+    & > svg {
+      @apply size-4;
+    }
   }
 
   &[data-size="md"] {
-    @apply size-8 rounded-sm icon-sm;
+    @apply size-8 rounded-sm;
+
+    & > svg {
+      @apply size-4.5;
+    }
   }
 
   &[data-size="lg"] {
-    @apply size-10 rounded-md icon-md;
+    @apply size-10 rounded-md;
+
+    & > svg {
+      @apply size-5;
+    }
   }
 }
 
 .pagination__prev,
 .pagination__next,
-.pagination__button {
-  @apply bg-surface text-surface-foreground cursor-pointer transition motion-reduce:transition-none;
+.pagination__page {
+  @apply bg-neutral-soft text-neutral-foreground transition motion-reduce:transition-none;
 
   &[data-size="sm"] {
     @apply text-xs;
@@ -43,11 +55,11 @@
   }
 
   &:hover {
-    @apply bg-surface-hover;
+    @apply bg-neutral-soft-hover;
   }
 
   &:focus-visible {
-    @apply status-focus;
+    @apply z-10 status-focus;
   }
 }
 
@@ -58,7 +70,7 @@
   }
 }
 
-.pagination__button {
+.pagination__page {
   @apply tabular-nums;
 
   &[data-current] {

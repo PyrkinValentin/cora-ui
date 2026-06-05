@@ -1,10 +1,4 @@
-import {
-	AlertRoot,
-	AlertIndicator,
-	AlertContent,
-	AlertTitle,
-	AlertDescription,
-} from "./alert"
+import { AlertRoot, AlertIndicator, AlertContent, AlertTitle, AlertDescription, AlertClose } from "./alert"
 
 export const Alert = {
 	Root: AlertRoot,
@@ -12,4 +6,5 @@ export const Alert = {
 	Content: AlertContent,
 	Title: AlertTitle,
 	Description: AlertDescription,
+	Close: AlertClose,
 }

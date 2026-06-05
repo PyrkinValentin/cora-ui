@@ -10,7 +10,5 @@ export const ToastContext = createContext<ToastContextValue>({
 })
 
 export const ToastRootContext = createContext<ToastRootContextValue>({
-	duplicate: false,
-	anchor: false,
 	status: "neutral",
 })

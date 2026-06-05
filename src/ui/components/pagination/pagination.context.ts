@@ -1,10 +1,10 @@
 "use client"
 
-import type { PaginationContextValue } from "./pagination.types"
+import type { PaginationRootContextValue } from "./pagination.types"
 
 import { createContext } from "react"
 
-export const PaginationContext = createContext<PaginationContextValue>({
+export const PaginationRootContext = createContext<PaginationRootContextValue>({
 	size: "md",
 	total: 0,
 	page: 1,

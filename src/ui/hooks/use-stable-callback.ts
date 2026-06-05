@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useLayoutEffect, useRef } from "react"
+import { useCallback, useEffect, useRef } from "react"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFunction = (...args: never[]) => any
@@ -12,7 +12,7 @@ export function useStableCallback<Callback extends AnyFunction>(callback: Callba
 export function useStableCallback<Callback extends AnyFunction>(callback: Callback | undefined): Callback | undefined {
 	const callbackRef = useRef(callback)
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		callbackRef.current = callback
 	})
 

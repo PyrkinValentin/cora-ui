@@ -1,3 +1,5 @@
+import { TooltipHandle, tooltipCreateHandle } from "./tooltip.utils"
+
 import {
 	TooltipProvider,
 	TooltipRoot,
@@ -6,9 +8,8 @@ import {
 	TooltipPositioner,
 	TooltipPopup,
 	TooltipArrow,
+	TooltipViewport,
 } from "./tooltip"
-
-import { tooltipCreateHandle } from "./tooltip.utils"
 
 export const Tooltip = {
 	Provider: TooltipProvider,
@@ -18,5 +19,7 @@ export const Tooltip = {
 	Positioner: TooltipPositioner,
 	Popup: TooltipPopup,
 	Arrow: TooltipArrow,
+	Viewport: TooltipViewport,
+	Handle: TooltipHandle,
 	createHandle: tooltipCreateHandle,
 }

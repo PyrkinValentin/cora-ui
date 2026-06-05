@@ -2,7 +2,8 @@
 
 import type { SpinnerProps } from "./spinner.props"
 
-import { applyCn, toDataAttrs } from "../../utils"
+import { toClassNames, toDataAttrs } from "../../utils"
+
 import { Render } from "../render"
 
 export const Spinner = (props: SpinnerProps) => {
@@ -19,9 +20,7 @@ export const Spinner = (props: SpinnerProps) => {
 			{...restProps}
 			{...toDataAttrs({ size, color })}
 			defaultTagName="span"
-			aria-hidden={true}
-			data-slot="spinner"
-			className={applyCn("spinner", className)}
+			className={toClassNames("spinner", className)}
 		>
 			{children}
 		</Render>

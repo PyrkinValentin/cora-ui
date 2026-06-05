@@ -1,3 +1,7 @@
+import { useToastManager } from "./toast.hooks"
+
+import { toastCreateManager } from "./toast.utils"
+
 import {
 	ToastProvider,
 	ToastPortal,
@@ -7,15 +11,12 @@ import {
 	ToastArrow,
 	ToastContent,
 	ToastIndicator,
-	ToastSummary,
+	ToastGroup,
 	ToastTitle,
 	ToastDescription,
 	ToastAction,
-	ToastClose
+	ToastClose,
 } from "./toast"
-
-import { useToastManager } from "./toast.hooks"
-import { toastDefaultManager, toastCreateManager } from "./toast.utils"
 
 export const Toast = {
 	Provider: ToastProvider,
@@ -26,12 +27,11 @@ export const Toast = {
 	Arrow: ToastArrow,
 	Content: ToastContent,
 	Indicator: ToastIndicator,
-	Summary: ToastSummary,
+	Group: ToastGroup,
 	Title: ToastTitle,
 	Description: ToastDescription,
 	Action: ToastAction,
 	Close: ToastClose,
 	useManager: useToastManager,
 	createManager: toastCreateManager,
-	...toastDefaultManager,
 }

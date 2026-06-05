@@ -1,44 +1,55 @@
 "use client"
 
-import type { UsePaginationOptions, UsePaginationReturn, UsePaginationSyncOptions } from "./pagination.types"
+import type {
+	UsePaginationSyncOptions,
+	UsePaginationManagerOptions,
+	UsePaginationManagerReturn,
+} from "./pagination.types"
 
-import { use, useLayoutEffect, useMemo } from "react"
+import { use, useEffect, useMemo } from "react"
 
+import { clamp, createChangeEventDetails } from "../../utils"
 import { range } from "./pagination.utils"
 
-import { PAGINATION_ELLIPSIS_TYPE } from "./pagination.vars"
+import { PAGINATION_ELLIPSIS, PAGINATION_REASONS } from "./pagination.constants"
 
-import { PaginationContext } from "./pagination.context"
+import { PaginationRootContext } from "./pagination.context"
 
-export const usePaginationContext = () => use(PaginationContext)
+export const usePaginationRootContext = () => use(PaginationRootContext)
 
 export const usePaginationSync = (options: UsePaginationSyncOptions) => {
 	const {
 		page,
 		total,
-		onPageSync,
+		onPageChange,
 	} = options
 
-	useLayoutEffect(() => {
-		if (!onPageSync || total <= 0) return
+	useEffect(() => {
+		if (!onPageChange || total <= 0) return
 
-		if (page > total) {
-			onPageSync(total)
-		} else if (page < 1) {
-			onPageSync(1)
+		const validPage = clamp(page, 1, total)
+
+		if (page !== validPage) {
+			onPageChange(
+				validPage,
+				createChangeEventDetails(PAGINATION_REASONS.sync),
+			)
 		}
-	}, [total, page, onPageSync])
+	}, [total, page, onPageChange])
 }
 
-export const usePagination = (options: UsePaginationOptions): UsePaginationReturn => {
+export const usePaginationManager = (options: UsePaginationManagerOptions): UsePaginationManagerReturn => {
 	const {
 		page,
 		total,
 		siblings = 1,
 		boundaries = 1,
+		onPageChange,
 	} = options
 
 	const pages = useMemo(() => {
+		if (total <= 0) return []
+
 		const totalPageNumbers = siblings * 2 + 3 + boundaries * 2
 
 		if (totalPageNumbers >= total) {
@@ -56,7 +67,7 @@ export const usePagination = (options: UsePaginationOptions): UsePaginationRetur
 
 			return [
 				...range(1, leftItemCount),
-				PAGINATION_ELLIPSIS_TYPE.ellipsisEnd,
+				PAGINATION_ELLIPSIS.ellipsisEnd,
 				...range(total - (boundaries - 1), total),
 			]
 		}
@@ -66,23 +77,24 @@ export const usePagination = (options: UsePaginationOptions): UsePaginationRetur
 
 			return [
 				...range(1, boundaries),
-				PAGINATION_ELLIPSIS_TYPE.ellipsisStart,
+				PAGINATION_ELLIPSIS.ellipsisStart,
 				...range(total - rightItemCount, total),
 			]
 		}
 
 		return [
 			...range(1, boundaries),
-			PAGINATION_ELLIPSIS_TYPE.ellipsisStart,
+			PAGINATION_ELLIPSIS.ellipsisStart,
 			...range(leftSiblingIndex, rightSiblingIndex),
-			PAGINATION_ELLIPSIS_TYPE.ellipsisEnd,
+			PAGINATION_ELLIPSIS.ellipsisEnd,
 			...range(total - boundaries + 1, total),
 		]
 	}, [total, page, siblings, boundaries])
 
-	return useMemo(() => ({
-		currentPage: page,
+	return {
+		page,
 		pages,
 		total,
-	}), [page, pages, total])
+		onPageChange,
+	}
 }

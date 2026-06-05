@@ -1,0 +1,1 @@
+export { createChangeEventDetails } from "@base-ui/react/internals/createBaseUIEventDetails"

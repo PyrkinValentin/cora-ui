@@ -1,0 +1,1 @@
+export type { InputProps, InputState, InputChangeEventReason, InputChangeEventDetails } from "@base-ui/react/input"

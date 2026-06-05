@@ -1,0 +1,137 @@
+.dialog__trigger {
+  @apply transition motion-reduce:transition-none;
+
+  &:focus-visible {
+    @apply z-10 status-focus;
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+}
+
+.dialog__backdrop {
+  @apply fixed inset-0 bg-backdrop transition-opacity motion-reduce:transition-none;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    @apply opacity-0;
+  }
+}
+
+.dialog__viewport {
+  @apply fixed inset-0;
+
+  & .dialog__popup {
+    @apply relative left-auto top-auto translate-0 mx-auto my-4;
+  }
+}
+
+.dialog__popup {
+  @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-6 w-[calc(100%-2rem)] max-h-[calc(100%-2rem)]
+  flex flex-col rounded-lg bg-background border border-border shadow-lg transition motion-reduce:transition-none
+  transform-gpu;
+
+  &[data-size="xs"] {
+    @apply max-w-xs;
+  }
+
+  &[data-size="sm"] {
+    @apply max-w-sm;
+  }
+
+  &[data-size="md"] {
+    @apply max-w-md;
+  }
+
+  &[data-size="lg"] {
+    @apply max-w-lg;
+  }
+
+  &[data-size="full"] {
+    @apply h-full;
+  }
+
+  &[data-starting-style],
+  &[data-ending-style],
+  &[data-nested-dialog-open] {
+    @apply opacity-0 scale-90;
+  }
+
+  &[data-nested-dialog-open] {
+    @apply pointer-events-none;
+  }
+
+  &:focus-visible {
+    @apply status-focus;
+  }
+}
+
+.dialog__indicator {
+  @apply shrink-0 mb-4 size-10 flex items-center justify-center rounded-md;
+
+  & > svg {
+    @apply size-6;
+  }
+
+  &[data-status="neutral"] {
+    @apply bg-neutral-soft text-foreground;
+  }
+
+  &[data-status="info"] {
+    @apply bg-info-soft text-info;
+  }
+
+  &[data-status="success"] {
+    @apply bg-success-soft text-success;
+  }
+
+  &[data-status="warning"] {
+    @apply bg-warning-soft text-warning;
+  }
+
+  &[data-status="error"] {
+    @apply bg-error-soft text-error;
+  }
+}
+
+.dialog__title {
+  @apply text-base font-medium text-pretty text-foreground;
+}
+
+.dialog__description {
+  @apply text-base text-pretty text-muted;
+
+  .dialog__title + & {
+    @apply mt-1;
+  }
+}
+
+.dialog__actions {
+  @apply mt-auto pt-4 flex items-center justify-end gap-2;
+}
+
+.dialog__close {
+  @apply transition motion-reduce:transition-none;
+
+  &[data-native-close] {
+    @apply z-1 absolute top-4 right-4 size-6 flex items-center justify-center rounded-sm bg-neutral-soft text-muted
+    select-none;
+
+    & > svg {
+      @apply size-4;
+    }
+
+    &:hover {
+      @apply bg-neutral-soft-hover;
+    }
+  }
+
+  &:focus-visible {
+    @apply z-10 status-focus;
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+}

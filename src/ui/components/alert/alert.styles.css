@@ -1,50 +1,76 @@
 .alert {
-  @apply relative p-4 w-full flex items-center gap-4 rounded-lg bg-surface;
+  @apply relative px-4 py-3 w-full flex items-center gap-3 rounded-lg border border-border bg-background;
 
-  &:has(.alert__title):has(.alert__description) {
+  &:has(.alert__description) {
     @apply items-start;
   }
 }
 
 .alert__indicator {
-  @apply flex items-center justify-center icon-md;
+  @apply shrink-0 size-8 flex items-center justify-center rounded-sm;
+
+  & > svg {
+    @apply size-5;
+  }
+
+  &[data-status="neutral"] {
+    @apply bg-neutral-soft text-foreground;
+  }
+
+  &[data-status="info"] {
+    @apply bg-info-soft text-info;
+  }
+
+  &[data-status="success"] {
+    @apply bg-success-soft text-success;
+  }
+
+  &[data-status="warning"] {
+    @apply bg-warning-soft text-warning;
+  }
+
+  &[data-status="error"] {
+    @apply bg-error-soft text-error;
+  }
 }
 
 .alert__content {
-  @apply flex grow flex-col items-start;
+  @apply grow;
 }
 
 .alert__title {
-  @apply font-medium text-sm text-pretty;
+  @apply text-sm font-medium text-pretty text-foreground;
 }
 
 .alert__description {
-  @apply text-sm text-muted text-pretty;
+  @apply text-sm text-pretty text-muted;
 
   .alert__title + & {
     @apply mt-0.5;
   }
 }
 
-.alert__indicator,
-.alert__title {
-  &[data-status="neutral"] {
-    @apply text-foreground;
+.alert__close {
+  @apply opacity-0 transition motion-reduce:transition-none;
+
+  &[data-native-close] {
+    @apply z-1 absolute top-2.5 right-2.5 size-6 flex items-center justify-center rounded-sm bg-neutral-soft
+    text-muted select-none;
+
+    & > svg {
+      @apply size-4;
+    }
+
+    &:hover {
+      @apply bg-neutral-soft-hover;
+    }
   }
 
-  &[data-status="info"] {
-    @apply text-info;
+  &:focus-visible {
+    @apply z-10 status-focus;
   }
 
-  &[data-status="success"] {
-    @apply text-success;
-  }
-
-  &[data-status="warning"] {
-    @apply text-warning;
-  }
-
-  &[data-status="error"] {
-    @apply text-error;
+  &[data-disabled] {
+    @apply status-disable;
   }
 }

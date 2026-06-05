@@ -1,3 +1,5 @@
+import { PopoverHandle, popoverCreateHandle } from "./popover.utils"
+
 import {
 	PopoverRoot,
 	PopoverTrigger,
@@ -6,12 +8,11 @@ import {
 	PopoverPositioner,
 	PopoverPopup,
 	PopoverArrow,
+	PopoverViewport,
 	PopoverTitle,
 	PopoverDescription,
 	PopoverClose,
 } from "./popover"
-
-import { popoverCreateHandle } from "./popover.utils"
 
 export const Popover = {
 	Root: PopoverRoot,
@@ -21,8 +22,10 @@ export const Popover = {
 	Positioner: PopoverPositioner,
 	Popup: PopoverPopup,
 	Arrow: PopoverArrow,
+	Viewport: PopoverViewport,
 	Title: PopoverTitle,
 	Description: PopoverDescription,
 	Close: PopoverClose,
+	Handle: PopoverHandle,
 	createHandle: popoverCreateHandle,
 }

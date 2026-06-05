@@ -1,0 +1,20 @@
+.textarea {
+  @apply px-4 py-2.5 w-full min-h-10 block rounded-md bg-neutral-soft text-sm text-neutral-foreground
+  placeholder:text-muted outline-none appearance-none transition motion-reduce:transition-none;
+
+  &:hover {
+    @apply bg-neutral-soft-hover;
+  }
+
+  &:focus {
+    @apply z-10 status-focus bg-neutral-soft;
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+
+  &[data-invalid] {
+    @apply status-invalid;
+  }
+}

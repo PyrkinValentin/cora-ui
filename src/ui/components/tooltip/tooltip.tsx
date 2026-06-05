@@ -8,9 +8,10 @@ import type {
 	TooltipPositionerProps,
 	TooltipPopupProps,
 	TooltipArrowProps,
+	TooltipViewportProps,
 } from "./tooltip.props"
 
-import { applyCn } from "../../utils"
+import { toClassNames } from "../../utils"
 
 import { Tooltip } from "@base-ui/react/tooltip"
 
@@ -21,9 +22,9 @@ export const TooltipProvider = (props: TooltipProviderProps) => {
 	} = props
 
 	return (
-		<Tooltip.Root {...restProps}>
+		<Tooltip.Provider {...restProps}>
 			{children}
-		</Tooltip.Root>
+		</Tooltip.Provider>
 	)
 }
 
@@ -42,6 +43,7 @@ export const TooltipRoot = <Payload = unknown>(props: TooltipRootProps<Payload>)
 
 export const TooltipTrigger = <Payload = unknown>(props: TooltipTriggerProps<Payload>) => {
 	const {
+		className,
 		children,
 		...restProps
 	} = props
@@ -49,7 +51,7 @@ export const TooltipTrigger = <Payload = unknown>(props: TooltipTriggerProps<Pay
 	return (
 		<Tooltip.Trigger
 			{...restProps}
-			data-slot="tooltip-trigger"
+			className={toClassNames("tooltip__trigger", className)}
 		>
 			{children}
 		</Tooltip.Trigger>
@@ -63,10 +65,7 @@ export const TooltipPortal = (props: TooltipPortalProps) => {
 	} = props
 
 	return (
-		<Tooltip.Portal
-			{...restProps}
-			data-slot="tooltip-portal"
-		>
+		<Tooltip.Portal {...restProps}>
 			{children}
 		</Tooltip.Portal>
 	)
@@ -75,6 +74,7 @@ export const TooltipPortal = (props: TooltipPortalProps) => {
 export const TooltipPositioner = (props: TooltipPositionerProps) => {
 	const {
 		sideOffset = 8,
+		className,
 		children,
 		...restProps
 	} = props
@@ -82,8 +82,8 @@ export const TooltipPositioner = (props: TooltipPositionerProps) => {
 	return (
 		<Tooltip.Positioner
 			{...restProps}
-			data-slot="tooltip-positioner"
 			sideOffset={sideOffset}
+			className={toClassNames("tooltip__positioner", className)}
 		>
 			{children}
 		</Tooltip.Positioner>
@@ -100,8 +100,7 @@ export const TooltipPopup = (props: TooltipPopupProps) => {
 	return (
 		<Tooltip.Popup
 			{...restProps}
-			data-slot="tooltip-popup"
-			className={applyCn("tooltip__popup", className)}
+			className={toClassNames("tooltip__popup", className)}
 		>
 			{children}
 		</Tooltip.Popup>
@@ -118,11 +117,27 @@ export const TooltipArrow = (props: TooltipArrowProps) => {
 	return (
 		<Tooltip.Arrow
 			{...restProps}
-			data-slot="tooltip-arrow"
-			className={applyCn("tooltip__arrow", className)}
+			className={toClassNames("tooltip__arrow", className)}
 		>
 			{children}
 		</Tooltip.Arrow>
+	)
+}
+
+export const TooltipViewport = (props: TooltipViewportProps) => {
+	const {
+		className,
+		children,
+		...restProps
+	} = props
+
+	return (
+		<Tooltip.Viewport
+			{...restProps}
+			className={toClassNames("tooltip__viewport", className)}
+		>
+			{children}
+		</Tooltip.Viewport>
 	)
 }
 
@@ -133,3 +148,4 @@ TooltipPortal.displayName = "Tooltip.Portal"
 TooltipPositioner.displayName = "Tooltip.Positioner"
 TooltipPopup.displayName = "Tooltip.Popup"
 TooltipArrow.displayName = "Tooltip.Arrow"
+TooltipViewport.displayName = "Tooltip.Viewport"

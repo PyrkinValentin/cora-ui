@@ -1,27 +1,20 @@
 .input {
-  @apply min-w-0 block outline-none text-surface-foreground text-sm placeholder:text-muted appearance-none;
+  @apply px-4 w-full h-10 block rounded-md outline-none bg-neutral-soft text-neutral-foreground text-sm
+  placeholder:text-muted appearance-none transition motion-reduce:transition-none;
 
-  &:not([data-group]) {
-    @apply px-4 w-full h-10 rounded-md bg-surface transition motion-reduce:transition-none;
-
-    &:hover {
-      @apply bg-surface-hover;
-    }
-
-    &:focus {
-      @apply status-focus bg-surface;
-    }
-
-    &[data-disabled] {
-      @apply status-disable;
-    }
-
-    &[data-invalid] {
-      @apply status-invalid;
-    }
+  &:hover {
+    @apply bg-neutral-soft-hover;
   }
 
-  &[data-group] {
-    @apply flex-1 h-full;
+  &:focus {
+    @apply z-10 status-focus bg-neutral-soft;
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+
+  &[data-invalid] {
+    @apply status-invalid;
   }
 }

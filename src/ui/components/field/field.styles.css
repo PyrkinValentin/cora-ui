@@ -1,0 +1,32 @@
+.field {
+  @apply w-full flex flex-col gap-1;
+}
+
+.field__label {
+  @apply text-sm font-medium text-foreground text-pretty transition motion-reduce:transition-none;
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+
+  &[data-invalid] {
+    @apply text-error;
+  }
+}
+
+.field__description {
+  @apply text-muted transition motion-reduce:transition-none;
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+}
+
+.field__error {
+  @apply text-error;
+}
+
+.field__description,
+.field__error {
+  @apply text-xs text-pretty;
+}

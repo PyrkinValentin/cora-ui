@@ -1,10 +1,45 @@
+.tooltip__trigger {
+  @apply transition motion-reduce:transition-none;
+
+  &:focus-visible {
+    @apply z-10 status-focus;
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+}
+
+.tooltip__positioner {
+  &:has(.tooltip__viewport) {
+    @apply w-(--positioner-width) max-w-(--available-width) h-(--positioner-height) transition-all duration-350
+    ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
+
+    &[data-instant] {
+      @apply transition-none;
+    }
+  }
+}
+
 .tooltip__popup {
-  @apply relative px-3 py-2 max-w-xs rounded-lg bg-background border border-border shadow-lg text-sm
-  text-foreground wrap-break-word origin-(--transform-origin) transition motion-reduce:transition-none transform-gpu;
+  @apply relative px-3 py-1 max-w-xs rounded-lg shadow-lg border border-border bg-background text-sm text-pretty
+  text-foreground origin-(--transform-origin) transition motion-reduce:transition-none transform-gpu;
 
   &[data-starting-style],
   &[data-ending-style] {
     @apply opacity-0 scale-90;
+  }
+
+  &:has(.tooltip__viewport) {
+    @apply w-(--popup-width) h-(--popup-height) transition-all duration-350 ease-[cubic-bezier(0.22,1,0.36,1)];
+
+    & .tooltip__arrow {
+      @apply transition-all duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
+
+      &[data-instant] {
+        @apply transition-none;
+      }
+    }
   }
 
   &[data-instant] {
@@ -17,5 +52,29 @@
 }
 
 .tooltip__arrow {
-  @apply floating-arrow;
+  @apply popup-arrow;
+}
+
+.tooltip__viewport {
+  @apply overflow-clip relative size-full [--viewport-inline-padding:0.75rem];
+
+  [data-previous],
+  [data-current] {
+    @apply w-[calc(var(--popup-width)-2*var(--viewport-inline-padding))] translate-x-0 opacity-100 transition
+    duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none transform-gpu;
+
+    [data-instant] & {
+      @apply transition-none;
+    }
+  }
+
+  &[data-activation-direction~="left"] [data-current][data-starting-style],
+  &[data-activation-direction~="right"] [data-previous][data-ending-style] {
+    @apply -translate-x-1/2 opacity-0;
+  }
+
+  &[data-activation-direction~="right"] [data-current][data-starting-style],
+  &[data-activation-direction~="left"] [data-previous][data-ending-style] {
+    @apply translate-x-1/2 opacity-0;
+  }
 }

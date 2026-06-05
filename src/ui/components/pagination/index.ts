@@ -1,3 +1,5 @@
+import { usePaginationManager } from "./pagination.hooks"
+
 import {
 	PaginationRoot,
 	PaginationList,
@@ -5,10 +7,8 @@ import {
 	PaginationPrev,
 	PaginationNext,
 	PaginationPage,
-	PaginationEllipsis
+	PaginationEllipsis,
 } from "./pagination"
-
-import { usePagination } from "./pagination.hooks"
 
 export const Pagination = {
 	Root: PaginationRoot,
@@ -18,5 +18,5 @@ export const Pagination = {
 	Next: PaginationNext,
 	Page: PaginationPage,
 	Ellipsis: PaginationEllipsis,
-	usePagination,
+	useManager: usePaginationManager,
 }

@@ -1,254 +1,92 @@
 .button {
-  @apply relative w-fit inline-flex items-center justify-center font-medium whitespace-nowrap select-none transition
+  @apply w-fit inline-flex items-center justify-center font-medium whitespace-nowrap select-none transition
   motion-reduce:transition-none;
 
   &[data-variant="primary"] {
-    &[data-color="neutral"] {
-      @apply bg-neutral text-neutral-foreground;
+    @apply bg-info text-info-foreground;
 
-      &:hover {
-        @apply bg-neutral-hover;
-      }
-    }
-
-    &[data-color="info"] {
-      @apply bg-info text-info-foreground;
-
-      &:hover {
-        @apply bg-info-hover;
-      }
-    }
-
-    &[data-color="success"] {
-      @apply bg-success text-success-foreground;
-
-      &:hover {
-        @apply bg-success-hover;
-      }
-    }
-
-    &[data-color="warning"] {
-      @apply bg-warning text-warning-foreground;
-
-      &:hover {
-        @apply bg-warning-hover;
-      }
-    }
-
-    &[data-color="error"] {
-      @apply bg-error text-error-foreground;
-
-      &:hover {
-        @apply bg-error-hover;
-      }
+    &:hover {
+      @apply bg-info-hover;
     }
   }
 
   &[data-variant="secondary"] {
-    @apply bg-neutral;
+    @apply bg-neutral text-neutral-foreground;
 
     &:hover {
       @apply bg-neutral-hover;
     }
-
-    &[data-color="neutral"] {
-      @apply text-neutral-foreground;
-    }
-
-    &[data-color="info"] {
-      @apply text-info;
-    }
-
-    &[data-color="success"] {
-      @apply text-success;
-    }
-
-    &[data-color="warning"] {
-      @apply text-warning;
-    }
-
-    &[data-color="error"] {
-      @apply text-error;
-    }
   }
 
   &[data-variant="outline"] {
-    @apply border;
+    @apply border border-border text-foreground;
 
-    &[data-color="neutral"] {
-      @apply border-border bg-neutral-soft text-neutral-foreground;
-
-      &:hover {
-        @apply bg-neutral-soft-hover;
-      }
-    }
-
-    &[data-color="info"] {
-      @apply border-info bg-info-soft text-info;
-
-      &:hover {
-        @apply bg-info-soft-hover;
-      }
-    }
-
-    &[data-color="success"] {
-      @apply border-success bg-success-soft text-success;
-
-      &:hover {
-        @apply bg-success-soft-hover;
-      }
-    }
-
-    &[data-color="warning"] {
-      @apply border-warning bg-warning-soft text-warning;
-
-      &:hover {
-        @apply bg-warning-soft-hover;
-      }
-    }
-
-    &[data-color="error"] {
-      @apply border-error bg-error-soft text-error;
-
-      &:hover {
-        @apply bg-error-soft-hover;
-      }
+    &:hover {
+      @apply bg-neutral-soft;
     }
   }
 
   &[data-variant="ghost"] {
-    &[data-color="neutral"] {
-      @apply text-foreground;
+    @apply text-foreground;
 
-      &:hover {
-        @apply bg-neutral text-neutral-foreground;
-      }
+    &:hover {
+      @apply bg-neutral text-neutral-foreground;
     }
+  }
 
-    &[data-color="info"] {
-      @apply text-info;
+  &[data-variant="error"] {
+    @apply bg-error text-error-foreground;
 
-      &:hover {
-        @apply bg-info text-info-foreground;
-      }
-    }
-
-    &[data-color="success"] {
-      @apply text-success;
-
-      &:hover {
-        @apply bg-success text-success-foreground;
-      }
-    }
-
-    &[data-color="warning"] {
-      @apply text-warning;
-
-      &:hover {
-        @apply bg-warning text-warning-foreground;
-      }
-    }
-
-    &[data-color="error"] {
-      @apply text-error;
-
-      &:hover {
-        @apply bg-error text-error-foreground;
-      }
+    &:hover {
+      @apply bg-error-hover;
     }
   }
 
   &[data-size="sm"] {
-    @apply px-3 h-8 gap-1.5 text-xs icon-xs;
+    @apply px-3 h-8 gap-1 rounded-sm text-xs;
+
+    & > svg {
+      @apply size-4;
+    }
+
+    &[data-icon-only] {
+      @apply w-8;
+    }
   }
 
   &[data-size="md"] {
-    @apply px-4 h-10 gap-2 text-sm icon-sm;
+    @apply px-4 h-10 gap-1.5 rounded-md text-sm;
+
+    & > svg {
+      @apply size-4.5;
+    }
+
+    &[data-icon-only] {
+      @apply w-10;
+    }
   }
 
   &[data-size="lg"] {
-    @apply px-5 h-12 gap-2.5 text-base icon-md;
-  }
+    @apply px-5 h-12 gap-2 rounded-lg text-base;
 
-  &:focus-visible {
-    @apply status-focus;
-  }
-
-  &[data-disabled] {
-    @apply status-disable;
-  }
-
-  &[data-icon-only] {
-    @apply px-0;
-
-    &[data-size="sm"] {
-      @apply w-8;
+    & > svg {
+      @apply size-5;
     }
 
-    &[data-size="md"] {
-      @apply w-10;
-    }
-
-    &[data-size="lg"] {
+    &[data-icon-only] {
       @apply w-12;
     }
   }
 
-  &[data-full-width] {
-    @apply w-full;
+  &:focus-visible {
+    @apply z-10 status-focus;
   }
 
-  &:not([data-group]) {
-    &[data-size="sm"] {
-      @apply rounded-sm;
-    }
-
-    &[data-size="md"] {
-      @apply rounded-md;
-    }
-
-    &[data-size="lg"] {
-      @apply rounded-lg;
-    }
+  &[data-icon-only] {
+    @apply px-0;
   }
 
-  &[data-group] {
-    @apply rounded-none;
-
-    &[data-variant="outline"] {
-      &:not(:first-of-type) {
-        @apply -ms-px;
-      }
-    }
-
-    &[data-size="sm"] {
-      &:first-of-type {
-        @apply rounded-s-sm;
-      }
-
-      &:last-of-type {
-        @apply rounded-e-sm;
-      }
-    }
-
-    &[data-size="md"] {
-      &:first-of-type {
-        @apply rounded-s-md;
-      }
-
-      &:last-of-type {
-        @apply rounded-e-md;
-      }
-    }
-
-    &[data-size="lg"] {
-      &:first-of-type {
-        @apply rounded-s-lg;
-      }
-
-      &:last-of-type {
-        @apply rounded-e-lg;
-      }
-    }
+  &[data-disabled] {
+    @apply status-disable;
   }
 }

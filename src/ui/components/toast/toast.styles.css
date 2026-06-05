@@ -1,5 +1,5 @@
 .toast__viewport {
-  @apply z-1 fixed w-[calc(100vw-2rem)] sm:w-110;
+  @apply z-1 fixed w-[calc(100%-2rem)] sm:w-110;
 
   &[data-side="top"] {
     @apply top-4 sm:top-8;
@@ -20,30 +20,8 @@
   &[data-align="end"] {
     @apply right-4 sm:right-8;
   }
-}
 
-.toast__positioner {
-  @apply z-[calc(1000-var(--toast-index))];
-}
-
-.toast {
-  @apply p-4 w-full rounded-lg shadow-lg border border-border bg-background motion-reduce:transition-none
-  transform-gpu;
-
-  &[data-anchor] {
-    @apply relative origin-(--transform-origin) transition;
-
-    &[data-starting-style],
-    &[data-ending-style] {
-      @apply opacity-0 scale-90;
-    }
-
-    &[data-instant] {
-      @apply transition-none;
-    }
-  }
-
-  &:not([data-anchor]) {
+  &:not(:has(.toast__positioner)) .toast {
     @apply z-[calc(1000-var(--toast-index))] absolute h-(--height) select-none after:absolute after:left-0
     after:h-[calc(var(--gap)+1px)] after:w-full after:content-[''] [--gap:0.5rem] [--peek:0.75rem]
     [--scale:calc(max(0,1-(var(--toast-index)*0.1)))] [--shrink:calc(1-var(--scale))]
@@ -76,10 +54,8 @@
         @apply transform-[translateY(150%)];
       }
 
-      &[data-ending-style] {
-        &:not([data-limited]):not([data-swipe-direction]) {
-          @apply transform-[translateY(150%)];
-        }
+      &[data-ending-style]:not([data-limited]):not([data-swipe-direction]) {
+        @apply transform-[translateY(150%)];
       }
     }
 
@@ -113,30 +89,48 @@
     &[data-limited] {
       @apply opacity-0;
     }
+  }
+}
 
-    &[data-duplicate] {
-      @apply animate-jelly;
+.toast__positioner {
+  @apply z-[calc(1000-var(--toast-index))];
+
+  & .toast {
+    @apply relative origin-(--transform-origin) transition;
+
+    &[data-starting-style],
+    &[data-ending-style] {
+      @apply opacity-0 scale-90;
+    }
+
+    &[data-instant] {
+      @apply transition-none;
     }
   }
+}
+
+.toast {
+  @apply px-4 py-3 w-full rounded-lg shadow-lg border border-border bg-background motion-reduce:transition-none
+  transform-gpu;
 
   &:focus-visible {
-    @apply status-focus;
+    @apply z-10 status-focus;
   }
 }
 
 .toast__arrow {
-  @apply floating-arrow;
+  @apply popup-arrow;
 }
 
 .toast__content {
-  @apply flex items-center gap-4 transition-opacity motion-reduce:transition-none;
+  @apply flex items-center gap-3 transition-opacity motion-reduce:transition-none;
 
-  &:has(.toast__title):has(.toast__description) {
+  &:has(.toast__description) {
     @apply items-start;
   }
 
   &[data-behind] {
-    @apply opacity-0 pointer-events-none duration-500;
+    @apply opacity-0 pointer-events-none duration-350;
   }
 
   &[data-expanded] {
@@ -145,58 +139,95 @@
 }
 
 .toast__indicator {
-  @apply flex items-center justify-center icon-md;
+  @apply shrink-0 size-8 flex items-center justify-center rounded-sm;
+
+  & > svg {
+    @apply size-5;
+  }
+
+  &[data-status="neutral"] {
+    @apply bg-neutral-soft text-foreground;
+  }
+
+  &[data-status="info"] {
+    @apply bg-info-soft text-info;
+  }
+
+  &[data-status="success"] {
+    @apply bg-success-soft text-success;
+  }
+
+  &[data-status="warning"] {
+    @apply bg-warning-soft text-warning;
+  }
+
+  &[data-status="error"] {
+    @apply bg-error-soft text-error;
+  }
 }
 
-.toast__summary {
-  @apply flex-1;
+.toast__group {
+  @apply flex-1 min-w-0;
 }
 
 .toast__title {
-  @apply font-medium text-sm text-foreground text-pretty;
+  @apply text-sm font-medium text-pretty text-foreground;
 }
 
 .toast__description {
-  @apply text-sm text-muted text-pretty;
+  @apply text-sm text-pretty text-muted;
 
   .toast__title + & {
     @apply mt-0.5;
   }
 }
 
-.toast__close {
-  @apply opacity-0 transition-opacity motion-reduce:transition-none;
+.toast__action {
+  &[data-native-action] {
+    @apply px-3 h-8 gap-1 inline-flex items-center justify-center rounded-sm bg-neutral text-xs font-medium
+    whitespace-nowrap text-neutral-foreground select-none;
 
-  &[data-floating] {
-    @apply top-0 right-0 translate-x-1/3 -translate-y-1/3;
-  }
+    &:hover {
+      @apply bg-neutral-hover;
+    }
 
-  .toast:hover &,
-  .toast:focus-visible &,
-  &:focus-visible {
-    @apply opacity-100;
+    & > svg {
+      @apply size-4;
+    }
   }
 }
 
-.toast__indicator,
-.toast__title {
-  &[data-status="neutral"] {
-    @apply text-foreground;
+.toast__close {
+  @apply opacity-0;
+
+  &[data-native-close] {
+    @apply z-1 absolute -top-2 -right-3 size-6 flex items-center justify-center rounded-sm bg-neutral-soft
+    select-none;
+
+    & > svg {
+      @apply size-4 text-muted;
+    }
+
+    &:hover {
+      @apply bg-neutral-soft-hover;
+    }
+
+    .toast:hover &,
+    &:focus-visible {
+      @apply opacity-100;
+    }
+  }
+}
+
+.toast__action,
+.toast__close {
+  @apply transition motion-reduce:transition-none;
+
+  &:focus-visible {
+    @apply z-10 status-focus;
   }
 
-  &[data-status="info"] {
-    @apply text-info;
-  }
-
-  &[data-status="success"] {
-    @apply text-success;
-  }
-
-  &[data-status="warning"] {
-    @apply text-warning;
-  }
-
-  &[data-status="error"] {
-    @apply text-error;
+  &[data-disabled] {
+    @apply status-disable;
   }
 }

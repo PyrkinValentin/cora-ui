@@ -8,14 +8,16 @@ import type {
 	PopoverPositionerProps,
 	PopoverPopupProps,
 	PopoverArrowProps,
+	PopoverViewportProps,
 	PopoverTitleProps,
 	PopoverDescriptionProps,
 	PopoverCloseProps,
 } from "./popover.props"
 
-import { applyCn } from "../../utils"
+import { toClassNames, toDataAttrs } from "../../utils"
 
 import { Popover } from "@base-ui/react/popover"
+import { X } from "lucide-react"
 
 export const PopoverRoot = <Payload = unknown>(props: PopoverRootProps<Payload>) => {
 	const {
@@ -32,6 +34,7 @@ export const PopoverRoot = <Payload = unknown>(props: PopoverRootProps<Payload>)
 
 export const PopoverTrigger = <Payload = unknown>(props: PopoverTriggerProps<Payload>) => {
 	const {
+		className,
 		children,
 		...restProps
 	} = props
@@ -39,7 +42,7 @@ export const PopoverTrigger = <Payload = unknown>(props: PopoverTriggerProps<Pay
 	return (
 		<Popover.Trigger
 			{...restProps}
-			data-slot="popover-trigger"
+			className={toClassNames("popover__trigger", className)}
 		>
 			{children}
 		</Popover.Trigger>
@@ -53,10 +56,7 @@ export const PopoverPortal = (props: PopoverPortalProps) => {
 	} = props
 
 	return (
-		<Popover.Portal
-			{...restProps}
-			data-slot="popover-portal"
-		>
+		<Popover.Portal {...restProps}>
 			{children}
 		</Popover.Portal>
 	)
@@ -72,8 +72,7 @@ export const PopoverBackdrop = (props: PopoverBackdropProps) => {
 	return (
 		<Popover.Backdrop
 			{...restProps}
-			data-slot="popover-backdrop"
-			className={applyCn("popover__backdrop", className)}
+			className={toClassNames("popover__backdrop", className)}
 		>
 			{children}
 		</Popover.Backdrop>
@@ -83,6 +82,7 @@ export const PopoverBackdrop = (props: PopoverBackdropProps) => {
 export const PopoverPositioner = (props: PopoverPositionerProps) => {
 	const {
 		sideOffset = 8,
+		className,
 		children,
 		...restProps
 	} = props
@@ -90,8 +90,8 @@ export const PopoverPositioner = (props: PopoverPositionerProps) => {
 	return (
 		<Popover.Positioner
 			{...restProps}
-			data-slot="popover-positioner"
 			sideOffset={sideOffset}
+			className={toClassNames("popover__positioner", className)}
 		>
 			{children}
 		</Popover.Positioner>
@@ -108,8 +108,7 @@ export const PopoverPopup = (props: PopoverPopupProps) => {
 	return (
 		<Popover.Popup
 			{...restProps}
-			data-slot="popover-popup"
-			className={applyCn("popover__popup", className)}
+			className={toClassNames("popover__popup", className)}
 		>
 			{children}
 		</Popover.Popup>
@@ -126,11 +125,27 @@ export const PopoverArrow = (props: PopoverArrowProps) => {
 	return (
 		<Popover.Arrow
 			{...restProps}
-			data-slot="popover-arrow"
-			className={applyCn("popover__arrow", className)}
+			className={toClassNames("popover__arrow", className)}
 		>
 			{children}
 		</Popover.Arrow>
+	)
+}
+
+export const PopoverViewport = (props: PopoverViewportProps) => {
+	const {
+		className,
+		children,
+		...restProps
+	} = props
+
+	return (
+		<Popover.Viewport
+			{...restProps}
+			className={toClassNames("popover__viewport", className)}
+		>
+			{children}
+		</Popover.Viewport>
 	)
 }
 
@@ -144,8 +159,7 @@ export const PopoverTitle = (props: PopoverTitleProps) => {
 	return (
 		<Popover.Title
 			{...restProps}
-			data-slot="popover-title"
-			className={applyCn("popover__title", className)}
+			className={toClassNames("popover__title", className)}
 		>
 			{children}
 		</Popover.Title>
@@ -162,8 +176,7 @@ export const PopoverDescription = (props: PopoverDescriptionProps) => {
 	return (
 		<Popover.Description
 			{...restProps}
-			data-slot="popover-description"
-			className={applyCn("popover__description", className)}
+			className={toClassNames("popover__description", className)}
 		>
 			{children}
 		</Popover.Description>
@@ -172,6 +185,8 @@ export const PopoverDescription = (props: PopoverDescriptionProps) => {
 
 export const PopoverClose = (props: PopoverCloseProps) => {
 	const {
+		nativeClose,
+		className,
 		children,
 		...restProps
 	} = props
@@ -179,9 +194,14 @@ export const PopoverClose = (props: PopoverCloseProps) => {
 	return (
 		<Popover.Close
 			{...restProps}
-			data-slot="popover-close"
+			{...toDataAttrs({ nativeClose })}
+			className={toClassNames("popover__close", className)}
 		>
-			{children}
+			{children ?? (
+				nativeClose
+					? <X/>
+					: null
+			)}
 		</Popover.Close>
 	)
 }
@@ -193,6 +213,7 @@ PopoverBackdrop.displayName = "Popover.Backdrop"
 PopoverPositioner.displayName = "Popover.Positioner"
 PopoverPopup.displayName = "Popover.Popup"
 PopoverArrow.displayName = "Popover.Arrow"
+PopoverViewport.displayName = "Popover.Viewport"
 PopoverTitle.displayName = "Popover.Title"
 PopoverDescription.displayName = "Popover.Description"
 PopoverClose.displayName = "Popover.Close"

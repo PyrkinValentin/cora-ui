@@ -1,10 +1,9 @@
 .spinner {
-  @apply shrink-0 relative inline-block rounded-full pointer-events-none origin-center animate-spin
-  [animation-duration:0.6s] motion-reduce:[animation-duration:1.2s];
+  @apply shrink-0 relative inline-block rounded-full pointer-events-none animate-spin [animation-duration:0.6s]
+  motion-reduce:[animation-duration:1.2s] will-change-transform;
 
   background: conic-gradient(from 0deg, transparent 25%, currentColor 100%);
   mask: radial-gradient(farthest-side, transparent calc(100% - 0.15em), black calc(100% - 0.15em + 0.02em));
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 0.15em), black calc(100% - 0.15em + 0.02em));
 
   &[data-size="sm"] {
     @apply size-4;
@@ -16,14 +15,6 @@
 
   &[data-size="lg"] {
     @apply size-5;
-  }
-
-  &[data-size="xl"] {
-    @apply size-5.5;
-  }
-
-  &[data-size="2xl"] {
-    @apply size-6;
   }
 
   &[data-color="current"] {
