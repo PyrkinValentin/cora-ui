@@ -1,12 +1,12 @@
 .slider {
-  @apply flex flex-col gap-1 transition-opacity motion-reduce:transition-none;
+  @apply flex flex-col transition-opacity motion-reduce:transition-none;
 
   &[data-orientation="horizontal"] {
-    @apply w-full;
+    @apply w-full gap-1;
   }
 
   &[data-orientation="vertical"] {
-    @apply h-full items-center;
+    @apply h-full items-center gap-2;
   }
 
   &[data-disabled] {
@@ -41,6 +41,10 @@
   &[data-orientation="vertical"] {
     @apply h-full px-2;
   }
+
+  &[data-dragging] {
+    @apply cursor-grabbing;
+  }
 }
 
 .slider__track {
@@ -61,7 +65,7 @@
 
 .slider__thumb {
   @apply size-5 flex items-center justify-center rounded-full shadow-md border-2 border-info bg-white select-none
-  cursor-pointer transition motion-reduce:transition-none;
+  cursor-grab transition motion-reduce:transition-none;
 
   & > svg {
     @apply size-4 text-black;
@@ -73,5 +77,9 @@
     &[data-invalid] {
       @apply status-invalid;
     }
+  }
+
+  &[data-dragging] {
+    @apply cursor-grabbing;
   }
 }
