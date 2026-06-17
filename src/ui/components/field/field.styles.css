@@ -1,5 +1,5 @@
 .field {
-  @apply w-full flex flex-col gap-1;
+  @apply w-full flex flex-col gap-1 transition-opacity motion-reduce:transition-none;
 
   &[data-disabled] {
     @apply status-disable;
@@ -7,7 +7,7 @@
 }
 
 .field__label {
-  @apply text-sm font-medium text-pretty text-foreground transition motion-reduce:transition-none;
+  @apply text-sm font-medium text-pretty text-foreground;
 
   &[data-invalid] {
     @apply text-error;

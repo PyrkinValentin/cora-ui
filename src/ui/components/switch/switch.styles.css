@@ -8,6 +8,10 @@
 
   &:focus-visible {
     @apply z-10 status-focus;
+
+    &[data-invalid] {
+      @apply status-invalid;
+    }
   }
 
   &[data-checked] {
@@ -24,7 +28,7 @@
 }
 
 .switch__thumb {
-  @apply size-5 flex items-center justify-center rounded-full shadow-sm bg-white transition-transform
+  @apply size-5 flex items-center justify-center rounded-full shadow-md bg-white transition-transform
   motion-reduce:transition-none transform-gpu;
 
   & > svg {

@@ -207,6 +207,7 @@ export const ToastGroup = (props: ToastGroupProps) => {
 		<Render
 			{...restProps}
 			defaultTagName="div"
+			role="group"
 			className={toClassNames("toast__group", className)}
 		>
 			{children}

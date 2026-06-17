@@ -7,10 +7,14 @@
 }
 
 .item__media {
-  @apply flex;
+  @apply shrink-0 flex;
 
   & > svg {
     @apply size-4.5 text-muted;
+  }
+
+  & > img {
+    @apply rounded-sm size-10;
   }
 }
 
