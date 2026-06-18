@@ -1,0 +1,1 @@
+export type { CheckboxRootProps, CheckboxIndicatorProps } from "@base-ui/react/checkbox"

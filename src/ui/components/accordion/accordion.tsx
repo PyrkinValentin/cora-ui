@@ -16,7 +16,7 @@ import { Accordion } from "@base-ui/react/accordion"
 import { ChevronDown } from "lucide-react"
 import { Render } from "../render"
 
-export const AccordionRoot = (props: AccordionRootProps) => {
+export const AccordionRoot = <Value = unknown>(props: AccordionRootProps<Value>) => {
 	const {
 		className,
 		children,

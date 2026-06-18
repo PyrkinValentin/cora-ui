@@ -15,7 +15,7 @@
   }
 
   &[data-checked] {
-    @apply bg-info;
+    @apply bg-info text-info-foreground;
 
     &:hover {
       @apply bg-info-hover;

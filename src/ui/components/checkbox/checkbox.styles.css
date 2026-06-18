@@ -1,0 +1,43 @@
+.checkbox {
+  @apply relative size-5 shrink-0 flex items-center justify-center rounded-xs bg-neutral cursor-pointer transition
+  motion-reduce:transition-none;
+
+  &:hover {
+    @apply bg-neutral-hover;
+  }
+
+  &:focus-visible {
+    @apply z-10 status-focus;
+
+    &[data-invalid] {
+      @apply status-invalid;
+    }
+  }
+
+  &[data-checked],
+  &[data-indeterminate] {
+    @apply bg-info text-info-foreground;
+
+    &:hover {
+      @apply bg-info-hover;
+    }
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+}
+
+.checkbox__indicator {
+  @apply size-full flex items-center justify-center opacity-0 scale-90 transition motion-reduce:transition-none
+  transform-gpu;
+
+  & > svg {
+    @apply size-4;
+  }
+
+  &[data-checked],
+  &[data-indeterminate] {
+    @apply opacity-100 scale-100;
+  }
+}

@@ -1,0 +1,1 @@
+export type { CheckboxGroupProps } from "@base-ui/react/checkbox-group"

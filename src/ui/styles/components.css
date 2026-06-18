@@ -6,6 +6,8 @@
 @import "../components/breadcrumbs/breadcrumbs.styles.css";
 @import "../components/button/button.styles.css";
 @import "../components/card/card.styles.css";
+@import "../components/checkbox/checkbox.styles.css";
+@import "../components/checkbox-group/checkbox-group.styles.css";
 @import "../components/chip/chip.styles.css";
 @import "../components/collapsible/collapsible.styles.css";
 @import "../components/dialog/dialog.styles.css";
