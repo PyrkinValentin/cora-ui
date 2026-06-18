@@ -4,7 +4,7 @@ import type { OTPFieldRootProps, OTPFieldInputProps, OTPFieldSeparatorProps } fr
 
 import { toClassNames } from "../../utils"
 
-import { OTPFieldPreview as OTPField } from "@base-ui/react/otp-field"
+import { OTPField } from "@base-ui/react/otp-field"
 import { Minus } from "lucide-react"
 
 export const OTPFieldRoot = (props: OTPFieldRootProps) => {
