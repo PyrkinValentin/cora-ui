@@ -7,11 +7,8 @@ import type {
 	ToastManagerUpdateOptions as BaseToastManagerUpdateOptions,
 } from "@base-ui/react/toast"
 
-type ToastStatus = NonNullable<ToastOptions["status"]>
-
-export type ToastRootContextValue = {
+export type ToastRootContextValue = Required<Pick<ToastOptions, "status">> & {
 	type?: string
-	status: ToastStatus
 	indicator?: ReactNode
 }
 

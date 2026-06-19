@@ -31,4 +31,6 @@
 @import "../components/switch/switch.styles.css";
 @import "../components/tabs/tabs.styles.css";
 @import "../components/toast/toast.styles.css";
+@import "../components/toggle/toggle.styles.css";
+@import "../components/toggle-group/toggle-group.styles.css";
 @import "../components/tooltip/tooltip.styles.css";

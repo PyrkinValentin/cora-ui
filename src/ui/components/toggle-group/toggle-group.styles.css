@@ -1,0 +1,15 @@
+.toggle-group {
+  @apply inline-flex items-center;
+
+  & > .toggle {
+    @apply rounded-none;
+
+    &:first-child {
+      @apply rounded-s-md;
+    }
+
+    &:last-child {
+      @apply rounded-e-md;
+    }
+  }
+}

@@ -3,10 +3,7 @@ import type { PaginationRootChangeEventDetails, PaginationRootProps } from "./pa
 export type PaginationEllipsisType = "ellipsis-start" | "ellipsis-end"
 export type PaginationEllipsis = Record<"ellipsisStart" | "ellipsisEnd", PaginationEllipsisType>
 
-type PaginationSize = PaginationRootProps["size"]
-
-export type PaginationRootContextValue = {
-	size: PaginationSize
+export type PaginationRootContextValue = Pick<PaginationRootProps, "size"> & {
 	total: number
 	page: number
 	onPageChange?: (page: number, eventDetails: PaginationRootChangeEventDetails) => void
