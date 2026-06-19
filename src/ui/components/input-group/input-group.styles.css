@@ -1,0 +1,47 @@
+.input-group {
+  @apply relative px-4 w-full h-9 inline-flex items-center gap-2 rounded-md bg-neutral text-neutral-foreground
+  text-sm cursor-text transition motion-reduce:transition-none;
+
+  & input {
+    @apply px-0 flex-1 w-auto h-full rounded-none bg-transparent transition-none;
+
+    &:hover,
+    &:active {
+      &:not(:focus) {
+        @apply bg-transparent;
+      }
+    }
+
+    &:focus,
+    &[data-invalid] {
+      @apply outline-0 ring-0 ring-offset-0 border-none shadow-none;
+    }
+
+    &[data-disabled] {
+      @apply opacity-100;
+    }
+  }
+
+  & > svg {
+    @apply size-4 text-muted;
+  }
+
+  &:hover,
+  &:active {
+    &:has(input:not(:focus)) {
+      @apply bg-neutral-hover;
+    }
+  }
+
+  &:has(input:focus) {
+    @apply z-10 status-focus;
+  }
+
+  &:has(input[data-disabled]) {
+    @apply status-disable;
+  }
+
+  &:has(input[data-invalid]) {
+    @apply status-invalid;
+  }
+}
