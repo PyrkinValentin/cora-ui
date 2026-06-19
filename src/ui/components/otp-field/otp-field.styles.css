@@ -1,5 +1,5 @@
 .otp-field {
-  @apply w-fit inline-flex items-center gap-2;
+  @apply inline-flex items-center gap-2;
 
   &[data-disabled] {
     @apply status-disable;
@@ -27,17 +27,9 @@
 }
 
 .otp-field__separator {
-  @apply text-neutral;
-
-  & > svg {
-    @apply size-4;
-  }
+  @apply w-4 h-1 rounded-sm bg-neutral text-neutral;
 
   &[data-orientation="vertical"] {
     @apply rotate-90;
-  }
-
-  &[data-minus] {
-    @apply w-4 h-1 bg-neutral rounded-sm;
   }
 }

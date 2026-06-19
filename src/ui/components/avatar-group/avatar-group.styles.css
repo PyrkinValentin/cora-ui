@@ -1,0 +1,15 @@
+.avatar-group {
+  @apply inline-flex items-center;
+
+  & > .avatar {
+    @apply ring-2 ring-background;
+  }
+
+  &[data-orientation="horizontal"] {
+    @apply -space-x-2;
+  }
+
+  &[data-orientation="vertical"] {
+    @apply -space-y-2 flex-col;
+  }
+}

@@ -6,7 +6,7 @@
     @apply size-8 text-xs;
 
     & svg {
-      @apply size-3.5;
+      @apply size-4;
     }
   }
 
@@ -14,7 +14,7 @@
     @apply size-10 text-sm;
 
     & svg {
-      @apply size-4;
+      @apply size-5;
     }
   }
 
@@ -22,7 +22,7 @@
     @apply size-12 text-base;
 
     & svg {
-      @apply size-4.5;
+      @apply size-6;
     }
   }
 

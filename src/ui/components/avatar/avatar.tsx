@@ -2,16 +2,19 @@
 
 import type { AvatarRootProps, AvatarImageProps, AvatarFallbackProps } from "./avatar.props"
 
+import { useAvatarGroupContext } from "../avatar-group/avatar-group.hooks"
+
 import { toClassNames, toDataAttrs } from "../../utils"
 
 import { Avatar } from "@base-ui/react/avatar"
-
 import { UserRound } from "lucide-react"
 
 export const AvatarRoot = (props: AvatarRootProps) => {
+	const contextValue = useAvatarGroupContext()
+
 	const {
-		size = "md",
-		color = "neutral",
+		size = contextValue.size ?? "md",
+		color = contextValue.color ?? "neutral",
 		className,
 		children,
 		...restProps

@@ -2,7 +2,7 @@
 
 import type { OTPFieldRootProps, OTPFieldInputProps, OTPFieldSeparatorProps } from "./otp-field.props"
 
-import { toClassNames, toDataAttrs } from "../../utils"
+import { toClassNames } from "../../utils"
 
 import { OTPField } from "@base-ui/react/otp-field"
 
@@ -44,12 +44,9 @@ export const OTPFieldSeparator = (props: OTPFieldSeparatorProps) => {
 		...restProps
 	} = props
 
-	const minus = !children
-
 	return (
 		<OTPField.Separator
 			{...restProps}
-			{...toDataAttrs({ minus })}
 			className={toClassNames("otp-field__separator", className)}
 		>
 			{children}
