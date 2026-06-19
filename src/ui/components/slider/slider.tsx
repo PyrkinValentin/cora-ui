@@ -104,7 +104,6 @@ export const SliderTrack = (props: SliderTrackProps) => {
 export const SliderIndicator = (props: SliderIndicatorProps) => {
 	const {
 		className,
-		children,
 		...restProps
 	} = props
 
@@ -112,9 +111,7 @@ export const SliderIndicator = (props: SliderIndicatorProps) => {
 		<Slider.Indicator
 			{...restProps}
 			className={toClassNames("slider__indicator", className)}
-		>
-			{children}
-		</Slider.Indicator>
+		/>
 	)
 }
 

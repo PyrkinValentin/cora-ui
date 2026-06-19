@@ -51,11 +51,11 @@
   @apply rounded-full bg-neutral select-none;
 
   &[data-orientation="horizontal"] {
-    @apply w-full h-1;
+    @apply w-full h-2;
   }
 
   &[data-orientation="vertical"] {
-    @apply w-1 h-full;
+    @apply w-2 h-full;
   }
 }
 

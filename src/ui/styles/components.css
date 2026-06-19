@@ -19,10 +19,12 @@
 @import "../components/input/input.styles.css";
 @import "../components/item/item.styles.css";
 @import "../components/menu/menu.styles.css";
+@import "../components/meter/meter.styles.css";
 @import "../components/number-field/number-field.styles.css";
 @import "../components/otp-field/otp-field.styles.css";
 @import "../components/pagination/pagination.styles.css";
 @import "../components/popover/popover.styles.css";
+@import "../components/progress/progress.styles.css";
 @import "../components/radio/radio.styles.css";
 @import "../components/radio-group/radio-group.styles.css";
 @import "../components/scroll-area/scroll-area.styles.css";

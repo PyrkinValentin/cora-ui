@@ -11,7 +11,7 @@
 }
 
 .select__trigger {
-  @apply relative px-4 py-1 w-full min-h-9 flex items-center gap-2 rounded-md bg-neutral text-sm text-left
+  @apply relative px-4 py-2 w-full min-h-9 flex items-center gap-2 rounded-md bg-neutral text-sm text-left
   text-neutral-foreground select-none transition motion-reduce:transition-none;
 
   &:hover,
