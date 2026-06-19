@@ -1,11 +1,11 @@
-.toggle-group {
+.button-group {
   @apply inline-flex items-center;
 
-  & > .toggle {
+  & > .button {
     @apply rounded-none;
   }
 
-  &[data-orientation="horizontal"] > .toggle {
+  &[data-orientation="horizontal"] > .button {
     &:first-child {
       @apply rounded-s-md;
     }
@@ -18,7 +18,7 @@
   &[data-orientation="vertical"] {
     @apply flex-col;
 
-    & > .toggle {
+    & > .button {
       @apply w-full justify-start;
 
       &:first-child {
