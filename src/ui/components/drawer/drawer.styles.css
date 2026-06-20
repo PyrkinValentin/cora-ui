@@ -67,7 +67,7 @@
   --peek: 0.75rem;
   --stack-step: 0.05;
 
-  @apply relative p-6 max-h-full flex flex-col rounded-md shadow-lg bg-overlay border border-border touch-auto
+  @apply relative p-6 max-h-full flex flex-col rounded-lg shadow-lg border border-border bg-overlay touch-auto
   transition duration-450 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none transform-gpu;
 
   &:focus-visible {

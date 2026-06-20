@@ -36,6 +36,7 @@
 @import "../components/spinner/spinner.styles.css";
 @import "../components/switch/switch.styles.css";
 @import "../components/tabs/tabs.styles.css";
+@import "../components/textarea/textarea.styles.css";
 @import "../components/toast/toast.styles.css";
 @import "../components/toggle/toggle.styles.css";
 @import "../components/toggle-group/toggle-group.styles.css";

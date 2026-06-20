@@ -87,8 +87,8 @@
 .menu__submenu-trigger,
 .menu__radio-item,
 .menu__checkbox-item {
-  @apply px-3 py-2 min-h-9 flex items-center gap-2 rounded-sm text-sm font-medium text-foreground select-none
-  outline-none cursor-pointer transition-colors motion-reduce:transition-none;
+  @apply px-3 py-2 min-h-9 flex items-center gap-2 rounded-sm text-sm text-foreground select-none outline-none
+  cursor-pointer;
 
   & > svg {
     @apply size-4 text-muted;
@@ -104,6 +104,8 @@
 .menu__submenu-trigger,
 .menu__radio-item,
 .menu__checkbox-item {
+  @apply transition-opacity motion-reduce:transition-none;
+
   &[data-disabled] {
     @apply status-disable;
   }

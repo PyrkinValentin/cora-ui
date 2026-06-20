@@ -68,7 +68,7 @@
   }
 
   &[data-side="none"] {
-    @apply min-w-[calc(var(--anchor-width)+1rem)];
+    @apply translate-y-px min-w-[calc(var(--anchor-width)+1px)];
 
     &[data-ending-style] {
       @apply transition-none;
@@ -89,8 +89,8 @@
 }
 
 .select__item {
-  @apply px-3 py-2 min-h-9 flex items-center gap-2 rounded-sm text-sm font-medium text-foreground select-none
-  outline-none cursor-pointer transition-colors motion-reduce:transition-none;
+  @apply px-3 py-2 min-h-9 flex items-center gap-2 rounded-sm text-sm text-foreground select-none outline-none
+  cursor-pointer transition-opacity motion-reduce:transition-none;
 
   & > svg {
     @apply size-4 text-muted;
@@ -107,14 +107,14 @@
 }
 
 .select__item-indicator {
-  @apply size-4 shrink-0 flex items-center justify-center opacity-0;
+  @apply ms-auto size-4 shrink-0 flex items-center justify-center opacity-0;
 
   & > svg {
     @apply size-full text-muted;
   }
 
   &[data-selected] {
-    @apply opacity-100 ;
+    @apply opacity-100;
   }
 }
 

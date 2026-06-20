@@ -14,7 +14,7 @@
   @apply relative block w-3 h-1.5 overflow-clip;
 
   &:before {
-    @apply content-[""] absolute bottom-0 left-1/2 size-[calc(6px*sqrt(2))] bg-overlay border border-border
+    @apply content-[""] absolute bottom-0 left-1/2 size-[calc(6px*sqrt(2))] border border-border bg-overlay
     rounded-[1px] -translate-x-1/2 translate-y-1/2 rotate-45;
   }
 
