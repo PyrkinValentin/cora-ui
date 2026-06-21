@@ -33,6 +33,9 @@ const toValue = (mix: ClassValue): string => {
 	return str
 }
 
+/**
+ * A utility that conditionally joins CSS class names together, serving as a lightweight and optimized alternative to the `clsx` package.
+ */
 export const classNames = (...inputs: ClassValue[]): string => {
 	let str = ""
 

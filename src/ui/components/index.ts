@@ -1,6 +1,7 @@
 export { Accordion } from "./accordion"
 export { Alert } from "./alert"
 export { AlertDialog } from "./alert-dialog"
+export { Autocomplete } from "./autocomplete"
 export { Avatar } from "./avatar"
 export { AvatarGroup } from "./avatar-group"
 export { Badge } from "./badge"

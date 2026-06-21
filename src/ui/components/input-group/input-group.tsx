@@ -4,10 +4,9 @@ import type { MouseEvent } from "react"
 import type { BaseUIEvent } from "@base-ui/react"
 import type { InputGroupProps } from "./input-group.props"
 
-import { toClassNames } from "../../utils"
+import { focusSlot, toClassNames } from "../../utils"
 
 import { Render } from "../render"
-import { focusInputSlot } from "./input-group.utils"
 
 export const InputGroup = (props: InputGroupProps) => {
 	const {
@@ -24,7 +23,7 @@ export const InputGroup = (props: InputGroupProps) => {
 			!ev.defaultPrevented &&
 			!ev.baseUIHandlerPrevented
 		) {
-			focusInputSlot(ev)
+			focusSlot(ev)
 		}
 	}
 

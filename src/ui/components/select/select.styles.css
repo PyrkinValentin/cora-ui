@@ -53,6 +53,15 @@
   }
 }
 
+.select__backdrop {
+  @apply fixed inset-0 bg-backdrop transition-opacity motion-reduce:transition-none;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    @apply opacity-0;
+  }
+}
+
 .select__popup {
   @apply relative p-1 min-w-(--anchor-width) max-w-(--available-width) max-h-(--available-height) rounded-md shadow-lg
   border border-border bg-overlay origin-(--transform-origin) transition motion-reduce:transition-none

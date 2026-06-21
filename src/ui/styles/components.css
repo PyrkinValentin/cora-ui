@@ -1,6 +1,7 @@
 @import "../components/accordion/accordion.styles.css";
 @import "../components/alert/alert.styles.css";
 @import "../components/alert-dialog/alert-dialog.styles.css";
+@import "../components/autocomplete/autocomplete.styles.css";
 @import "../components/avatar/avatar.styles.css";
 @import "../components/avatar-group/avatar-group.styles.css";
 @import "../components/badge/badge.styles.css";

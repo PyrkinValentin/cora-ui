@@ -12,12 +12,13 @@
 
   .otp-field:hover &,
   .otp-field:active & {
-    &:not(:focus) {
+    &:not(:focus):not([data-focused]) {
       @apply bg-neutral-hover;
     }
   }
 
-  &:focus {
+  &:focus,
+  &[data-focused] {
     @apply z-10 status-focus;
   }
 

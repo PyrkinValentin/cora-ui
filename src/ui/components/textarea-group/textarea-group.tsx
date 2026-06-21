@@ -4,8 +4,7 @@ import type { BaseUIEvent } from "@base-ui/react"
 import type { MouseEvent } from "react"
 import type { TextareaGroupProps } from "./textarea-group.props"
 
-import { toClassNames } from "../../utils"
-import { focusTextareaSlot } from "./textarea-group.utils"
+import { focusSlot, toClassNames } from "../../utils"
 
 import { Render } from "../render"
 
@@ -24,7 +23,7 @@ export const TextareaGroup = (props: TextareaGroupProps) => {
 			!ev.defaultPrevented &&
 			!ev.baseUIHandlerPrevented
 		) {
-			focusTextareaSlot(ev)
+			focusSlot(ev)
 		}
 	}
 

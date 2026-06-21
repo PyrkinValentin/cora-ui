@@ -1,4 +1,4 @@
-export type { SeparatorProps as SelectSeparatorProps } from "../separator/separator.props"
+export type { SeparatorProps as SelectSeparatorProps } from "@base-ui/react/separator"
 
 export type {
 	SelectRootProps,

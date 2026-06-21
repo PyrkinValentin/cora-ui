@@ -64,6 +64,9 @@ const queryBuilder: QueryBuilder = {
 	colorScheme: (scheme) => `(prefers-color-scheme: ${scheme})`,
 }
 
+/**
+ * A custom hook to evaluate and track media queries using a fluent query builder.
+ */
 export const useMediaQuery = (query: MediaQuery, options?: UseMediaQueryOptions) => {
 	const resolvedQuery = typeof query === "string"
 		? query

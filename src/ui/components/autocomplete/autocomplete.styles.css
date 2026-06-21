@@ -1,0 +1,211 @@
+.autocomplete__input-group {
+  @apply relative px-4 w-full h-9 inline-flex items-center gap-2 rounded-md bg-neutral text-neutral-foreground
+  text-sm cursor-text transition motion-reduce:transition-none;
+
+  & input {
+    @apply px-0 w-auto h-full flex-1 rounded-none bg-transparent transition-none;
+
+    &:hover,
+    &:active {
+      &:not(:focus):not([data-focused]) {
+        @apply bg-transparent;
+      }
+    }
+
+    &:focus,
+    &[data-focused],
+    &[data-invalid] {
+      @apply outline-0 ring-0 ring-offset-0 border-none shadow-none;
+    }
+
+    &[data-disabled] {
+      @apply opacity-100;
+    }
+  }
+
+  & > svg {
+    @apply size-4 text-muted;
+  }
+
+  &:hover,
+  &:active {
+    &:has(input:not(:focus):not([data-focused])) {
+      @apply bg-neutral-hover;
+    }
+  }
+
+  &:has(input:focus, input[data-focused]) {
+    @apply z-10 status-focus;
+  }
+
+  &:has(input[data-disabled]) {
+    @apply status-disable;
+  }
+
+  &:has(input[data-invalid]) {
+    @apply status-invalid;
+  }
+}
+
+.autocomplete__input {
+  @apply relative px-4 w-full h-9 block rounded-md bg-neutral text-neutral-foreground text-sm
+  placeholder:text-muted appearance-none transition motion-reduce:transition-none;
+
+  &:hover,
+  &:active {
+    &:not(:focus):not([data-focused]) {
+      @apply bg-neutral-hover;
+    }
+  }
+
+  &:focus,
+  &[data-focused] {
+    @apply z-10 status-focus;
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+
+  &[data-invalid] {
+    @apply z-10 status-invalid;
+  }
+}
+
+.autocomplete__trigger {
+  @apply relative transition motion-reduce:transition-none;
+
+  & .autocomplete__icon {
+    @apply transition motion-reduce:transition-none;
+
+    &:hover,
+    &:active {
+      @apply text-neutral-foreground;
+    }
+  }
+
+  &:focus-visible {
+    @apply z-10 status-focus;
+  }
+
+  &[data-popup-open] {
+    & .autocomplete__icon {
+      @apply rotate-180;
+    }
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+}
+
+.autocomplete__clear,
+.autocomplete__icon {
+  @apply -mr-2 size-6 shrink-0 flex items-center justify-center rounded-sm text-muted select-none;
+
+  & > svg {
+    @apply size-4;
+  }
+}
+
+.autocomplete__clear {
+  @apply transition-colors motion-reduce:transition-none;
+
+  &:hover,
+  &:active {
+    @apply text-neutral-foreground;
+  }
+}
+
+.autocomplete__backdrop {
+  @apply fixed inset-0 bg-backdrop transition-opacity motion-reduce:transition-none;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    @apply opacity-0;
+  }
+}
+
+.autocomplete__popup {
+  @apply relative p-1 min-w-(--anchor-width) max-w-(--available-width) max-h-(--available-height) rounded-md shadow-lg
+  border border-border bg-overlay origin-(--transform-origin) transition motion-reduce:transition-none
+  transform-gpu;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    @apply opacity-0 scale-90;
+  }
+
+  &:not([data-empty]) {
+    & .autocomplete__empty {
+      @apply hidden;
+    }
+  }
+
+  &:has([data-status]) {
+    & .autocomplete__empty {
+      @apply hidden;
+    }
+
+    & .autocomplete__list {
+      @apply hidden;
+    }
+  }
+}
+
+.autocomplete__arrow {
+  @apply popup-arrow;
+}
+
+.autocomplete__status,
+.autocomplete__empty {
+  @apply px-3 py-2 flex items-center gap-2 text-sm text-muted;
+
+  & > svg {
+    @apply size-4;
+  }
+}
+
+.autocomplete__status {
+  &:not([data-status]) {
+    @apply hidden;
+  }
+}
+
+.autocomplete__list {
+  @apply max-h-[calc(var(--available-height)-(--spacing(3)))];
+
+  &[data-empty] {
+    @apply hidden;
+  }
+}
+
+.autocomplete__item {
+  @apply px-3 py-2 min-h-9 flex items-center gap-2 rounded-sm text-sm text-foreground select-none outline-none
+  cursor-pointer transition-opacity motion-reduce:transition-none;
+
+  & > svg {
+    @apply size-4 text-muted;
+  }
+
+  &:active,
+  &[data-highlighted] {
+    @apply bg-neutral;
+  }
+
+  &[data-disabled] {
+    @apply status-disable;
+  }
+}
+
+.autocomplete__separator {
+  @apply mx-3 my-2 h-px shrink-0 rounded-sm bg-separator;
+}
+
+.autocomplete__group {
+  @apply flex flex-col;
+}
+
+.autocomplete__group-label {
+  @apply mx-3 my-2 text-xs font-medium text-muted select-none;
+}

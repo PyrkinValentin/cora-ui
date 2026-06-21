@@ -4,6 +4,9 @@ import type { Ref, RefCallback } from "react"
 
 import { useCallback } from "react"
 
+/**
+ * A custom hook that merges multiple React refs (callback refs and object refs) into a single callback ref, fully supporting React 19 cleanup functions.
+ */
 export const useMergeRefs = <R>(...refs: (Ref<R> | undefined)[]): RefCallback<R> => {
 	return useCallback((instance: R | null) => {
 		const cleanups: (() => void)[] = []
