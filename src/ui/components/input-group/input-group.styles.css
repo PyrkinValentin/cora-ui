@@ -7,13 +7,12 @@
 
     &:hover,
     &:active {
-      &:not(:focus):not([data-focused]) {
+      &:not(:focus) {
         @apply bg-transparent;
       }
     }
 
     &:focus,
-    &[data-focused],
     &[data-invalid] {
       @apply outline-0 ring-0 ring-offset-0 border-none shadow-none;
     }
@@ -29,12 +28,12 @@
 
   &:hover,
   &:active {
-    &:has(input:not(:focus):not([data-focused])) {
+    &:has(input:not(:focus)) {
       @apply bg-neutral-hover;
     }
   }
 
-  &:has(input:focus, input[data-focused]) {
+  &:has(input:focus) {
     @apply z-10 status-focus;
   }
 

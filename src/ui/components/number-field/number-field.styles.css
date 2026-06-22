@@ -31,13 +31,12 @@
 
   &:hover,
   &:active {
-    &:not(:focus):not([data-focused]) {
+    &:not(:focus) {
       @apply bg-neutral-hover;
     }
   }
 
-  &:focus,
-  &[data-focused] {
+  &:focus {
     @apply z-10 status-focus;
   }
 

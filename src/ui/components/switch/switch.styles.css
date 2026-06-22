@@ -12,7 +12,7 @@
   }
 
   &[data-checked] {
-    @apply bg-info text-info-foreground;
+    @apply bg-info;
 
     &:hover,
     &:active {
@@ -30,7 +30,7 @@
 }
 
 .switch__thumb {
-  @apply size-5 flex items-center justify-center rounded-full shadow-md bg-white text-black transition-transform
+  @apply size-5 flex items-center justify-center rounded-full shadow-sm bg-white text-black transition-transform
   motion-reduce:transition-none transform-gpu;
 
   & > svg {

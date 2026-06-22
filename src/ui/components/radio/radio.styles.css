@@ -11,15 +11,6 @@
     @apply z-10 status-focus;
   }
 
-  &[data-checked] {
-    @apply bg-info text-info-foreground;
-
-    &:hover,
-    &:active {
-      @apply bg-info-hover;
-    }
-  }
-
   &[data-disabled] {
     @apply status-disable;
   }
@@ -30,18 +21,31 @@
 }
 
 .radio__indicator {
-  @apply size-full flex items-center justify-center text-info-foreground opacity-0 scale-90 transition
-  motion-reduce:transition-none transform-gpu;
+  @apply size-full flex items-center justify-center rounded-full text-neutral-foreground opacity-0 transition
+  motion-reduce:transition-none;
 
   & > svg {
     @apply size-4;
   }
 
-  &[data-checked] {
-    @apply opacity-100 scale-100;
+  &[data-native-indicator] {
+    @apply border-2 border-info;
+
+    &:hover,
+    &:active {
+      @apply border-info-hover;
+
+      &:after {
+        @apply bg-info-hover;
+      }
+    }
+
+    &:after {
+      @apply content-[""] size-2.5 rounded-full bg-info transition-colors motion-reduce:transition-none;
+    }
   }
 
-  &[data-native-indicator]:after {
-    @apply content-[""] size-3 rounded-full bg-white;
+  &[data-checked] {
+    @apply opacity-100;
   }
 }

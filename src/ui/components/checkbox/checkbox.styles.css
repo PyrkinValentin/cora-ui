@@ -11,16 +11,6 @@
     @apply z-10 status-focus;
   }
 
-  &[data-checked],
-  &[data-indeterminate] {
-    @apply bg-info text-info-foreground;
-
-    &:hover,
-    &:active {
-      @apply bg-info-hover;
-    }
-  }
-
   &[data-disabled] {
     @apply status-disable;
   }
@@ -31,15 +21,20 @@
 }
 
 .checkbox__indicator {
-  @apply size-full flex items-center justify-center text-info-foreground opacity-0 scale-90 transition
-  motion-reduce:transition-none transform-gpu;
+  @apply size-full flex items-center justify-center rounded-xs bg-info text-neutral-foreground opacity-0 transition
+  motion-reduce:transition-none;
 
   & > svg {
     @apply size-4;
   }
 
+  &:hover,
+  &:active {
+    @apply bg-info-hover;
+  }
+
   &[data-checked],
   &[data-indeterminate] {
-    @apply opacity-100 scale-100;
+    @apply opacity-100;
   }
 }
