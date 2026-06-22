@@ -61,13 +61,20 @@
   }
 
   &[data-starting-style],
-  &[data-ending-style],
-  &[data-nested-dialog-open] {
-    @apply opacity-0 scale-90;
+  &[data-ending-style] {
+    @apply opacity-0;
+
+    &:not([data-nested]) {
+      @apply scale-90;
+    }
+
+    &[data-nested] {
+      @apply transform-[translateY(100%)];
+    }
   }
 
   &[data-nested-dialog-open] {
-    @apply pointer-events-none;
+    @apply transform-[translateY(-100%)] opacity-0 pointer-events-none;
   }
 
   &[data-size="sm"] {

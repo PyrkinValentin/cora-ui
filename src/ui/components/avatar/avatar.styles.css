@@ -48,7 +48,7 @@
 }
 
 .avatar__image {
-  @apply size-full object-cover;
+  @apply size-full object-cover aspect-square;
 }
 
 .avatar__fallback {

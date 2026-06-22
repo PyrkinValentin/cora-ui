@@ -1,4 +1,4 @@
-import {} from "@/ui/components"
+import { Avatar, Button, Item } from "@/ui/components"
 
 export default function Home() {
 	return (
