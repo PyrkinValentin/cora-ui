@@ -52,7 +52,7 @@
 }
 
 .alert-dialog__popup {
-  @apply fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 p-6 w-sm max-w-[calc(100%-(--spacing(4)))]
+  @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-6 max-w-[calc(100%-(--spacing(4)))]
   max-h-[calc(100%-(--spacing(4)))] flex flex-col rounded-lg shadow-lg border border-border bg-overlay transition
   motion-reduce:transition-none transform-gpu;
 
@@ -62,19 +62,15 @@
 
   &[data-starting-style],
   &[data-ending-style] {
-    @apply opacity-0;
-
-    &:not([data-nested]) {
-      @apply scale-90;
-    }
+    @apply opacity-0 scale-90;
 
     &[data-nested] {
-      @apply transform-[translateY(100%)];
+      @apply scale-100 transform-[translateY(-100%)];
     }
   }
 
   &[data-nested-dialog-open] {
-    @apply transform-[translateY(-100%)] opacity-0 pointer-events-none;
+    @apply transform-[translateY(100%)] opacity-0 pointer-events-none;
   }
 
   &[data-size="sm"] {
