@@ -6,6 +6,12 @@
   @apply relative px-4 py-3 w-full flex items-center gap-2 rounded-md text-left text-sm font-medium
   transition-[border-radius,box-shadow,background-color,opacity] motion-reduce:transition-none;
 
+  &[data-panel-open] {
+    & .collapsible__icon {
+      @apply rotate-180;
+    }
+  }
+
   & > svg {
     @apply size-4 text-muted;
   }
@@ -31,15 +37,11 @@
 }
 
 .collapsible__icon {
-  @apply shrink-0 ms-auto flex items-center justify-center text-muted select-none transition-transform
+  @apply shrink-0 ms-auto size-5 flex items-center justify-center text-muted select-none transition-transform
   motion-reduce:transition-none;
 
   & > svg {
     @apply size-4;
-  }
-
-  .collapsible__trigger[data-panel-open] & {
-    @apply rotate-180;
   }
 }
 

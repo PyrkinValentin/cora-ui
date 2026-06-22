@@ -113,7 +113,7 @@
 
 .combobox__clear,
 .combobox__icon {
-  @apply size-6 shrink-0 flex items-center justify-center rounded-sm text-muted select-none transition
+  @apply size-6 shrink-0 flex items-center justify-center text-muted select-none transition
   motion-reduce:transition-none;
 
   & > svg {

@@ -1,5 +1,5 @@
 .button {
-  @apply relative w-fit inline-flex items-center justify-center rounded-md font-medium whitespace-nowrap select-none
+  @apply relative w-fit inline-flex items-center justify-center font-medium whitespace-nowrap select-none
   transition motion-reduce:transition-none;
 
   &:focus-visible {
@@ -52,7 +52,7 @@
   }
 
   &[data-size="sm"] {
-    @apply px-3 h-8 gap-1.5 text-xs;
+    @apply px-3 h-8 gap-1.5 text-xs rounded-sm;
 
     & > svg {
       @apply size-3.5;
@@ -64,7 +64,7 @@
   }
 
   &[data-size="md"] {
-    @apply px-4 h-9 gap-2 text-sm;
+    @apply px-4 h-9 gap-2 text-sm rounded-md;
 
     & > svg {
       @apply size-4;
@@ -76,7 +76,7 @@
   }
 
   &[data-size="lg"] {
-    @apply px-4 h-10 gap-2 text-base;
+    @apply px-4 h-10 gap-2 text-base rounded-md;
 
     & > svg {
       @apply size-4.5;

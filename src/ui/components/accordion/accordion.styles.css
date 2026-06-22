@@ -14,6 +14,12 @@
     @apply rounded-b-md;
   }
 
+  &[data-panel-open] {
+    & .accordion__icon {
+      @apply rotate-180;
+    }
+  }
+
   & > svg {
     @apply size-4 text-muted;
   }
@@ -35,15 +41,11 @@
 }
 
 .accordion__icon {
-  @apply shrink-0 ms-auto flex items-center justify-center text-muted select-none transition-transform
+  @apply shrink-0 ms-auto size-4 flex items-center justify-center text-muted select-none transition-transform
   motion-reduce:transition-none;
 
   & > svg {
-    @apply size-4;
-  }
-
-  .accordion__trigger[data-panel-open] & {
-    @apply rotate-180;
+    @apply size-full;
   }
 }
 

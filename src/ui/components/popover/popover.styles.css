@@ -49,7 +49,7 @@
     ease-[cubic-bezier(0.22,1,0.36,1)];
 
     & .popover__arrow {
-      @apply transition-[left] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
+      @apply transition-[left,right] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
       &[data-instant] {
         @apply transition-none;

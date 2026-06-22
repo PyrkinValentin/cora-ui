@@ -25,6 +25,7 @@
 @import "../components/item/item.styles.css";
 @import "../components/menu/menu.styles.css";
 @import "../components/meter/meter.styles.css";
+@import "../components/navigation-menu/navigation-menu.styles.css";
 @import "../components/number-field/number-field.styles.css";
 @import "../components/otp-field/otp-field.styles.css";
 @import "../components/pagination/pagination.styles.css";

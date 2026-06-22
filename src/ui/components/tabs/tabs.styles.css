@@ -23,7 +23,7 @@
 }
 
 .tabs__tab {
-  @apply z-1 relative px-4 h-9 flex items-center justify-center gap-1 rounded-sm text-sm text-muted font-medium
+  @apply z-1 relative px-4 h-9 flex items-center justify-center gap-2 rounded-sm text-sm text-muted font-medium
   whitespace-nowrap select-none transition motion-reduce:transition-none;
 
   & > svg {

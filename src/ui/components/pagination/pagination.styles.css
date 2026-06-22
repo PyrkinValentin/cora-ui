@@ -10,10 +10,10 @@
 .pagination__next,
 .pagination__page,
 .pagination__ellipsis {
-  @apply flex items-center justify-center rounded-md;
+  @apply flex items-center justify-center;
 
   &[data-size="sm"] {
-    @apply size-8;
+    @apply size-8 rounded-sm;
 
     & > svg {
       @apply size-3.5;
@@ -21,7 +21,7 @@
   }
 
   &[data-size="md"] {
-    @apply size-9;
+    @apply size-9 rounded-md;
 
     & > svg {
       @apply size-4;
@@ -29,7 +29,7 @@
   }
 
   &[data-size="lg"] {
-    @apply size-10;
+    @apply size-10 rounded-md;
 
     & > svg {
       @apply size-4.5;

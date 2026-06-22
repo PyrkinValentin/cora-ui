@@ -1,0 +1,31 @@
+import {
+	NavigationMenuRoot,
+	NavigationMenuList,
+	NavigationMenuItem,
+	NavigationMenuTrigger,
+	NavigationMenuIcon,
+	NavigationMenuContent,
+	NavigationMenuLink,
+	NavigationMenuPortal,
+	NavigationMenuBackdrop,
+	NavigationMenuPositioner,
+	NavigationMenuPopup,
+	NavigationMenuArrow,
+	NavigationMenuViewport,
+} from "./navigation-menu"
+
+export const NavigationMenu = {
+	Root: NavigationMenuRoot,
+	List: NavigationMenuList,
+	Item: NavigationMenuItem,
+	Trigger: NavigationMenuTrigger,
+	Icon: NavigationMenuIcon,
+	Content: NavigationMenuContent,
+	Link: NavigationMenuLink,
+	Portal: NavigationMenuPortal,
+	Backdrop: NavigationMenuBackdrop,
+	Positioner: NavigationMenuPositioner,
+	Popup: NavigationMenuPopup,
+	Arrow: NavigationMenuArrow,
+	Viewport: NavigationMenuViewport,
+} as const
