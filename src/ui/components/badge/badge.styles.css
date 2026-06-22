@@ -3,7 +3,7 @@
 }
 
 .badge__indicator {
-  @apply z-1 absolute px-1 flex items-center justify-center rounded-full border border-background font-medium
+  @apply z-10 absolute px-1 flex items-center justify-center rounded-full border border-background font-medium
   pointer-events-none transition-transform motion-reduce:transition-none;
 
   &[data-size="sm"] {
