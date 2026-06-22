@@ -1,0 +1,1 @@
+export type { MenubarProps } from "@base-ui/react/menubar"

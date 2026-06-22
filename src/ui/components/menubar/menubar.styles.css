@@ -1,0 +1,7 @@
+.menubar {
+  @apply flex items-center;
+
+  &[data-orientation="vertical"] {
+    @apply flex-col;
+  }
+}
