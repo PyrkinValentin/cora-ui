@@ -6,7 +6,7 @@
   }
 
   &[data-orientation="vertical"] {
-    @apply flex-row;
+    @apply flex-row items-center;
   }
 }
 

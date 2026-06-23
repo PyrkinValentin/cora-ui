@@ -1,0 +1,23 @@
+.toolbar {
+  @apply p-1 flex gap-1 rounded-lg border border-border shadow-xs bg-surface;
+
+  &[data-orientation="horizontal"] {
+    @apply w-full flex-row items-center;
+  }
+
+  &[data-orientation="vertical"] {
+    @apply flex-col;
+  }
+}
+
+.toolbar__separator {
+  @apply shrink-0 rounded-sm bg-separator;
+
+  &[data-orientation="horizontal"] {
+    @apply w-full h-px;
+  }
+
+  &[data-orientation="vertical"] {
+    @apply w-px h-6;
+  }
+}

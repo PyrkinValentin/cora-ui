@@ -6,6 +6,6 @@
   }
 
   &[data-orientation="vertical"] {
-    @apply w-px min-h-2 h-auto self-stretch;
+    @apply w-px min-h-4 h-full self-stretch;
   }
 }
