@@ -3,11 +3,19 @@
 }
 
 .badge__indicator {
-  @apply z-10 absolute px-1 flex items-center justify-center rounded-full border border-background font-medium
+  @apply z-10 absolute px-1 flex items-center justify-center rounded-full ring ring-background font-medium
   pointer-events-none transition-transform motion-reduce:transition-none;
 
+  & > svg {
+    @apply -mx-1;
+  }
+
   &[data-size="sm"] {
-    @apply min-w-4.5 h-4.5 text-xs;
+    @apply min-w-4 h-4 text-xs;
+
+    & > svg {
+      @apply size-3;
+    }
 
     &[data-dot] {
       @apply min-w-3 h-3;
@@ -15,7 +23,11 @@
   }
 
   &[data-size="md"] {
-    @apply min-w-5 h-5 text-sm;
+    @apply min-w-4.5 h-4.5 text-sm;
+
+    & > svg {
+      @apply size-3.5;
+    }
 
     &[data-dot] {
       @apply min-w-3.5 h-3.5;
@@ -23,7 +35,11 @@
   }
 
   &[data-size="lg"] {
-    @apply min-w-5.5 h-5.5 text-base;
+    @apply min-w-5 h-5 text-base;
+
+    & > svg {
+      @apply size-4;
+    }
 
     &[data-dot] {
       @apply min-w-4 h-4;

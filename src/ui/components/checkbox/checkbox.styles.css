@@ -21,7 +21,7 @@
 }
 
 .checkbox__indicator {
-  @apply size-full flex items-center justify-center rounded-xs bg-info text-neutral-foreground opacity-0 transition
+  @apply size-full flex items-center justify-center rounded-xs bg-info text-info-foreground opacity-0 transition
   motion-reduce:transition-none;
 
   & > svg {

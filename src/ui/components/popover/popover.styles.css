@@ -106,8 +106,8 @@
   @apply relative transition motion-reduce:transition-none;
 
   &[data-native-close] {
-    @apply z-1 absolute top-2.5 right-2.5 size-6 flex items-center justify-center rounded-sm bg-neutral-soft
-    text-muted select-none;
+    @apply z-1 absolute top-2.5 right-2.5 size-6 flex items-center justify-center rounded-sm bg-neutral-soft text-muted
+    select-none;
 
     & > svg {
       @apply size-4;
@@ -115,7 +115,7 @@
 
     &:hover,
     &:active {
-      @apply bg-neutral-hover;
+      @apply bg-neutral-soft-hover;
     }
   }
 

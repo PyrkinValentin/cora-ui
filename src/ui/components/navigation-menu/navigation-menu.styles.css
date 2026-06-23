@@ -8,8 +8,8 @@
 
 .navigation-menu__trigger,
 .navigation-menu__link {
-  @apply relative px-4 py-2 min-h-9 shrink-0 flex items-center gap-2 rounded-sm text-sm font-medium
-  text-neutral-foreground select-none transition motion-reduce:transition-none;
+  @apply relative px-4 py-2 min-h-9 shrink-0 flex items-center gap-2 rounded-md text-sm font-medium text-foreground
+  select-none transition motion-reduce:transition-none;
 
   & > svg {
     @apply size-4;
@@ -22,6 +22,12 @@
 
   &:focus-visible {
     @apply z-10 status-focus;
+  }
+}
+
+.navigation-menu__link  {
+  & > svg {
+    @apply text-muted;
   }
 }
 
@@ -105,8 +111,8 @@
 }
 
 .navigation-menu__popup {
-  @apply relative p-1 w-(--popup-width) h-(--popup-height) rounded-md shadow-lg border border-border bg-overlay
-  origin-(--transform-origin) transition-[opacity,transform,width,height,scale] duration-350
+  @apply relative p-1 w-(--popup-width) h-(--popup-height) flex flex-col rounded-lg shadow-lg border border-border
+  bg-overlay origin-(--transform-origin) transition-[opacity,transform,width,height,scale] duration-350
   ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
   &:focus-visible {

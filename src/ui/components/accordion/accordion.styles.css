@@ -1,5 +1,5 @@
 .accordion {
-  @apply w-full rounded-md divide-y divide-separator bg-surface;
+  @apply w-full divide-y divide-separator;
 }
 
 .accordion__trigger {
@@ -7,11 +7,11 @@
   transition-[border-radius,box-shadow,background-color,opacity] motion-reduce:transition-none;
 
   .accordion__item:first-child & {
-    @apply rounded-t-md;
+    @apply rounded-t-lg;
   }
 
   .accordion__item:last-child &:not([data-panel-open]) {
-    @apply rounded-b-md;
+    @apply rounded-b-lg;
   }
 
   &[data-panel-open] {
@@ -27,7 +27,7 @@
   &:hover,
   &:active {
     &:not([data-panel-open]) {
-      @apply bg-neutral;
+      @apply bg-neutral-soft;
     }
   }
 

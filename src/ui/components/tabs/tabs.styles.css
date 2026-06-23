@@ -11,7 +11,7 @@
 }
 
 .tabs__list {
-  @apply relative p-1 flex bg-surface rounded-md;
+  @apply relative p-1 flex rounded-lg border border-border shadow-xs bg-surface;
 
   &[data-orientation="horizontal"] {
     @apply flex-row;
@@ -23,16 +23,15 @@
 }
 
 .tabs__tab {
-  @apply z-1 relative px-4 h-9 flex items-center justify-center gap-2 rounded-sm text-sm text-muted font-medium
+  @apply z-1 relative px-4 h-9 flex items-center justify-center gap-2 rounded-md text-sm text-muted font-medium
   whitespace-nowrap select-none transition motion-reduce:transition-none;
 
   & > svg {
     @apply size-4;
   }
 
-  &:hover,
-  &[data-active] {
-    @apply text-neutral-foreground;
+  &:hover {
+    @apply text-foreground;
   }
 
   &:focus-visible {
@@ -47,13 +46,21 @@
     @apply justify-start;
   }
 
+  &[data-active] {
+    @apply text-foreground;
+
+    &:hover {
+      @apply bg-neutral-hover;
+    }
+  }
+
   &[data-disabled] {
     @apply status-disable;
   }
 }
 
 .tabs__indicator {
-  @apply absolute h-9 rounded-sm bg-neutral ease-in-out transition-[translate,width] motion-reduce:transition-none
+  @apply absolute h-9 rounded-md bg-neutral ease-in-out transition-[translate,width] motion-reduce:transition-none
   transform-gpu;
 
   &[data-orientation="horizontal"] {
@@ -66,7 +73,7 @@
 }
 
 .tabs__panel {
-  @apply w-full transition motion-reduce:transition-none;
+  @apply relative w-full transition motion-reduce:transition-none;
 
   &:focus-visible {
     @apply z-10 status-focus;

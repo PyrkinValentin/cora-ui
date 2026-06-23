@@ -27,7 +27,7 @@
 }
 
 .otp-field__separator {
-  @apply w-4 h-1 rounded-sm bg-neutral text-neutral;
+  @apply w-4 h-1 rounded-sm bg-neutral;
 
   &[data-orientation="vertical"] {
     @apply rotate-90;

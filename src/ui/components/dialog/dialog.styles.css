@@ -53,8 +53,8 @@
 
 .dialog__popup {
   @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-6 max-w-[calc(100%-(--spacing(4)))]
-  max-h-[calc(100%-(--spacing(4)))] flex flex-col rounded-lg shadow-lg border border-border bg-overlay transition
-  motion-reduce:transition-none transform-gpu;
+  max-h-[calc(100%-(--spacing(4)))] flex flex-col items-center rounded-lg shadow-lg border border-border bg-overlay
+  transition motion-reduce:transition-none transform-gpu;
 
   &:focus-visible {
     @apply status-focus;
@@ -95,11 +95,11 @@
 }
 
 .dialog__title {
-  @apply text-base font-medium text-pretty text-foreground leading-snug;
+  @apply text-base text-center font-medium text-pretty text-foreground leading-snug;
 }
 
 .dialog__description {
-  @apply text-base text-pretty text-muted;
+  @apply text-base text-center text-pretty text-muted;
 
   .dialog__title + & {
     @apply mt-1;
@@ -107,7 +107,7 @@
 }
 
 .dialog__actions {
-  @apply mt-auto pt-4 flex items-center justify-end gap-2;
+  @apply mt-auto pt-4 w-full flex items-center justify-center gap-2;
 }
 
 .dialog__close {
@@ -123,7 +123,7 @@
 
     &:hover,
     &:active {
-      @apply bg-neutral-hover;
+      @apply bg-neutral-soft-hover;
     }
   }
 

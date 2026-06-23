@@ -5,30 +5,35 @@
     --gap: 0;
     --toast-swipe-movement-y: 0;
 
-    @apply z-1 fixed w-[calc(100%-(--spacing(2))*2)] sm:w-90;
+    @apply z-1 fixed w-[calc(100%-(--spacing(4))*2)] sm:w-90;
+
+    &[data-position="top-center"],
+    &[data-position="bottom-center"] {
+      @apply left-1/2 -translate-x-1/2;
+    }
 
     &[data-position="top-left"] {
-      @apply top-2 left-2;
+      @apply top-4 left-4 sm:top-8 sm:left-8;
     }
 
     &[data-position="top-center"] {
-      @apply top-2 left-1/2 -translate-x-1/2;
+      @apply top-4 sm:top-8;
     }
 
     &[data-position="top-right"] {
-      @apply top-2 right-2;
+      @apply top-4 right-4 sm:top-8 sm:right-8;
     }
 
     &[data-position="bottom-left"] {
-      @apply bottom-2 left-2;
+      @apply bottom-4 left-4 sm:bottom-8 sm:left-8;
     }
 
     &[data-position="bottom-center"] {
-      @apply bottom-2 left-1/2 -translate-x-1/2;
+      @apply bottom-4 sm:bottom-8;
     }
 
     &[data-position="bottom-right"] {
-      @apply bottom-2 right-2;
+      @apply bottom-4 right-4 sm:bottom-8 sm:right-8;
     }
 
     &[data-position="top-left"],
@@ -170,23 +175,23 @@
   }
 
   &[data-status="neutral"] {
-    @apply bg-neutral-soft text-neutral-foreground;
+    @apply bg-neutral-soft text-neutral-soft-foreground;
   }
 
   &[data-status="info"] {
-    @apply bg-info-soft text-info;
+    @apply bg-info-soft text-info-soft-foreground;
   }
 
   &[data-status="success"] {
-    @apply bg-success-soft text-success;
+    @apply bg-success-soft text-success-soft-foreground;
   }
 
   &[data-status="warning"] {
-    @apply bg-warning-soft text-warning;
+    @apply bg-warning-soft text-warning-soft-foreground;
   }
 
   &[data-status="error"] {
-    @apply bg-error-soft text-error;
+    @apply bg-error-soft text-error-soft-foreground;
   }
 }
 
@@ -247,16 +252,16 @@
   @apply opacity-0;
 
   &[data-native-close] {
-    @apply z-1 absolute -top-2 -right-1 size-6 flex items-center justify-center rounded-sm bg-neutral-soft
-    select-none;
+    @apply z-1 absolute -top-1.5 -right-2 size-6 flex items-center justify-center rounded-sm bg-neutral-soft
+    text-muted select-none;
 
     & > svg {
-      @apply size-4 text-muted;
+      @apply size-4;
     }
 
     &:hover,
     &:active {
-      @apply bg-neutral-hover;
+      @apply bg-neutral-soft-hover;
     }
 
     .toast:hover &,

@@ -1,9 +1,9 @@
 .card {
-  @apply overflow-hidden relative rounded-md bg-surface;
+  @apply overflow-hidden relative w-full flex flex-col rounded-lg border border-border shadow-xs bg-surface;
 }
 
 .card__content {
-  @apply p-4;
+  @apply px-4 py-3 grow min-w-0;
 }
 
 .card__title {
@@ -13,7 +13,7 @@
 .card__description {
   @apply text-sm text-pretty text-muted;
 
-  .alert__title + & {
+  .card__title + & {
     @apply mt-0.5;
   }
 }

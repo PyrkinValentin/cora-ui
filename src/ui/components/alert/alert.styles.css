@@ -1,5 +1,5 @@
 .alert {
-  @apply relative px-4 py-3 w-full flex items-center gap-3 rounded-md bg-surface;
+  @apply relative px-4 py-3 w-full flex items-center gap-3 rounded-lg border border-border shadow-xs bg-surface;
 
   &:has(.alert__description) {
     @apply items-start;
@@ -7,30 +7,30 @@
 }
 
 .alert__indicator {
-  @apply shrink-0 size-8 flex items-center justify-center rounded-sm;
+  @apply size-8 shrink-0 flex items-center justify-center rounded-sm;
 
   & > svg {
     @apply size-5;
   }
 
   &[data-status="neutral"] {
-    @apply bg-neutral-soft text-neutral-foreground;
+    @apply bg-neutral-soft text-neutral-soft-foreground;
   }
 
   &[data-status="info"] {
-    @apply bg-info-soft text-info;
+    @apply bg-info-soft text-info-soft-foreground;
   }
 
   &[data-status="success"] {
-    @apply bg-success-soft text-success;
+    @apply bg-success-soft text-success-soft-foreground;
   }
 
   &[data-status="warning"] {
-    @apply bg-warning-soft text-warning;
+    @apply bg-warning-soft text-warning-soft-foreground;
   }
 
   &[data-status="error"] {
-    @apply bg-error-soft text-error;
+    @apply bg-error-soft text-error-soft-foreground;
   }
 }
 
@@ -63,7 +63,7 @@
 
     &:hover,
     &:active {
-      @apply bg-neutral-hover;
+      @apply bg-neutral-soft-hover;
     }
   }
 

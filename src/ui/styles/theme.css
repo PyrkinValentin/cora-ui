@@ -9,72 +9,92 @@
   --radius-2xl: 2rem;
   --radius-3xl: 3rem;
 
+  --shadow-xs: 0 1px 4px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.03), 0 3px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 2px 6px rgba(15, 23, 42, 0.03), 0 6px 16px rgba(15, 23, 42, 0.06), 0 12px 24px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 2px 8px rgba(15, 23, 42, 0.04), 0 10px 24px rgba(15, 23, 42, 0.08), 0 20px 48px rgba(15, 23, 42, 0.06);
+  --shadow-xl: 0 4px 12px rgba(15, 23, 42, 0.03), 0 16px 36px rgba(15, 23, 42, 0.09), 0 32px 72px rgba(15, 23, 42, 0.08);
+
+  --scrollbar: transparent;
+  --scrollbar-thumb: oklch(85% 0.001 286.375);
+  --scrollbar-thumb-hover: oklch(80% 0.001 286.375);
+
+  --drawer-handle: oklch(85% 0.001 286.375);
+
   --color-white: oklch(100 0 0);
   --color-snow: oklch(0.9911 0 0);
   --color-eclipse: oklch(0.2103 0.0059 285.89);
 
-  --color-background: var(--color-white);
+  --color-background: oklch(96% 0.001 286.375);
   --color-foreground: var(--color-eclipse);
 
   --color-muted: oklch(0.5517 0.0138 285.94);
   --color-backdrop: rgba(0, 0, 0, 0.4);
   --color-focus: var(--color-info);
   --color-separator: oklch(92% 0.004 286.32);
-  --color-border: oklch(90% 0.004 286.32);
+  --color-border: var(--color-white);
 
-  --color-scrollbar: transparent;
-  --color-scrollbar-thumb: oklch(87% 0.001 286.375);
-  --color-scrollbar-thumb-hover: oklch(77% 0.001 286.375);
-
-  --color-overlay: var(--color-white);
+  --color-overlay: oklch(96% 0.001 286.375);
 
   --color-surface: oklch(98% 0.001 286.375);
   --color-surface-foreground: var(--color-foreground);
-  --color-surface-hover: color-mix(in oklab, var(--color-surface) 96%, var(--color-surface-foreground) 4%);
+  --color-surface-hover: color-mix(in oklab, var(--color-surface) 96%, var(--color-surface-foreground) 2%);
 
-  --color-neutral: oklch(94% 0.001 286.375);
+  --color-neutral: oklch(92% 0.001 286.375);
   --color-neutral-foreground: var(--color-foreground);
   --color-neutral-hover: color-mix(in oklab, var(--color-neutral) 96%, var(--color-neutral-foreground) 4%);
-  --color-neutral-soft: color-mix(in oklab, var(--color-neutral) 70%, transparent);
+  --color-neutral-soft: color-mix(in oklab, var(--color-neutral) 80%, transparent);
+  --color-neutral-soft-foreground: var(--color-foreground);
+  --color-neutral-soft-hover: color-mix(in oklab, var(--color-neutral-soft) 80%, var(--color-neutral-foreground) 4%);
 
   --color-info: oklch(0.6204 0.195 253.83);
   --color-info-foreground: var(--color-snow);
   --color-info-hover: color-mix(in oklab, var(--color-info) 90%, var(--color-info-foreground) 10%);
   --color-info-soft: color-mix(in oklab, var(--color-info) 15%, transparent);
+  --color-info-soft-foreground: var(--color-info);
+  --color-info-soft-hover: color-mix(in oklab, var(--color-info-soft) 90%, var(--color-info) 10%);
 
   --color-success: oklch(0.7329 0.1935 150.81);
   --color-success-foreground: var(--color-eclipse);
   --color-success-hover: color-mix(in oklab, var(--color-success) 90%, var(--color-success-foreground) 10%);
   --color-success-soft: color-mix(in oklab, var(--color-success) 15%, transparent);
+  --color-success-soft-foreground: var(--color-success);
+  --color-success-soft-hover: color-mix(in oklab, var(--color-success-soft) 90%, var(--color-success) 10%);
 
   --color-warning: oklch(0.7819 0.1585 72.33);
   --color-warning-foreground: var(--color-eclipse);
   --color-warning-hover: color-mix(in oklab, var(--color-warning) 90%, var(--color-warning-foreground) 10%);
   --color-warning-soft: color-mix(in oklab, var(--color-warning) 15%, transparent);
+  --color-warning-soft-foreground: var(--color-warning);
+  --color-warning-soft-hover: color-mix(in oklab, var(--color-warning-soft) 90%, var(--color-warning) 10%);
 
   --color-error: oklch(0.6532 0.2328 25.74);
   --color-error-foreground: var(--color-snow);
   --color-error-hover: color-mix(in oklab, var(--color-error) 90%, var(--color-error-foreground) 10%);
   --color-error-soft: color-mix(in oklab, var(--color-error) 15%, transparent);
+  --color-error-soft-foreground: var(--color-error);
+  --color-error-soft-hover: color-mix(in oklab, var(--color-error-soft) 90%, var(--color-error) 10%);
 }
 
 @layer theme {
   .dark {
+    --scrollbar-thumb: oklch(35% 0.006 286.033);
+    --scrollbar-thumb-hover: oklch(40% 0.006 286.033);
+
+    --drawer-handle: oklch(35% 0.006 286.033);
+
     --color-background: oklch(12% 0.005 285.823);
     --color-foreground: var(--color-snow);
 
     --color-muted: oklch(70.5% 0.015 286.067);
     --color-backdrop: rgba(0, 0, 0, 0.6);
     --color-separator: oklch(25% 0.006 286.033);
-    --color-border: oklch(28% 0.006 286.033);
+    --color-border: oklch(24% 0.006 286.033);
 
-    --color-scrollbar-thumb: oklch(40% 0.006 286.033);
-    --color-scrollbar-thumb-hover: oklch(50% 0.006 286.033);
+    --color-overlay: oklch(0.1503 0.0059 285.89);
 
-    --color-overlay: oklch(0.1803 0.0059 285.89);
-
-    --color-surface: oklch(0.2003 0.0059 285.89);
-    --color-neutral: oklch(27.4% 0.006 286.033);
+    --color-surface: oklch(0.1703 0.0059 285.89);
+    --color-neutral: oklch(24.4% 0.006 286.033);
     --color-warning: oklch(0.8203 0.1388 76.34);
     --color-error: oklch(0.594 0.1967 24.63);
   }

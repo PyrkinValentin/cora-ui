@@ -1,9 +1,9 @@
 .collapsible {
-  @apply w-full rounded-md bg-surface;
+  @apply w-full;
 }
 
 .collapsible__trigger {
-  @apply relative px-4 py-3 w-full flex items-center gap-2 rounded-md text-left text-sm font-medium
+  @apply relative px-4 py-3 w-full flex items-center gap-2 rounded-lg text-left text-sm font-medium
   transition-[border-radius,box-shadow,background-color,opacity] motion-reduce:transition-none;
 
   &[data-panel-open] {
@@ -19,7 +19,7 @@
   &:hover,
   &:active {
     &:not([data-panel-open]) {
-      @apply bg-neutral;
+      @apply bg-neutral-soft;
     }
   }
 
@@ -37,11 +37,11 @@
 }
 
 .collapsible__icon {
-  @apply shrink-0 ms-auto size-5 flex items-center justify-center text-muted select-none transition-transform
+  @apply shrink-0 ms-auto size-4 flex items-center justify-center text-muted select-none transition-transform
   motion-reduce:transition-none;
 
   & > svg {
-    @apply size-4;
+    @apply size-full;
   }
 }
 

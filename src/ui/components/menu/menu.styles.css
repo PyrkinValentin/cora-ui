@@ -31,7 +31,7 @@
 }
 
 .menu__popup {
-  @apply relative p-1 min-w-40 max-w-(--available-width) max-h-(--available-height) flex flex-col rounded-md shadow-lg
+  @apply relative p-1 min-w-40 max-w-(--available-width) max-h-(--available-height) flex flex-col rounded-lg shadow-lg
   border border-border bg-overlay origin-(--transform-origin) transition motion-reduce:transition-none
   transform-gpu;
 
@@ -87,7 +87,7 @@
 .menu__submenu-trigger,
 .menu__radio-item,
 .menu__checkbox-item {
-  @apply px-3 py-2 min-h-9 flex items-center gap-2 rounded-sm text-sm text-foreground select-none outline-none
+  @apply px-3 py-2 min-h-9 flex items-center gap-2 rounded-md text-sm text-foreground select-none outline-none
   cursor-pointer;
 
   & > svg {
