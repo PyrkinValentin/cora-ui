@@ -12,7 +12,7 @@
 
   &:before,
   &:after {
-    @apply content-[""] -z-1 absolute size-full rounded-md border border-neutral bg-surface scale-80;
+    @apply content-[""] -z-1 absolute size-full rounded-md border border-neutral bg-surface scale-85;
   }
 
   &:before {
