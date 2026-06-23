@@ -7,7 +7,7 @@ import { useMemo } from "react"
 
 import { toClassNames, toDataAttrs } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 import { AvatarGroupContext } from "./avatar-group.context"
 
 export const AvatarGroup = (props: AvatarGroupProps) => {

@@ -11,7 +11,7 @@ import type {
 
 import { toClassNames } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const ItemRoot = (props: ItemRootProps) => {
 	const {

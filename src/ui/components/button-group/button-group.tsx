@@ -7,7 +7,7 @@ import { useMemo } from "react"
 
 import { toClassNames, toDataAttrs } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 import { ButtonGroupContext } from "./button-group.context"
 
 export const ButtonGroup = (props: ButtonGroupProps) => {

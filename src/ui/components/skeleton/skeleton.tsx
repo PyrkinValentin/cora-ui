@@ -4,7 +4,7 @@ import type { SkeletonProps } from "./skeleton.props"
 
 import { toClassNames } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const Skeleton = (props: SkeletonProps) => {
 	const {

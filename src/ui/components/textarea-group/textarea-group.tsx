@@ -6,7 +6,7 @@ import type { TextareaGroupProps } from "./textarea-group.props"
 
 import { focusSlot, toClassNames } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const TextareaGroup = (props: TextareaGroupProps) => {
 	const {

@@ -14,7 +14,7 @@ import { toClassNames, toDataAttrs } from "../../utils"
 
 import { Accordion } from "@base-ui/react/accordion"
 import { ChevronDown } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const AccordionRoot = <Value = unknown>(props: AccordionRootProps<Value>) => {
 	const {

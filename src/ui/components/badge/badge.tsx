@@ -4,7 +4,7 @@ import type { BadgeRootProps, BadgeIndicatorProps } from "./badge.props"
 
 import { toClassNames, toDataAttrs } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const BadgeRoot = (props: BadgeRootProps) => {
 	const {

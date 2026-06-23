@@ -4,7 +4,7 @@ import type { CardRootProps, CardContentProps, CardTitleProps, CardDescriptionPr
 
 import { toClassNames } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const CardRoot = (props: CardRootProps) => {
 	const {

@@ -6,7 +6,7 @@ import type { InputGroupProps } from "./input-group.props"
 
 import { focusSlot, toClassNames } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const InputGroup = (props: InputGroupProps) => {
 	const {

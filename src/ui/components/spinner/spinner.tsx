@@ -4,7 +4,7 @@ import type { SpinnerProps } from "./spinner.props"
 
 import { toClassNames, toDataAttrs } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const Spinner = (props: SpinnerProps) => {
 	const {

@@ -20,7 +20,7 @@ import { STATUS_INDICATORS } from "../../constants"
 
 import { AlertDialog } from "@base-ui/react/alert-dialog"
 import { X } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const AlertDialogRoot = <Payload = unknown>(props: AlertDialogRootProps<Payload>) => {
 	const {

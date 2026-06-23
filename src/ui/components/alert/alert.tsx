@@ -15,7 +15,7 @@ import { STATUS_INDICATORS } from "../../constants"
 
 import { Button } from "@base-ui/react/button"
 import { X } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const AlertRoot = (props: AlertRootProps) => {
 	const {

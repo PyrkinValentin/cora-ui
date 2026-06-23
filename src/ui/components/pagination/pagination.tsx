@@ -25,7 +25,7 @@ import { REASONS } from "../../constants"
 
 import { Button } from "@base-ui/react/button"
 import { ChevronLeft, ChevronRight, Ellipsis } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 import { PaginationRootContext } from "./pagination.context"
 
 export const PaginationRoot = (props: PaginationRootProps) => {

@@ -17,7 +17,7 @@ import { toClassNames, toDataAttrs } from "../../utils"
 
 import { Dialog } from "@base-ui/react/dialog"
 import { X } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const DialogRoot = <Payload = unknown>(props: DialogRootProps<Payload>) => {
 	const {

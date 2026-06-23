@@ -25,7 +25,7 @@ import { toClassNames, toDataAttrs } from "../../utils"
 
 import { Drawer } from "@base-ui/react/drawer"
 import { X } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 import { DrawerViewportContext } from "./drawer.context"
 
 export const DrawerRoot = <Payload = unknown>(props: DrawerRootProps<Payload>) => {

@@ -4,7 +4,7 @@ import type { ChipProps } from "./chip.props"
 
 import { toClassNames, toDataAttrs } from "../../utils"
 
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const Chip = (props: ChipProps) => {
 	const {

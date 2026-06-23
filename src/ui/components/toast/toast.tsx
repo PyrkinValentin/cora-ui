@@ -26,7 +26,7 @@ import { STATUS_INDICATORS } from "../../constants"
 
 import { Toast } from "@base-ui/react/toast"
 import { X } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 import { Spinner } from "../spinner"
 import { ToastRootContext } from "./toast.context"
 

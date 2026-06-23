@@ -12,7 +12,7 @@ import { toClassNames } from "../../utils"
 
 import { Collapsible } from "@base-ui/react/collapsible"
 import { ChevronDown } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const CollapsibleRoot = (props: CollapsibleRootProps) => {
 	const {

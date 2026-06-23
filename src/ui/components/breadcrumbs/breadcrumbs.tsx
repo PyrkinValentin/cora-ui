@@ -13,7 +13,7 @@ import type {
 import { toClassNames } from "../../utils"
 
 import { ChevronRight, Ellipsis } from "lucide-react"
-import { Render } from "../render"
+import { Render } from "../../primitives"
 
 export const BreadcrumbsRoot = (props: BreadcrumbsRootProps) => {
 	const {
