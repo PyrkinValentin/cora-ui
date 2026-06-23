@@ -138,7 +138,7 @@
 }
 
 .combobox__chip-remove {
-  @apply -mr-1 size-4 flex items-center justify-center rounded-xs bg-neutral select-none transition
+  @apply -mr-1 size-4 flex items-center justify-center rounded-xs bg-neutral-soft select-none transition
   motion-reduce:transition-none;
 
   & > svg {
@@ -147,7 +147,7 @@
 
   &:hover,
   &:active {
-    @apply bg-neutral-hover;
+    @apply bg-neutral-soft-hover;
   }
 
   &[data-disabled] {

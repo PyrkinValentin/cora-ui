@@ -88,8 +88,8 @@
 
     --color-muted: oklch(70.5% 0.015 286.067);
     --color-backdrop: rgba(0, 0, 0, 0.6);
-    --color-separator: oklch(25% 0.006 286.033);
-    --color-border: oklch(24% 0.006 286.033);
+    --color-separator: oklch(24% 0.006 286.033);
+    --color-border: oklch(22% 0.006 286.033);
 
     --color-overlay: oklch(0.1503 0.0059 285.89);
 

@@ -46,7 +46,10 @@ const getNextBreakpoint = (breakpoint: Breakpoint) => {
 	return NEXT_BREAKPOINT_MAP.get(breakpoint)
 }
 
-const createBetweenQuery = (startBreakpoint: Breakpoint, endBreakpoint: Breakpoint) => {
+const createBetweenQuery = (
+	startBreakpoint: Breakpoint,
+	endBreakpoint: Breakpoint,
+) => {
 	const minWidth = getMinWidth(startBreakpoint)
 	const nextKey = getNextBreakpoint(endBreakpoint)
 
@@ -67,10 +70,13 @@ const queryBuilder: QueryBuilder = {
 /**
  * A custom hook to evaluate and track media queries using a fluent query builder.
  */
-export const useMediaQuery = (query: MediaQuery, options?: UseMediaQueryOptions) => {
+export const useMediaQuery = (
+	query: MediaQuery,
+	options: UseMediaQueryOptions = {},
+) => {
 	const resolvedQuery = typeof query === "string"
 		? query
 		: query(queryBuilder)
 
-	return useBaseMediaQuery(resolvedQuery, options ?? {})
+	return useBaseMediaQuery(resolvedQuery, options)
 }
