@@ -18,7 +18,7 @@ export type AlertIndicatorProps = BaseUIComponentProps<"span", AlertIndicatorSta
 }
 
 export type AlertContentProps = BaseUIComponentProps<"div", AlertContentState>
-export type AlertTitleProps = BaseUIComponentProps<"div", AlertTitleState>
+export type AlertTitleProps = BaseUIComponentProps<"h2", AlertTitleState>
 export type AlertDescriptionProps = BaseUIComponentProps<"p", AlertDescriptionState>
 
 export type AlertCloseProps = ButtonProps & {

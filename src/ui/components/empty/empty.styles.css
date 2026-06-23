@@ -1,0 +1,37 @@
+.empty {
+  @apply max-w-xs flex flex-col items-center;
+}
+
+.empty__icon {
+  @apply relative mb-4 size-10 shrink-0 flex items-center justify-center rounded-md border border-neutral bg-surface
+  text-foreground;
+
+  & > svg {
+    @apply size-5;
+  }
+
+  &:before,
+  &:after {
+    @apply content-[""] -z-1 absolute size-full rounded-md border border-neutral bg-surface scale-80;
+  }
+
+  &:before {
+    @apply -translate-x-3 -rotate-15;
+  }
+
+  &:after {
+    @apply translate-x-3 rotate-15;
+  }
+}
+
+.empty__title {
+  @apply text-base text-center font-medium text-pretty text-foreground leading-snug;
+}
+
+.empty__description {
+  @apply text-base text-center text-pretty text-muted;
+
+  .empty__title + & {
+    @apply mt-1;
+  }
+}

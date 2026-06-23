@@ -17,6 +17,7 @@
 @import "../components/context-menu/context-menu.styles.css";
 @import "../components/dialog/dialog.styles.css";
 @import "../components/drawer/drawer.styles.css";
+@import "../components/empty/empty.styles.css";
 @import "../components/field/field.styles.css";
 @import "../components/fieldset/fieldset.styles.css";
 @import "../components/form/form.styles.css";

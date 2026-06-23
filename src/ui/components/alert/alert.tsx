@@ -28,6 +28,7 @@ export const AlertRoot = (props: AlertRootProps) => {
 		<Render
 			{...restProps}
 			defaultTagName="div"
+			role="alert"
 			className={toClassNames("alert", className)}
 		>
 			{children}
@@ -85,7 +86,7 @@ export const AlertTitle = (props: AlertTitleProps) => {
 	return (
 		<Render
 			{...restProps}
-			defaultTagName="div"
+			defaultTagName="h2"
 			className={toClassNames("alert__title", className)}
 		>
 			{children}
