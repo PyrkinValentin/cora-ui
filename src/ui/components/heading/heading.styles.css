@@ -1,0 +1,15 @@
+.heading {
+  @apply font-semibold text-foreground tracking-tight;
+
+  &[data-level="1"] {
+    @apply text-xl;
+  }
+
+  &[data-level="2"] {
+    @apply text-lg;
+  }
+
+  &[data-level="3"] {
+    @apply text-base;
+  }
+}

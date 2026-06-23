@@ -6,7 +6,7 @@ import type {
 	ItemContentProps,
 	ItemTitleProps,
 	ItemDescriptionProps,
-	ItemActionsProps,
+	ItemActionProps,
 } from "./item.props"
 
 import { toClassNames } from "../../utils"
@@ -103,7 +103,7 @@ export const ItemDescription = (props: ItemDescriptionProps) => {
 	)
 }
 
-export const ItemActions = (props: ItemActionsProps) => {
+export const ItemAction = (props: ItemActionProps) => {
 	const {
 		className,
 		children,
@@ -114,7 +114,7 @@ export const ItemActions = (props: ItemActionsProps) => {
 		<Render
 			{...restProps}
 			defaultTagName="div"
-			className={toClassNames("item__actions", className)}
+			className={toClassNames("item__action", className)}
 		>
 			{children}
 		</Render>

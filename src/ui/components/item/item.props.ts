@@ -5,11 +5,11 @@ type ItemMediaState = object
 type ItemContentState = object
 type ItemTitleState = object
 type ItemDescriptionState = object
-type ItemActionsState = object
+type ItemActionState = object
 
 export type ItemRootProps = BaseUIComponentProps<"div", ItemRootState>
 export type ItemMediaProps = BaseUIComponentProps<"span", ItemMediaState>
 export type ItemContentProps = BaseUIComponentProps<"div", ItemContentState>
 export type ItemTitleProps = BaseUIComponentProps<"h2", ItemTitleState>
 export type ItemDescriptionProps = BaseUIComponentProps<"p", ItemDescriptionState>
-export type ItemActionsProps = BaseUIComponentProps<"div", ItemActionsState>
+export type ItemActionProps = BaseUIComponentProps<"div", ItemActionState>

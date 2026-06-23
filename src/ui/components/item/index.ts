@@ -1,4 +1,4 @@
-import { ItemRoot, ItemMedia, ItemContent, ItemTitle, ItemDescription, ItemActions } from "./item"
+import { ItemRoot, ItemMedia, ItemContent, ItemTitle, ItemDescription, ItemAction } from "./item"
 
 export const Item = {
 	Root: ItemRoot,
@@ -6,5 +6,5 @@ export const Item = {
 	Content: ItemContent,
 	Title: ItemTitle,
 	Description: ItemDescription,
-	Actions: ItemActions,
+	Action: ItemAction,
 } as const

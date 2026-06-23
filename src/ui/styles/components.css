@@ -20,6 +20,7 @@
 @import "../components/field/field.styles.css";
 @import "../components/fieldset/fieldset.styles.css";
 @import "../components/form/form.styles.css";
+@import "../components/heading/heading.styles.css";
 @import "../components/input/input.styles.css";
 @import "../components/input-group/input-group.styles.css";
 @import "../components/item/item.styles.css";

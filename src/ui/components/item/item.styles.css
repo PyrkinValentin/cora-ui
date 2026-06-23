@@ -34,6 +34,6 @@
   }
 }
 
-.item__actions {
+.item__action {
   @apply shrink-0 self-center flex items-center gap-2;
 }
