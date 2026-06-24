@@ -1,0 +1,41 @@
+.table {
+  @apply w-full;
+}
+
+.table__caption {
+  @apply sr-only;
+}
+
+.table__header {
+  @apply border-b border-separator;
+}
+
+.table__body {
+  @apply divide-y divide-separator;
+
+  & .table__row {
+    &:hover,
+    &:active {
+      @apply bg-neutral-soft;
+    }
+  }
+}
+
+
+.table__head,
+.table__cell {
+  @apply relative px-4 py-2.5 text-left;
+}
+
+.table__head {
+  @apply text-xs font-medium text-muted;
+}
+
+.table__body .table__head,
+.table__cell {
+  @apply text-sm font-normal text-foreground;
+}
+
+.table__footer {
+  @apply border-t border-separator;
+}

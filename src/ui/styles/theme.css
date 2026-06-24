@@ -43,37 +43,37 @@
   --color-neutral: oklch(92% 0.001 286.375);
   --color-neutral-foreground: var(--color-foreground);
   --color-neutral-hover: color-mix(in oklab, var(--color-neutral) 96%, var(--color-neutral-foreground) 4%);
-  --color-neutral-soft: color-mix(in oklab, var(--color-neutral) 80%, transparent);
+  --color-neutral-soft: color-mix(in oklab, var(--color-neutral) 60%, transparent);
   --color-neutral-soft-foreground: var(--color-foreground);
-  --color-neutral-soft-hover: color-mix(in oklab, var(--color-neutral-soft) 80%, var(--color-neutral-foreground) 4%);
+  --color-neutral-soft-hover: color-mix(in oklab, var(--color-neutral) 70%, var(--color-neutral-foreground) 2%);
 
   --color-info: oklch(0.6204 0.195 253.83);
   --color-info-foreground: var(--color-snow);
   --color-info-hover: color-mix(in oklab, var(--color-info) 90%, var(--color-info-foreground) 10%);
   --color-info-soft: color-mix(in oklab, var(--color-info) 15%, transparent);
   --color-info-soft-foreground: var(--color-info);
-  --color-info-soft-hover: color-mix(in oklab, var(--color-info-soft) 90%, var(--color-info) 10%);
+  --color-info-soft-hover: color-mix(in oklab, var(--color-info) 20%, transparent);
 
   --color-success: oklch(0.7329 0.1935 150.81);
   --color-success-foreground: var(--color-eclipse);
   --color-success-hover: color-mix(in oklab, var(--color-success) 90%, var(--color-success-foreground) 10%);
   --color-success-soft: color-mix(in oklab, var(--color-success) 15%, transparent);
   --color-success-soft-foreground: var(--color-success);
-  --color-success-soft-hover: color-mix(in oklab, var(--color-success-soft) 90%, var(--color-success) 10%);
+  --color-success-soft-hover: color-mix(in oklab, var(--color-success) 20%, transparent);
 
   --color-warning: oklch(0.7819 0.1585 72.33);
   --color-warning-foreground: var(--color-eclipse);
   --color-warning-hover: color-mix(in oklab, var(--color-warning) 90%, var(--color-warning-foreground) 10%);
   --color-warning-soft: color-mix(in oklab, var(--color-warning) 15%, transparent);
   --color-warning-soft-foreground: var(--color-warning);
-  --color-warning-soft-hover: color-mix(in oklab, var(--color-warning-soft) 90%, var(--color-warning) 10%);
+  --color-warning-soft-hover: color-mix(in oklab, var(--color-warning) 20%, transparent);
 
   --color-error: oklch(0.6532 0.2328 25.74);
   --color-error-foreground: var(--color-snow);
   --color-error-hover: color-mix(in oklab, var(--color-error) 90%, var(--color-error-foreground) 10%);
   --color-error-soft: color-mix(in oklab, var(--color-error) 15%, transparent);
   --color-error-soft-foreground: var(--color-error);
-  --color-error-soft-hover: color-mix(in oklab, var(--color-error-soft) 90%, var(--color-error) 10%);
+  --color-error-soft-hover: color-mix(in oklab, var(--color-error) 20%, transparent);
 }
 
 @layer theme {
