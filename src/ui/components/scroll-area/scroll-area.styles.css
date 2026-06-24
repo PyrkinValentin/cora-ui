@@ -1,5 +1,5 @@
 .scroll-area {
-  @apply flex flex-col overflow-hidden transition motion-reduce:transition-none;
+  @apply w-full flex flex-col overflow-hidden transition motion-reduce:transition-none;
 
   &:has(.scroll-area__viewport:focus-visible) {
     @apply z-10 status-focus;
@@ -7,7 +7,7 @@
 }
 
 .scroll-area__viewport {
-  @apply h-full outline-none;
+  @apply size-full outline-none;
 
   &[data-scroll-fade] {
     mask-image: linear-gradient(
@@ -16,9 +16,16 @@
         black min(40px, var(--scroll-area-overflow-y-start)),
         black calc(100% - min(40px, var(--scroll-area-overflow-y-end, 40px))),
         transparent 100%
+    ),
+    linear-gradient(
+        to right,
+        transparent 0,
+        black min(40px, var(--scroll-area-overflow-x-start)),
+        black calc(100% - min(40px, var(--scroll-area-overflow-x-end, 40px))),
+        transparent 100%
     );
 
-    @apply mask-no-repeat;
+    @apply mask-intersect mask-no-repeat;
   }
 }
 

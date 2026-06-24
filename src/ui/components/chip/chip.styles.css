@@ -1,5 +1,5 @@
 .chip {
-  @apply px-2 py-0.5 w-fit shrink-0 inline-flex items-center gap-1.5 rounded-full text-xs font-medium;
+  @apply px-2 py-0.5 w-fit shrink-0 inline-flex items-center gap-1.5 rounded-full text-xs font-medium whitespace-nowrap;
 
   & > svg {
     @apply size-3.5 -mx-0.5;
