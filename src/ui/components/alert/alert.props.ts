@@ -1,11 +1,12 @@
-import type { ButtonProps } from "@base-ui/react/button"
+import type { ButtonProps, ButtonState } from "@base-ui/react/button"
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type AlertRootState = object
-type AlertIndicatorState = object
-type AlertContentState = object
-type AlertTitleState = object
-type AlertDescriptionState = object
+export type AlertRootState = object
+export type AlertIndicatorState = object
+export type AlertContentState = object
+export type AlertTitleState = object
+export type AlertDescriptionState = object
+export type AlertCloseState = ButtonState
 
 export type AlertRootProps = BaseUIComponentProps<"div", AlertRootState>
 

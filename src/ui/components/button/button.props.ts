@@ -1,5 +1,7 @@
 import type { ButtonProps as BaseButtonProps } from "@base-ui/react/button"
 
+export type { ButtonState } from "@base-ui/react/button"
+
 export type ButtonProps = BaseButtonProps & {
 	/**
 	 * If `true`, the component will be styled as a square or circle

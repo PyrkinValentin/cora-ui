@@ -1,14 +1,24 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type AccordionIconState = object
-type AccordionContentState = object
+export type AccordionIconState = object
+export type AccordionContentState = object
 
 export type {
 	AccordionRootProps,
+	AccordionRootState,
+	AccordionRootChangeEventReason,
+	AccordionRootChangeEventDetails,
 	AccordionItemProps,
+	AccordionItemState,
+	AccordionItemChangeEventReason,
+	AccordionItemChangeEventDetails,
 	AccordionHeaderProps,
+	AccordionHeaderState,
 	AccordionTriggerProps,
+	AccordionTriggerState,
 	AccordionPanelProps,
+	AccordionPanelState,
+	AccordionValue,
 } from "@base-ui/react/accordion"
 
 export type AccordionIconProps = BaseUIComponentProps<"span", AccordionIconState>

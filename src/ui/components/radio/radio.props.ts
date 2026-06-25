@@ -1,1 +1,6 @@
-export type { RadioRootProps, RadioIndicatorProps } from "@base-ui/react/radio"
+export type {
+	RadioRootProps,
+	RadioRootState,
+	RadioIndicatorProps,
+	RadioIndicatorState,
+} from "@base-ui/react/radio"

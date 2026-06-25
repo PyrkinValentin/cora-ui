@@ -1,7 +1,7 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type BadgeRootState = object
-type BadgeIndicatorState = {
+export type BadgeRootState = object
+export type BadgeIndicatorState = {
 	/**
 	 * If `true`, the component is hidden.
 	 */

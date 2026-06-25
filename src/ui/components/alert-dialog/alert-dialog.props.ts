@@ -6,16 +6,28 @@ import type {
 
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type AlertDialogIndicatorState = object
-type AlertDialogActionsState = object
+export type AlertDialogIndicatorState = object
+export type AlertDialogActionsState = object
 
 export type {
 	AlertDialogRootProps,
+	AlertDialogRootState,
+	AlertDialogRootActions,
+	AlertDialogRootChangeEventReason,
+	AlertDialogRootChangeEventDetails,
 	AlertDialogTriggerProps,
+	AlertDialogTriggerState,
 	AlertDialogPortalProps,
+	AlertDialogPortalState,
 	AlertDialogBackdropProps,
+	AlertDialogBackdropState,
+	AlertDialogViewportState,
+	AlertDialogPopupState,
 	AlertDialogTitleProps,
+	AlertDialogTitleState,
 	AlertDialogDescriptionProps,
+	AlertDialogDescriptionState,
+	AlertDialogCloseState,
 } from "@base-ui/react/alert-dialog"
 
 export type AlertDialogViewportProps = BaseAlertDialogViewportProps & {

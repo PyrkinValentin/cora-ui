@@ -1,1 +1,6 @@
-export type { RadioGroupProps } from "@base-ui/react/radio-group"
+export type {
+	RadioGroupProps,
+	RadioGroupState,
+	RadioGroupChangeEventReason,
+	RadioGroupChangeEventDetails,
+} from "@base-ui/react/radio-group"

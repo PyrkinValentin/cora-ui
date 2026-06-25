@@ -1,12 +1,12 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type BreadcrumbsRootState = object
-type BreadcrumbsListState = object
-type BreadcrumbsItemState = object
-type BreadcrumbsSeparatorState = object
-type BreadcrumbsLinkState = object
-type BreadcrumbsPageState = object
-type BreadcrumbsEllipsisState = object
+export type BreadcrumbsRootState = object
+export type BreadcrumbsListState = object
+export type BreadcrumbsItemState = object
+export type BreadcrumbsSeparatorState = object
+export type BreadcrumbsLinkState = object
+export type BreadcrumbsPageState = object
+export type BreadcrumbsEllipsisState = object
 
 export type BreadcrumbsRootProps = BaseUIComponentProps<"nav", BreadcrumbsRootState>
 export type BreadcrumbsListProps = BaseUIComponentProps<"ol", BreadcrumbsListState>

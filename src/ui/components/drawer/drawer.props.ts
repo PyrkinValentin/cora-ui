@@ -6,19 +6,34 @@ import type {
 
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type DrawerHandleState = object
-type DrawerActionsState = object
+export type DrawerHandleState = object
+export type DrawerActionsState = object
 
 export type {
 	DrawerRootProps,
+	DrawerRootState,
+	DrawerRootActions,
+	DrawerRootChangeEventReason,
+	DrawerRootChangeEventDetails,
+	DrawerRootSnapPointChangeEventReason,
+	DrawerRootSnapPointChangeEventDetails,
 	DrawerTriggerProps,
+	DrawerTriggerState,
 	DrawerSwipeAreaProps,
+	DrawerSwipeAreaState,
 	DrawerPortalProps,
+	DrawerPortalState,
 	DrawerBackdropProps,
+	DrawerBackdropState,
+	DrawerPopupState,
 	DrawerContentProps,
+	DrawerContentState,
 	DrawerTitleProps,
+	DrawerTitleState,
 	DrawerDescriptionProps,
+	DrawerDescriptionState,
 	DrawerVirtualKeyboardProviderProps,
+	DrawerCloseState,
 } from "@base-ui/react/drawer"
 
 export type DrawerViewportProps = BaseDrawerViewportProps & {

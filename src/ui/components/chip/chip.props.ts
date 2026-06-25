@@ -1,6 +1,6 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type ChipState = object
+export type ChipState = object
 
 export type ChipProps = BaseUIComponentProps<"span", ChipState> & {
 	/**

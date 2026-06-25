@@ -1,1 +1,1 @@
-export type { MenubarProps } from "@base-ui/react/menubar"
+export type { MenubarProps, MenubarState } from "@base-ui/react/menubar"

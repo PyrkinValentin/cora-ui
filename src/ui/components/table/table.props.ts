@@ -1,13 +1,13 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type TableRootState = object
-type TableCaptionState = object
-type TableHeaderState = object
-type TableBodyState = object
-type TableRowState = object
-type TableHeadState = object
-type TableCellState = object
-type TableFooterState = object
+export type TableRootState = object
+export type TableCaptionState = object
+export type TableHeaderState = object
+export type TableBodyState = object
+export type TableRowState = object
+export type TableHeadState = object
+export type TableCellState = object
+export type TableFooterState = object
 
 export type TableRootProps = BaseUIComponentProps<"table", TableRootState>
 export type TableCaptionProps = BaseUIComponentProps<"caption", TableCaptionState>

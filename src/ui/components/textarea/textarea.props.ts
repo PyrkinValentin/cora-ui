@@ -3,8 +3,9 @@ import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 import type { BaseUIChangeEventDetails } from "@base-ui/react/internals/createBaseUIEventDetails"
 import type { REASONS } from "../../constants"
 
-type TextareaState = InputState
-type TextareaChangeEventDetails = BaseUIChangeEventDetails<typeof REASONS.none>
+export type TextareaState = InputState
+export type TextareaChangeEventReason = typeof REASONS.none
+export type TextareaChangeEventDetails = BaseUIChangeEventDetails<TextareaChangeEventReason>
 
 export type TextareaProps = BaseUIComponentProps<"textarea", TextareaState> & Pick<InputProps, "defaultValue"> & {
 	/**

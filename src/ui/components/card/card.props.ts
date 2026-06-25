@@ -1,9 +1,9 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type CardRootState = object
-type CardContentState = object
-type CardTitleState = object
-type CardDescriptionState = object
+export type CardRootState = object
+export type CardContentState = object
+export type CardTitleState = object
+export type CardDescriptionState = object
 
 export type CardRootProps = BaseUIComponentProps<"div", CardRootState>
 export type CardContentProps = BaseUIComponentProps<"div", CardContentState>

@@ -1,5 +1,7 @@
 import type { ToggleProps as BaseToggleProps } from "@base-ui/react/toggle"
 
+export type { ToggleState, ToggleChangeEventReason, ToggleChangeEventDetails } from "@base-ui/react/toggle"
+
 export type ToggleProps<Value extends string> = BaseToggleProps<Value> & {
 	/**
 	 * If `true`, the component will be styled as a square or circle

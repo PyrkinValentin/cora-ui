@@ -1,7 +1,7 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 import type { ButtonProps } from "../button/button.props"
 
-type ButtonGroupState = object
+export type ButtonGroupState = object
 
 export type ButtonGroupProps =
 	BaseUIComponentProps<"div", ButtonGroupState>

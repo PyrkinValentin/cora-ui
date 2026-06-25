@@ -1,1 +1,6 @@
-export type { FieldsetRootProps, FieldsetLegendProps } from "@base-ui/react/fieldset"
+export type {
+	FieldsetRootProps,
+	FieldsetRootState,
+	FieldsetLegendProps,
+	FieldsetLegendState,
+} from "@base-ui/react/fieldset"

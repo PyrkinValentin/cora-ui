@@ -1,9 +1,9 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type EmptyRootState = object
-type EmptyIconState = object
-type EmptyTitleState = object
-type EmptyDescriptionState = object
+export type EmptyRootState = object
+export type EmptyIconState = object
+export type EmptyTitleState = object
+export type EmptyDescriptionState = object
 
 export type EmptyRootProps = BaseUIComponentProps<"div", EmptyRootState>
 export type EmptyIconProps = BaseUIComponentProps<"span", EmptyIconState>

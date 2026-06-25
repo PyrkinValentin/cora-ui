@@ -1,8 +1,17 @@
 export type {
 	ToolbarRootProps,
+	ToolbarRootState,
+	ToolbarRootOrientation,
+	ToolbarRootItemMetadata,
 	ToolbarButtonProps,
+	ToolbarButtonState,
 	ToolbarLinkProps,
+	ToolbarLinkState,
 	ToolbarInputProps,
+	ToolbarInputState,
 	ToolbarSeparatorProps,
+	ToolbarSeparatorState,
 	ToolbarGroupProps,
+	ToolbarGroupState,
+	Orientation,
 } from "@base-ui/react/toolbar"

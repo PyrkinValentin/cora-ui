@@ -1,7 +1,7 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 import type { AvatarRootProps } from "../avatar/avatar.props"
 
-type AvatarGroupState = object
+export type AvatarGroupState = object
 
 export type AvatarGroupProps =
 	BaseUIComponentProps<"div", AvatarGroupState>

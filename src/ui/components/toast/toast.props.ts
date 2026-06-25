@@ -7,18 +7,39 @@ import type {
 } from "@base-ui/react/toast"
 
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
+
 import type { ToastData, ToastOptions } from "./toast.types"
 
-type ToastIndicatorState = object
+export type {
+	ToastManager,
+	ToastManagerAddOptions,
+	ToastManagerUpdateOptions,
+	ToastManagerPromiseOptions,
+	UseToastManagerReturn,
+} from "./toast.types"
+
+export type ToastIndicatorState = object
 
 export type {
 	ToastProviderProps,
+	ToastProviderState,
+	ToastRootState,
 	ToastPortalProps,
+	ToastPortalState,
 	ToastPositionerProps,
+	ToastPositionerState,
+	ToastViewportState,
 	ToastArrowProps,
+	ToastArrowState,
 	ToastContentProps,
+	ToastContentState,
 	ToastTitleProps,
+	ToastTitleState,
 	ToastDescriptionProps,
+	ToastDescriptionState,
+	ToastActionState,
+	ToastCloseState,
+	ToastManagerEvent,
 } from "@base-ui/react/toast"
 
 export type ToastViewportProps = BaseToastViewportProps & {

@@ -2,10 +2,20 @@ import type { ScrollAreaViewportProps as BaseScrollAreaViewportProps } from "@ba
 
 export type {
 	ScrollAreaRootProps,
+	ScrollAreaRootState,
 	ScrollAreaContentProps,
+	ScrollAreaViewportState,
+	ScrollAreaContentState,
 	ScrollAreaScrollbarProps,
+	ScrollAreaScrollbarState,
 	ScrollAreaThumbProps,
+	ScrollAreaThumbState,
 	ScrollAreaCornerProps,
+	ScrollAreaCornerState,
+	Size,
+	Coords,
+	OverflowEdges,
+	HiddenState,
 } from "@base-ui/react/scroll-area"
 
 export type ScrollAreaViewportProps = BaseScrollAreaViewportProps & {

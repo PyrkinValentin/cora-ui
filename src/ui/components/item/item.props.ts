@@ -1,11 +1,11 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type ItemRootState = object
-type ItemMediaState = object
-type ItemContentState = object
-type ItemTitleState = object
-type ItemDescriptionState = object
-type ItemActionState = object
+export type ItemRootState = object
+export type ItemMediaState = object
+export type ItemContentState = object
+export type ItemTitleState = object
+export type ItemDescriptionState = object
+export type ItemActionState = object
 
 export type ItemRootProps = BaseUIComponentProps<"div", ItemRootState>
 export type ItemMediaProps = BaseUIComponentProps<"span", ItemMediaState>

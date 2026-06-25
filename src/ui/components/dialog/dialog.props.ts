@@ -6,15 +6,27 @@ import type {
 
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type DialogActionsState = object
+export type DialogActionsState = object
 
 export type {
 	DialogRootProps,
+	DialogRootState,
+	DialogRootActions,
+	DialogRootChangeEventReason,
+	DialogRootChangeEventDetails,
 	DialogTriggerProps,
+	DialogTriggerState,
 	DialogPortalProps,
+	DialogPortalState,
 	DialogBackdropProps,
+	DialogBackdropState,
+	DialogViewportState,
+	DialogPopupState,
 	DialogTitleProps,
+	DialogTitleState,
 	DialogDescriptionProps,
+	DialogDescriptionState,
+	DialogCloseState,
 } from "@base-ui/react/dialog"
 
 export type DialogViewportProps = BaseDialogViewportProps & {

@@ -3,12 +3,12 @@ import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 import type { BaseUIChangeEventDetails } from "@base-ui/react"
 import type { REASONS } from "../../constants"
 
-type PaginationRootState = { page: number }
-type PaginationListState = object
-type PaginationItemState = object
-type PaginationEllipsisState = object
+export type PaginationRootState = { page: number }
+export type PaginationListState = object
+export type PaginationItemState = object
+export type PaginationEllipsisState = object
 
-type PaginationRootChangeEventReason =
+export type PaginationRootChangeEventReason =
 	| typeof REASONS.prevPress
 	| typeof REASONS.nextPress
 	| typeof REASONS.pagePress

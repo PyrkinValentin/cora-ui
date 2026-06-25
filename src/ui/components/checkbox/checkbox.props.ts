@@ -1,1 +1,8 @@
-export type { CheckboxRootProps, CheckboxIndicatorProps } from "@base-ui/react/checkbox"
+export type {
+	CheckboxRootProps,
+	CheckboxRootState,
+	CheckboxRootChangeEventReason,
+	CheckboxRootChangeEventDetails,
+	CheckboxIndicatorProps,
+	CheckboxIndicatorState,
+} from "@base-ui/react/checkbox"

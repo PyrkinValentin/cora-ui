@@ -1,6 +1,6 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-type SpinnerState = object
+export type SpinnerState = object
 
 export type SpinnerProps = BaseUIComponentProps<"span", SpinnerState> & {
 	/**

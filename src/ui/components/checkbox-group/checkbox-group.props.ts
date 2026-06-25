@@ -1,1 +1,6 @@
-export type { CheckboxGroupProps } from "@base-ui/react/checkbox-group"
+export type {
+	CheckboxGroupProps,
+	CheckboxGroupState,
+	CheckboxGroupChangeEventReason,
+	CheckboxGroupChangeEventDetails
+} from "@base-ui/react/checkbox-group"
