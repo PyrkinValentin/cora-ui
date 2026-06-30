@@ -3,10 +3,8 @@
 }
 
 .collapsible__trigger {
-  --collapsible-trigger-transition: border-radius, box-shadow, background-color, opacity;
-
   @apply relative px-4 py-3 w-full flex items-center gap-2 rounded-lg text-left text-sm font-medium
-  transition-(--collapsible-trigger-transition) motion-reduce:transition-none;
+  transition-[border-radius, box-shadow, background-color, opacity] motion-reduce:transition-none;
 
   &[data-panel-open] {
     & .collapsible__icon {

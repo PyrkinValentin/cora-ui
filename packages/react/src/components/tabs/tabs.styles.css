@@ -61,10 +61,7 @@
 }
 
 .tabs__indicator {
-  --tabs-indicator-transition: translate, width;
-
-  @apply absolute h-9 rounded-md bg-neutral ease-in-out transition-(--tabs-indicator-transition)
-  motion-reduce:transition-none;
+  @apply absolute h-9 rounded-md bg-neutral ease-in-out transition-[translate,width] motion-reduce:transition-none;
 
   &[data-orientation="horizontal"] {
     @apply top-1/2 left-0 -translate-y-1/2 w-(--active-tab-width) translate-x-(--active-tab-left);

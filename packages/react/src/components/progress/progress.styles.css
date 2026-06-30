@@ -20,10 +20,7 @@
 }
 
 .progress__indicator {
-  --progress-indicator-transition: width, background-color;
-
-  @apply h-full rounded-sm bg-info transition-(--progress-indicator-transition) duration-350
-  motion-reduce:transition-none;
+  @apply h-full rounded-sm bg-info transition-[width,background-color] duration-350 motion-reduce:transition-none;
 
   &[data-indeterminate] {
     @apply w-1/2 animate-slide-out motion-reduce:animate-none;

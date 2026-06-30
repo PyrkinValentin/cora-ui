@@ -1,6 +1,6 @@
 {
 	"name": "@cora-ui/react",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"author": "Cora",
 	"description": "Next-generation, high-performance React 19 UI component kit built on Base UI and Tailwind CSS v4 with native accessibility and zero runtime overhead.",
 	"license": "MIT",
@@ -49,8 +49,8 @@
 		"build"
 	],
 	"scripts": {
-		"build": "tsup",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"build": "tsup && node scripts/fix-spaces.js"
 	},
 	"peerDependencies": {
 		"react": ">=19.0.0",

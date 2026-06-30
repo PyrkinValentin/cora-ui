@@ -13,7 +13,7 @@
 		"preinstall": "npx only-allow npm",
 		"build": "npm run build --workspaces --if-present",
 		"version:bump": "npm version patch && npm version patch --workspaces --no-git-tag-version",
-		"release": "npm run version:bump && npm publish --workspace=@cora-ui/react && git push origin main --tags"
+		"release": "npm run build && npm run version:bump && npm publish --workspace=@cora-ui/react && git push origin main --tags"
 	},
 	"packageManager": "npm@11.8.0",
 	"engines": {

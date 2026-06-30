@@ -8,9 +8,7 @@
 
 .preview-card__positioner {
   &:has(.preview-card__viewport) {
-    --preview-card-positioner-transition: top, left, right, bottom, transform;
-
-    @apply w-(--positioner-width) h-(--positioner-height) transition-(--preview-card-positioner-transition) duration-350
+    @apply w-(--positioner-width) h-(--positioner-height) transition-[top,left,right,bottom,transform] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
   }
 }
@@ -30,16 +28,11 @@
   }
 
   &:has(.preview-card__viewport) {
-    --preview-card-popup-transition: width, height, opacity, scale;
-
-    @apply w-(--popup-width) h-(--popup-height) transition-(--preview-card-popup-transition) duration-350
+    @apply w-(--popup-width) h-(--popup-height) transition-[width,height,opacity,scale] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)];
 
     & .preview-card__arrow {
-      --preview-card-arrow-transition: left, right;
-
-      @apply transition-(--preview-card-arrow-transition) duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]
-      motion-reduce:transition-none;
+      @apply transition-[left,right] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
     }
   }
 }
@@ -53,9 +46,7 @@
 
   [data-previous],
   [data-current] {
-    --preview-card-viewport-transition: translate, opacity;
-
-    @apply w-(--popup-width) translate-x-0 opacity-100 transition-(--preview-card-viewport-transition) duration-350
+    @apply w-(--popup-width) translate-x-0 opacity-100 transition-[translate,opacity] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
   }
 

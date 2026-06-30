@@ -21,9 +21,7 @@
 
 .menu__positioner {
   &:has(.menu__viewport) {
-    --menu-positioner-transition: top, left, right, bottom, transform;
-
-    @apply w-(--positioner-width) h-(--positioner-height) transition-(--menu-positioner-transition) duration-350
+    @apply w-(--positioner-width) h-(--positioner-height) transition-[top, left, right, bottom, transform] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
     &[data-instant] {
@@ -46,9 +44,7 @@
   }
 
   &:has(.menu__viewport) {
-    --menu-popup-transition: width, height, opacity, scale;
-
-    @apply w-(--popup-width) h-(--popup-height) transition-(--menu-popup-transition) duration-350
+    @apply w-(--popup-width) h-(--popup-height) transition-[width, height, opacity, scale] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)];
   }
 
@@ -66,9 +62,7 @@
 
   [data-previous],
   [data-current] {
-    --menu-viewport-transition: translate, opacity;
-
-    @apply w-(--popup-width) translate-x-0 opacity-100 transition-(--menu-viewport-transition) duration-350
+    @apply w-(--popup-width) translate-x-0 opacity-100 transition-[translate, opacity] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
     [data-instant] & {

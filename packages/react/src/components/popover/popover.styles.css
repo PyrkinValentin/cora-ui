@@ -21,9 +21,7 @@
 
 .popover__positioner {
   &:has(.popover__viewport) {
-    --popover-positioner-transition: top, left, right, bottom, transform;
-
-    @apply w-(--positioner-width) h-(--positioner-height) transition-(--popover-positioner-transition) duration-350
+    @apply w-(--positioner-width) h-(--positioner-height) transition-[top,left,right,bottom,transform] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
     &[data-instant] {
@@ -46,15 +44,11 @@
   }
 
   &:has(.popover__viewport) {
-    --popover-popup-transition: width, height, opacity, transform;
-
-    @apply w-(--popup-width) h-(--popup-height) transition-(--popover-popup-transition) duration-350
+    @apply w-(--popup-width) h-(--popup-height) transition-[width,height,opacity,transform] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)];
 
     & .popover__arrow {
-      --popover-arrow-transition: left, right;
-
-      @apply transition-(--popover-arrow-transition) duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
+      @apply transition-[left,right] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
       &[data-instant] {
         @apply transition-none;
@@ -76,9 +70,7 @@
 
   [data-previous],
   [data-current] {
-    --popover-viewport-transition: translate, opacity;
-
-    @apply w-(--popup-width) translate-x-0 opacity-100 transition-(--popover-viewport-transition) duration-350
+    @apply w-(--popup-width) translate-x-0 opacity-100 transition-[translate,opacity] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
     [data-instant] & {
