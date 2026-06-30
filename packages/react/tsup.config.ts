@@ -8,6 +8,7 @@ export default defineConfig({
 	splitting: false,
 	minify: false,
 	outDir: "build",
+	skipNodeModulesBundle: true,
 	tsconfig: "tsconfig.json",
 	banner: {
 		js: '"use client";',
@@ -15,7 +16,8 @@ export default defineConfig({
 	external: [
 		"react",
 		"react-dom",
+		"react/jsx-runtime",
 		"@base-ui/react",
-		"lucide-react"
+		"tailwindcss"
 	]
 });
