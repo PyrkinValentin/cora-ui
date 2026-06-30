@@ -1,27 +1,20 @@
 import { defineConfig } from "tsup"
 
-const external = [
-	"react",
-	"react-dom",
-	"@base-ui/react",
-	"lucide-react",
-]
-
-// Client bundle — components and hooks rely on React state/effects and must carry the
-// "use client" boundary. esbuild strips source-level directives during bundling, so we
-// re-add it via the banner. This config runs first and owns `clean` for the build dir.
+// Unbundled build: each source file is compiled in place, preserving the module structure
+// and — crucially — each file's own "use client" directive. This keeps client components
+// client-scoped while leaving pure helpers (e.g. Avatar.getInitials) server-callable.
 export default defineConfig({
-	entry: {
-		"index": "src/index.ts",
-		"hooks/index": "src/hooks/index.ts",
-	},
+	entry: ["src/**/*.ts", "src/**/*.tsx"],
 	format: ["esm"],
-	dts: true,
+	bundle: false,
+	dts: false,
 	clean: true,
 	outDir: "build",
 	tsconfig: "tsconfig.json",
-	banner: {
-		js: '"use client";',
-	},
-	external,
+	external: [
+		"react",
+		"react-dom",
+		"@base-ui/react",
+		"lucide-react",
+	],
 })

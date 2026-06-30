@@ -1,6 +1,6 @@
 {
 	"name": "@cora-ui/react",
-	"version": "1.0.9",
+	"version": "1.1.0",
 	"author": "Cora",
 	"description": "Next-generation, high-performance React 19 UI component kit built on Base UI and Tailwind CSS v4 with native accessibility and zero runtime overhead.",
 	"license": "MIT",
@@ -51,13 +51,18 @@
 			"types": "./build/utils/index.d.ts"
 		},
 		"./styles": "./build/styles/styles.css",
+		"./styles/base": "./build/styles/base.css",
+		"./theme": "./build/theme.css",
+		"./*/styles": "./build/components/*/styles.css",
 		"./package.json": "./package.json"
 	},
 	"files": [
 		"build"
 	],
 	"scripts": {
-		"build": "tsup && tsup --config tsup.utils.config.ts && tailwindcss -i src/styles/styles.css -o build/styles/styles.css --minify",
+		"build": "tsup && tsc -p tsconfig.build.json && tailwindcss -i src/styles/styles.css -o build/styles/styles.css --minify && tailwindcss -i src/styles/base.css -o build/styles/base.css --minify && node scripts/build-component-css.mjs && node scripts/postbuild.mjs",
+		"test": "vitest run",
+		"lint": "eslint src",
 		"prepublishOnly": "npm run build"
 	},
 	"peerDependencies": {
@@ -69,12 +74,17 @@
 		"lucide-react": "^1.22.0"
 	},
 	"devDependencies": {
+		"@eslint/js": ">=9.0.0",
 		"@tailwindcss/cli": ">=4.0.0",
 		"@types/react": ">=19.0.0",
 		"@types/react-dom": ">=19.0.0",
+		"eslint": ">=9.0.0",
+		"eslint-plugin-react-hooks": ">=7.0.0",
 		"tailwindcss": ">=4.0.0",
 		"tsup": ">=8.0.0",
-		"typescript": ">=6.0.0"
+		"typescript": ">=6.0.0",
+		"typescript-eslint": ">=8.0.0",
+		"vitest": ">=3.0.0"
 	},
 	"sideEffects": false,
 	"publishConfig": {

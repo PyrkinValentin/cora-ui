@@ -1,0 +1,15 @@
+/* Preflight-less entry: same component styles + tokens as styles.css, but WITHOUT Tailwind's
+   Preflight reset. For consumers that already run Tailwind (or their own reset) and just want
+   the cora component CSS + design tokens without a second global reset.
+   Exposed as `@cora-ui/react/styles/base`. */
+
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@import "./resets.css";
+@import "./animations.css";
+@import "./utils.css";
+@import "./theme.css";
+@import "./components.css" layer(components);

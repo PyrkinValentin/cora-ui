@@ -3,14 +3,26 @@
 	"version": "1.0.9",
 	"private": true,
 	"workspaces": [
-		"packages/*"
+		"packages/*",
+		"apps/*"
 	],
 	"overrides": {
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
 	},
 	"scripts": {
-		"preinstall": "npx only-allow npm"
+		"preinstall": "npx only-allow npm",
+		"build:lib": "npm run build -w @cora-ui/react",
+		"build": "npm run build:lib && npm run build -w @cora-ui/web",
+		"dev": "npm run build:lib && npm run dev -w @cora-ui/web",
+		"test": "npm test --workspaces --if-present",
+		"lint": "npm run lint --workspaces --if-present",
+		"changeset": "changeset",
+		"version-packages": "changeset version",
+		"release": "npm run build:lib && changeset publish"
+	},
+	"devDependencies": {
+		"@changesets/cli": ">=2.27.0"
 	},
 	"packageManager": "npm@11.8.0",
 	"engines": {

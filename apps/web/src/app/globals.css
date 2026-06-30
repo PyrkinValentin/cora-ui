@@ -1,0 +1,11 @@
+/* App-level Tailwind: scans this app's markup to generate the utility classes used in
+   pages (layout helpers like `flex`/`p-4`, plus token utilities like `text-muted`). */
+@import "tailwindcss";
+
+/* Register @cora-ui/react design tokens with this app's Tailwind so token-based utilities
+   (text-muted, bg-info, …) and the `dark` variant resolve in app markup. */
+@import "@cora-ui/react/theme";
+
+/* Component styles for the library components — preflight-less variant, since this app
+   already pulls Tailwind's Preflight via `@import "tailwindcss"` above (avoids a double reset). */
+@import "@cora-ui/react/styles/base";

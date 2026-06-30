@@ -1,6 +1,11 @@
 # dependencies
 /node_modules
 packages/*/node_modules/
+apps/*/node_modules/
+
+# next.js (apps)
+.next/
+next-env.d.ts
 
 # misc
 .DS_Store
