@@ -1,6 +1,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+@theme static {
   --radius-xs: 0.375rem;
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
