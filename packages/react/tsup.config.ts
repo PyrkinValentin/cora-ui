@@ -5,6 +5,8 @@ export default defineConfig({
 	format: ["esm"],
 	dts: true,
 	clean: true,
+	splitting: false,
+	minify: false,
 	outDir: "build",
 	tsconfig: "tsconfig.json",
 	banner: {
