@@ -1,6 +1,6 @@
 {
 	"name": "@cora-ui/monorepo",
-	"version": "1.0.25",
+	"version": "1.0.26",
 	"private": true,
 	"workspaces": [
 		"packages/*"
@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"build": "npm run build --workspaces --if-present",
-		"version:bump": "npm version patch --workspaces --include-workspace-root",
+		"version:bump": "npm version patch --workspaces --include-workspace-root --no-git-tag-version",
 		"release": "npm run version:bump && npm publish --workspace=@cora-ui/react && git push origin main --follow-tags"
 	},
 	"engines": {
