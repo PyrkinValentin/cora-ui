@@ -1,20 +1,14 @@
 import { defineConfig } from "tsup"
 import { copy } from "esbuild-plugin-copy"
-import { postBuild } from "./scripts/post-build.js"
 
 export default defineConfig({
 	clean: true,
-	bundle: true,
+	bundle: false,
 	dts: true,
-	splitting: false,
 	tsconfig: "tsconfig.json",
 	outDir: "build",
 	format: ["esm"],
-	entry: {
-		index: "src/index.ts",
-		hooks: "src/hooks/index.ts",
-		utils: "src/utils/index.ts",
-	},
+	entry: ["src/**/*.ts", "src/**/*.tsx"],
 	external: [
 		"react",
 		"react-dom",
@@ -22,7 +16,6 @@ export default defineConfig({
 		"tailwindcss",
 		"@base-ui/react",
 	],
-	onSuccess: () => postBuild(),
 	esbuildPlugins: [
 		copy({
 			assets: {
