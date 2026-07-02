@@ -1,8 +1,3 @@
-import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
-
-export type AccordionIconState = object
-export type AccordionContentState = object
-
 export type {
 	AccordionRootProps,
 	AccordionRootState,
@@ -21,5 +16,12 @@ export type {
 	AccordionValue,
 } from "@base-ui/react/accordion"
 
+import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
+
+export type AccordionIconState = object
+
 export type AccordionIconProps = BaseUIComponentProps<"span", AccordionIconState>
+
+export type AccordionContentState = object
+
 export type AccordionContentProps = BaseUIComponentProps<"div", AccordionContentState>

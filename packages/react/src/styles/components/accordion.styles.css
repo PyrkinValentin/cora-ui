@@ -4,7 +4,7 @@
 
 .accordion__trigger {
   @apply relative px-4 py-3 w-full flex items-center gap-2 text-left text-sm font-medium
-  transition-[border-radius, box-shadow, background-color, opacity] motion-reduce:transition-none;
+  transition-[border-radius,box-shadow,background-color,opacity] motion-reduce:transition-none;
 
   .accordion__item:first-child & {
     @apply rounded-t-lg;

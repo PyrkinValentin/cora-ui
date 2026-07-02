@@ -1,9 +1,4 @@
 export type {
-	SeparatorProps as AutocompleteSeparatorProps,
-	SeparatorState as AutocompleteSeparatorState,
-} from "@base-ui/react/separator"
-
-export type {
 	AutocompleteRootProps,
 	AutocompleteRootState,
 	AutocompleteRootActions,
@@ -52,3 +47,8 @@ export type {
 	AutocompleteFilter,
 	AutocompleteFilterOptions,
 } from "@base-ui/react/autocomplete"
+
+export type {
+	SeparatorProps as AutocompleteSeparatorProps,
+	SeparatorState as AutocompleteSeparatorState,
+} from "@base-ui/react/separator"

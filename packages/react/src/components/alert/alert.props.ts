@@ -2,13 +2,10 @@ import type { ButtonProps, ButtonState } from "@base-ui/react/button"
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
 export type AlertRootState = object
-export type AlertIndicatorState = object
-export type AlertContentState = object
-export type AlertTitleState = object
-export type AlertDescriptionState = object
-export type AlertCloseState = ButtonState
 
 export type AlertRootProps = BaseUIComponentProps<"div", AlertRootState>
+
+export type AlertIndicatorState = object
 
 export type AlertIndicatorProps = BaseUIComponentProps<"span", AlertIndicatorState> & {
 	/**
@@ -18,9 +15,19 @@ export type AlertIndicatorProps = BaseUIComponentProps<"span", AlertIndicatorSta
 	status?: "neutral" | "info" | "success" | "warning" | "error"
 }
 
+export type AlertContentState = object
+
 export type AlertContentProps = BaseUIComponentProps<"div", AlertContentState>
+
+export type AlertTitleState = object
+
 export type AlertTitleProps = BaseUIComponentProps<"h2", AlertTitleState>
+
+export type AlertDescriptionState = object
+
 export type AlertDescriptionProps = BaseUIComponentProps<"p", AlertDescriptionState>
+
+export type AlertCloseState = ButtonState
 
 export type AlertCloseProps = ButtonProps & {
 	/**

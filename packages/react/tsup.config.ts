@@ -1,23 +1,28 @@
 import { defineConfig } from "tsup"
+import { copy } from "esbuild-plugin-copy"
+import { postBuild } from "./scripts/post-build.js"
 
 export default defineConfig({
-	entry: ["src/index.ts", "src/hooks/index.ts", "src/utils/index.ts", "src/styles/styles.css"],
-	format: ["esm"],
-	dts: true,
 	clean: true,
-	splitting: false,
-	minify: false,
-	outDir: "build",
+	bundle: true,
+	dts: true,
+	splitting: true,
 	skipNodeModulesBundle: true,
 	tsconfig: "tsconfig.json",
-	banner: {
-		js: '"use client";',
+	outDir: "build",
+	format: ["esm"],
+	entry: {
+		index: "src/index.ts",
+		hooks: "src/hooks/index.ts",
+		utils: "src/utils/index.ts",
 	},
-	external: [
-		"react",
-		"react-dom",
-		"react/jsx-runtime",
-		"@base-ui/react",
-		"tailwindcss"
-	]
-});
+	onSuccess: () => postBuild(),
+	esbuildPlugins: [
+		copy({
+			assets: {
+				from: ["./src/styles/**/*.css"],
+				to: ["./styles"],
+			},
+		}) as any,
+	],
+})

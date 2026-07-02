@@ -1,5 +1,5 @@
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
-import type { ButtonProps } from "../button/button.props"
+import type { ButtonProps } from "../button"
 
 export type ButtonGroupState = object
 

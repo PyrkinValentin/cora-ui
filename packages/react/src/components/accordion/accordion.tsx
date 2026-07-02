@@ -4,8 +4,8 @@ import type {
 	AccordionRootProps,
 	AccordionItemProps,
 	AccordionHeaderProps,
-	AccordionIconProps,
 	AccordionTriggerProps,
+	AccordionIconProps,
 	AccordionPanelProps,
 	AccordionContentProps,
 } from "./accordion.props"

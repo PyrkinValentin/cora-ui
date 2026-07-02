@@ -20,5 +20,5 @@
 }
 
 .meter__indicator {
-  @apply h-full rounded-sm bg-info transition-[width, background-color] duration-350 motion-reduce:transition-none;
+  @apply h-full rounded-sm bg-info transition-[width,background-color] duration-350 motion-reduce:transition-none;
 }
