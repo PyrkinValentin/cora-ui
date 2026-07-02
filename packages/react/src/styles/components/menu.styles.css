@@ -21,7 +21,7 @@
 
 .menu__positioner {
   &:has(.menu__viewport) {
-    @apply w-(--positioner-width) h-(--positioner-height) transition-[top,left,right,bottom,transform] duration-350
+    @apply w-(--positioner-width) h-(--positioner-height) transition-[top, left, right, bottom, transform] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
     &[data-instant] {
@@ -44,7 +44,7 @@
   }
 
   &:has(.menu__viewport) {
-    @apply w-(--popup-width) h-(--popup-height) transition-[width,height,opacity,scale] duration-350
+    @apply w-(--popup-width) h-(--popup-height) transition-[width, height, opacity, scale] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)];
   }
 
@@ -62,7 +62,7 @@
 
   [data-previous],
   [data-current] {
-    @apply w-(--popup-width) translate-x-0 opacity-100 transition-[translate,opacity] duration-350
+    @apply w-(--popup-width) translate-x-0 opacity-100 transition-[translate, opacity] duration-350
     ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
     [data-instant] & {

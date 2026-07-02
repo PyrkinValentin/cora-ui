@@ -55,7 +55,7 @@
 }
 
 .navigation-menu__content {
-  @apply transition-[opacity,transform,translate] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)];
+  @apply transition-[opacity, transform, translate] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)];
 
   & .navigation-menu__trigger,
   & .navigation-menu__link {
@@ -103,7 +103,7 @@
 
 .navigation-menu__positioner {
   @apply w-(--positioner-width) max-w-(--available-width) h-(--positioner-height)
-  transition-[top,left,right,bottom] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)];
+  transition-[top, left, right, bottom] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)];
 
   &[data-instant] {
     @apply transition-none;
@@ -112,7 +112,7 @@
 
 .navigation-menu__popup {
   @apply relative p-1 w-(--popup-width) h-(--popup-height) flex flex-col rounded-lg shadow-lg border border-border
-  bg-overlay origin-(--transform-origin) transition-[opacity,transform,width,height,scale] duration-350
+  bg-overlay origin-(--transform-origin) transition-[opacity, transform, width, height, scale] duration-350
   ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none;
 
   &:focus-visible {
@@ -130,7 +130,7 @@
 }
 
 .navigation-menu__arrow {
-  @apply floating-arrow transition-[left,right] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]
+  @apply floating-arrow transition-[left, right] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]
   motion-reduce:transition-none;
 }
 
