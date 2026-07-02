@@ -1,6 +1,6 @@
 {
 	"name": "@cora-ui/monorepo",
-	"version": "1.1.3",
+	"version": "1.1.4",
 	"private": true,
 	"workspaces": [
 		"packages/*"
@@ -20,8 +20,8 @@
 	},
 	"scripts": {
 		"build": "npm run build --workspaces --if-present",
-		"version:bump": "npm version patch --workspaces --include-workspace-root --no-git-tag-version",
-		"release": "npm run build && npm run version:bump && git add . && git commit -m \"chore(release): bump version\" && npm publish --workspace=@cora-ui/react && git push origin main && git push origin --tags"
+		"release:version": "npm version patch --workspaces --include-workspace-root --no-git-tag-version",
+		"release": "npm run build && npm run release:version && git add . && git commit -m \"chore(release): bump version to $(node -e 'console.log(require('./package.json').version)')\" && git tag v$(node -e \"console.log(require('./package.json').version)\") && npm publish --workspace=@cora-ui/react && git push origin main && git push origin --tags"
 	},
 	"engines": {
 		"node": ">=22.0.0"
