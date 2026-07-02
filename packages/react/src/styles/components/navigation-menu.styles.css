@@ -103,7 +103,7 @@
 
 .navigation-menu__positioner {
   @apply w-(--positioner-width) max-w-(--available-width) h-(--positioner-height)
-  transition-[top, left, right, bottom] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)];
+  transition-[top,left,right,bottom] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)];
 
   &[data-instant] {
     @apply transition-none;
