@@ -5,6 +5,7 @@ import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import copy from "rollup-plugin-copy"
+import glob from "fast-glob"
 
 const require = createRequire(import.meta.url)
 const pkg = require("./package.json")
@@ -50,11 +51,19 @@ function preserveUseClient() {
 	}
 }
 
+const componentInputs = Object.fromEntries(
+	glob.sync("src/components/*/index.ts").map((file) => [
+		path.relative("src", file.slice(0, file.length - path.extname(file).length)),
+		file,
+	])
+)
+
 export default {
 	input: {
 		index: "src/index.ts",
 		"hooks/index": "src/hooks/index.ts",
 		"utils/index": "src/utils/index.ts",
+		...componentInputs,
 	},
 	external: (id) => {
 		if (
