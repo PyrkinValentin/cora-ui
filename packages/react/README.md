@@ -29,9 +29,13 @@ setups onto your application.
 
 ## Ecosystem Distribution
 
-| Node Target      | Operational Purpose                                               |
-|:-----------------|:------------------------------------------------------------------|
-| `@cora-ui/react` | Complete component catalog containing primitive and layout nodes. |
+| Package                 | Description                                                                                              |
+|:------------------------|:---------------------------------------------------------------------------------------------------------|
+| `@cora-ui/react`        | Core component library containing primitive and layout nodes.                                            |
+| `@cora-ui/react/styles` | Global design system styles, themes, and design tokens.                                                  |
+| `@cora-ui/react/hooks`  | Reusable React hooks for state management and UI interactions.                                           |
+| `@cora-ui/react/utils`  | Internal utility methods and helper functions for data and styles.                                       |
+| Individual packages     | e.g. `@cora-ui/react/button` — tree-shakeable by default, just like named imports from `@cora-ui/react`. |
 
 ---
 
