@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
 		"target": "ES2022",
-		"ignoreDeprecations": "6.0",
 		"lib": [
 			"dom",
 			"dom.iterable",
@@ -10,9 +9,12 @@
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"noEmit": true,
+		"noEmit": false,
 		"declaration": true,
-		"emitDeclarationOnly": true,
+		"declarationMap": false,
+		"emitDeclarationOnly": false,
+		"outDir": "./build",
+		"rootDir": "./src",
 		"esModuleInterop": true,
 		"module": "esnext",
 		"moduleResolution": "bundler",
@@ -23,9 +25,7 @@
 	},
 	"include": [
 		"src/**/*.ts",
-		"src/**/*.tsx",
-		"index.ts",
-		"tsup.config.ts"
+		"src/**/*.tsx"
 	],
 	"exclude": [
 		"node_modules",

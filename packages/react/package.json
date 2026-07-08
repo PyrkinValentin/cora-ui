@@ -1,6 +1,6 @@
 {
 	"name": "@cora-ui/react",
-	"version": "1.1.8",
+	"version": "1.1.9",
 	"author": "Cora",
 	"description": "Next-generation, high-performance React 19 UI component kit built on Base UI and Tailwind CSS v4 with native accessibility and zero runtime overhead.",
 	"license": "MIT",
@@ -39,16 +39,17 @@
 	"types": "./build/index.d.ts",
 	"exports": {
 		".": {
+			"types": "./build/index.d.ts",
 			"import": "./build/index.js",
-			"types": "./build/index.d.ts"
+			"default": "./build/index.js"
 		},
 		"./hooks": {
-			"import": "./build/hooks/index.js",
-			"types": "./build/hooks/index.d.ts"
+			"types": "./build/hooks/index.d.ts",
+			"import": "./build/hooks/index.js"
 		},
 		"./utils": {
-			"import": "./build/utils/index.js",
-			"types": "./build/utils/index.d.ts"
+			"types": "./build/utils/index.d.ts",
+			"import": "./build/utils/index.js"
 		},
 		"./styles": "./build/styles/styles.css"
 	},
@@ -56,7 +57,8 @@
 		"build"
 	],
 	"scripts": {
-		"build": "tsup"
+		"clean": "rimraf build",
+		"build": "npm run clean && rollup -c"
 	},
 	"peerDependencies": {
 		"react": "^19.0.0",
