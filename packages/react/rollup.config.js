@@ -23,9 +23,11 @@ function preserveUseClient() {
 	return {
 		name: "preserve-use-client",
 		transform(code, id) {
+			const codeTrimmed = code.trim()
+
 			if (
-				code.trim().startsWith('"use client"') ||
-				code.trim().startsWith("'use client'")
+				codeTrimmed.startsWith('"use client"') ||
+				codeTrimmed.startsWith("'use client'")
 			) {
 				filesWithUseClient.add(id)
 			}
@@ -56,6 +58,14 @@ export default {
 	},
 	external: (id) => {
 		if (
+			id.endsWith(".css") ||
+			id === "react" ||
+			id.startsWith("react/")
+		) {
+			return true
+		}
+
+		if (
 			id === "src/index.ts" ||
 			id.startsWith(".") ||
 			id.startsWith("/") ||
@@ -63,10 +73,6 @@ export default {
 			id.includes("build/")
 		) {
 			return false
-		}
-
-		if (id.endsWith(".css")) {
-			return true
 		}
 
 		return externalDependencies.some((dep) => id === dep || id.startsWith(`${dep}/`))
@@ -107,8 +113,11 @@ export default {
 		copy({
 			targets: [
 				{
-					src: "src/styles",
+					src: "src/**/*.css",
 					dest: "build",
+					rename: (name, extension, fullPath) => {
+						return path.relative(path.resolve(__dirname, "src"), fullPath)
+					},
 				},
 			],
 			hook: "writeBundle",
