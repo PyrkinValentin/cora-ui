@@ -4,11 +4,14 @@
 
 ## Core Philosophy
 
-Cora-UI eliminates the overhead of traditional design systems. By building directly on top of [**Base UI
-**](https://base-ui.com/) unstyled component primitives and marrying them with **React Aria's** strict accessibility
+Cora-UI eliminates the overhead of traditional design systems. By building directly on top
+of **[Base UI](https://base-ui.com/)** unstyled component primitives and marrying them with **React Aria's** strict
+accessibility
 requirements, Cora-UI delivers polished, atomic, and composable UI patterns. Powered by the compilation engine of *
 *Tailwind CSS v4**, it provides an elite developer experience without forcing a heavyweight runtime or complex provider
 setups onto your application.
+
+---
 
 ### Key Highlights
 
@@ -27,7 +30,7 @@ setups onto your application.
 
 ---
 
-## Ecosystem Distribution
+## Packages
 
 | Package                 | Description                                                                                              |
 |:------------------------|:---------------------------------------------------------------------------------------------------------|
@@ -36,8 +39,6 @@ setups onto your application.
 | `@cora-ui/react/hooks`  | Reusable React hooks for state management and UI interactions.                                           |
 | `@cora-ui/react/utils`  | Internal utility methods and helper functions for data and styles.                                       |
 | Individual packages     | e.g. `@cora-ui/react/button` — tree-shakeable by default, just like named imports from `@cora-ui/react`. |
-
----
 
 ## Quick Start
 
