@@ -7,8 +7,8 @@
 Cora-UI eliminates the overhead of traditional design systems. By building directly on top
 of **[Base UI](https://base-ui.com/)** unstyled component primitives and marrying them with **React Aria's** strict
 accessibility
-requirements, Cora-UI delivers polished, atomic, and composable UI patterns. Powered by the compilation engine of *
-*Tailwind CSS v4**, it provides an elite developer experience without forcing a heavyweight runtime or complex provider
+requirements, Cora-UI delivers polished, atomic, and composable UI patterns. Powered by the compilation engine of
+**Tailwind CSS v4**, it provides an elite developer experience without forcing a heavyweight runtime or complex provider
 setups onto your application.
 
 ---
