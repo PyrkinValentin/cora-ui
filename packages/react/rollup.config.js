@@ -1,21 +1,14 @@
-import { createRequire } from "module"
-import { fileURLToPath } from "url"
 import path from "path"
 import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import copy from "rollup-plugin-copy"
 import glob from "fast-glob"
-
-const require = createRequire(import.meta.url)
-const pkg = require("./package.json")
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import pkg from "./package.json" with { type: "json" }
 
 const externalDependencies = [
-	...Object.keys(pkg.dependencies || {}),
 	...Object.keys(pkg.peerDependencies || {}),
+	...Object.keys(pkg.dependencies || {}),
 ]
 
 function preserveUseClient() {
@@ -52,10 +45,12 @@ function preserveUseClient() {
 }
 
 const componentInputs = Object.fromEntries(
-	glob.sync("src/components/*/index.ts").map((file) => [
-		path.relative("src", file.slice(0, file.length - path.extname(file).length)),
-		file,
-	])
+	glob
+		.sync("src/components/*/index.ts")
+		.map((file) => [
+			path.relative("src", file.slice(0, file.length - path.extname(file).length)),
+			file,
+		])
 )
 
 export default {
@@ -113,9 +108,9 @@ export default {
 			tsconfig: "./tsconfig.json",
 			declaration: true,
 			rootDir: "src",
-			declarationDir: path.resolve(__dirname, "build"),
+			declarationDir: "build",
 			compilerOptions: {
-				outDir: path.resolve(__dirname, "build"),
+				outDir: "build",
 				declarationMap: false,
 			},
 		}),
@@ -125,7 +120,7 @@ export default {
 					src: "src/**/*.css",
 					dest: "build",
 					rename: (name, extension, fullPath) => {
-						return path.relative(path.resolve(__dirname, "src"), fullPath)
+						return path.relative("src", fullPath)
 					},
 				},
 			],

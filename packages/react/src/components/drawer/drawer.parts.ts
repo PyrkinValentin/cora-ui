@@ -8,7 +8,7 @@ export {
 	DrawerBackdrop as Backdrop,
 	DrawerViewport as Viewport,
 	DrawerPopup as Popup,
-	DrawerHandle as Handler,
+	DrawerHandle as Handle,
 	DrawerContent as Content,
 	DrawerTitle as Title,
 	DrawerDescription as Description,
