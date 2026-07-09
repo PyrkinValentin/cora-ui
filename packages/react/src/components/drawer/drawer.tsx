@@ -168,7 +168,6 @@ export const DrawerPopup = (props: DrawerPopupProps) => {
 	const { position } = useDrawerViewportContext()
 
 	const {
-		swipeIgnore,
 		size = "sm",
 		className,
 		children,
@@ -178,7 +177,7 @@ export const DrawerPopup = (props: DrawerPopupProps) => {
 	return (
 		<Drawer.Popup
 			{...restProps}
-			{...toDataAttrs({ position, size, baseUiSwipeIgnore: swipeIgnore })}
+			{...toDataAttrs({ position, size })}
 			className={toClassNames("drawer__popup", className)}
 		>
 			{children}
@@ -215,6 +214,7 @@ export const DrawerHandle = (props: DrawerHandleProps) => {
  */
 export const DrawerContent = (props: DrawerContentProps) => {
 	const {
+		swipeIgnore,
 		className,
 		children,
 		...restProps
@@ -223,6 +223,7 @@ export const DrawerContent = (props: DrawerContentProps) => {
 	return (
 		<Drawer.Content
 			{...restProps}
+			{...toDataAttrs({ baseUiSwipeIgnore: swipeIgnore })}
 			className={toClassNames("drawer__content", className)}
 		>
 			{children}

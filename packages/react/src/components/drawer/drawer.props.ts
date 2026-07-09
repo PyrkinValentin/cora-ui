@@ -1,6 +1,7 @@
 import type {
 	DrawerViewportProps as BaseDrawerViewportProps,
 	DrawerPopupProps as BaseDrawerPopupProps,
+	DrawerContentProps as BaseDrawerContentProps,
 	DrawerCloseProps as BaseDrawerCloseProps,
 } from "@base-ui/react/drawer"
 
@@ -26,7 +27,6 @@ export type {
 	DrawerBackdropProps,
 	DrawerBackdropState,
 	DrawerPopupState,
-	DrawerContentProps,
 	DrawerContentState,
 	DrawerTitleProps,
 	DrawerTitleState,
@@ -46,10 +46,6 @@ export type DrawerViewportProps = BaseDrawerViewportProps & {
 
 export type DrawerPopupProps = BaseDrawerPopupProps & {
 	/**
-	 * Disables swipe-to-close behavior for specific descendant elements.
-	 */
-	swipeIgnore?: boolean
-	/**
 	 * The size of the component.
 	 * @note Only applies when `position` is `"left"` or `"right"`.
 	 * @default "sm"
@@ -58,6 +54,14 @@ export type DrawerPopupProps = BaseDrawerPopupProps & {
 }
 
 export type DrawerHandleProps = BaseUIComponentProps<"span", DrawerHandleState>
+
+export type DrawerContentProps = BaseDrawerContentProps & {
+	/**
+	 * Disables swipe-to-close behavior for specific descendant elements.
+	 */
+	swipeIgnore?: boolean
+}
+
 export type DrawerActionsProps = BaseUIComponentProps<"div", DrawerActionsState>
 
 export type DrawerCloseProps = BaseDrawerCloseProps & {
