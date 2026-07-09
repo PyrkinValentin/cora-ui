@@ -83,7 +83,7 @@
     --shrink: calc(1 - var(--scale));
     --height: max(0px, calc(var(--drawer-frontmost-height, var(--drawer-height)) - var(--bleed)));
 
-    @apply h-(--drawer-height) items-center transition-[transform,height,opacity];
+    @apply h-(--drawer-height) items-center transition-[transform,height,opacity,box-shadow];
 
     & .drawer__title,
     & .drawer__description {
