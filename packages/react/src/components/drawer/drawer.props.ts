@@ -46,6 +46,10 @@ export type DrawerViewportProps = BaseDrawerViewportProps & {
 
 export type DrawerPopupProps = BaseDrawerPopupProps & {
 	/**
+	 * Disables swipe-to-close behavior for specific descendant elements.
+	 */
+	swipeIgnore?: boolean
+	/**
 	 * The size of the component.
 	 * @note Only applies when `position` is `"left"` or `"right"`.
 	 * @default "sm"
