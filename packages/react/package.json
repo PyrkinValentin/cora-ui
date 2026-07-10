@@ -1,6 +1,6 @@
 {
   "name": "@cora-ui/react",
-  "version": "1.1.23",
+  "version": "1.1.24",
   "description": "Next-generation, high-performance React 19 UI component kit built on Base UI and Tailwind CSS v4 with native accessibility and zero runtime overhead.",
   "author": "Cora",
   "homepage": "https://cora-ui.com",
@@ -181,6 +181,11 @@
       "types": "./build/components/item/index.d.ts",
       "import": "./build/components/item/index.js",
       "default": "./build/components/item/index.js"
+    },
+    "./link": {
+      "types": "./build/components/link/index.d.ts",
+      "import": "./build/components/link/index.js",
+      "default": "./build/components/link/index.js"
     },
     "./menu": {
       "types": "./build/components/menu/index.d.ts",

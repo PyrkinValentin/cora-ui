@@ -1,0 +1,26 @@
+.link {
+  @apply relative inline-flex items-center gap-1 text-info whitespace-nowrap transition
+  motion-reduce:transition-none;
+
+  & > svg {
+    @apply size-4.5;
+  }
+
+  &:after {
+    @apply content-[""] absolute left-0 -bottom-0.5 h-px w-full bg-info-hover scale-x-0 origin-center
+    transition-transform motion-reduce:transition-none;
+  }
+
+  &:hover,
+  &:active {
+    @apply text-info-hover;
+
+    &:after {
+      @apply scale-x-100;
+    }
+  }
+
+  &:focus-visible {
+    @apply z-10 status-focus;
+  }
+}
