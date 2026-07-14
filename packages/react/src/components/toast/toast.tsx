@@ -129,12 +129,6 @@ export const ToastRoot = <Data extends ToastData>(props: ToastRootProps<Data>) =
 	const status = toast.type === "success" || toast.type === "error"
 		? toast.type
 		: toast.status ?? "neutral"
-	
-	const updateAnimation = toast.updateKey
-		? toast.updateKey % 2 === 0
-			? "animate-jelly"
-			: "animate-jelly-odd"
-		: undefined
 
 	const contextValue = useMemo<ToastRootContextValue>(() => ({
 		type: toast.type,
@@ -147,7 +141,18 @@ export const ToastRoot = <Data extends ToastData>(props: ToastRootProps<Data>) =
 			<Toast.Root
 				{...restProps}
 				toast={toast}
-				className={toClassNames(["toast", updateAnimation], className)}
+				className={
+					toClassNames([
+							"toast",
+							toast.updateKey
+								? toast.updateKey % 2 === 0
+									? "animate-jelly"
+									: "animate-jelly-odd"
+								: undefined
+						],
+						className
+					)
+				}
 			>
 				{children}
 			</Toast.Root>
