@@ -53,11 +53,3 @@
 @import "../components/toggle-group/toggle-group.styles.css";
 @import "../components/toolbar/toolbar.styles.css";
 @import "../components/tooltip/tooltip.styles.css";
-
-.animate-jelly {
-  animation: jelly 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
-
-.animate-jelly-odd {
-  animation: jelly-odd 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-}
