@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: 'https://npmjs.org'
 
       - name: Install dependencies
         run: npm ci
@@ -26,5 +26,7 @@ jobs:
       - name: Configure NPM Authentication
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - name: Publish child packages to NPM
-        run: npm publish --workspaces --access public --if-present
+      - name: Publish React Package
+        run: |
+          cd packages/react
+          npm publish --access public
