@@ -1,3 +1,4 @@
+@import "tailwindcss" theme(reference);
 @import "./resets.css";
 @import "./animations.css";
 @import "./utils.css";
