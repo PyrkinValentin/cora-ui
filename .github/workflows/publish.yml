@@ -25,4 +25,4 @@ jobs:
       - name: Publish React Package
         run: |
           cd packages/react
-          npm publish --access public --token ${{ secrets.NPM_TOKEN }}
+          npm publish --access public --//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
