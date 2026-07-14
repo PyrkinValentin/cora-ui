@@ -26,8 +26,7 @@
 	},
 	"scripts": {
 		"build": "npm run build --workspaces --if-present",
-		"release:version": "npm version patch --workspaces --include-workspace-root --no-git-tag-version --allow-same-version",
-		"release": "npm run release:version && npm run build && git add . && git commit -m \"chore(release): bump version\" && node -e \"console.log(process.platform === 'win32' ? 'cmd /c' : ''); const v = require('./package.json').version; require('child_process').execSync('git tag v' + v)\" && git push origin main --tags && npm publish --workspaces --if-present"
+		"release:version": "npm version patch --workspaces --include-workspace-root --allow-same-version"
 	},
 	"engines": {
 		"node": ">=22.0.0"
