@@ -129,7 +129,7 @@ export const ToastRoot = <Data extends ToastData>(props: ToastRootProps<Data>) =
 	const status = toast.type === "success" || toast.type === "error"
 		? toast.type
 		: toast.status ?? "neutral"
-
+	
 	const updateAnimation = toast.updateKey
 		? toast.updateKey % 2 === 0
 			? "animate-jelly"
