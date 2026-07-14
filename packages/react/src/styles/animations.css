@@ -1,4 +1,4 @@
-@theme {
+@theme inline {
   --animate-jelly: jelly 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
   --animate-jelly-odd: jelly-odd 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
   --animate-slide-out: slide-out 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;

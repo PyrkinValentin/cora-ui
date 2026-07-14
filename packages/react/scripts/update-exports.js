@@ -29,15 +29,16 @@ pkg.exports = {
 		"import": "./build/utils/index.js"
 	},
 	"./styles": "./build/styles/styles.css"
-};
+}
 
 components.forEach(comp => {
 	pkg.exports[`./${comp}`] = {
 		"types": `./build/components/${comp}/index.d.ts`,
 		"import": `./build/components/${comp}/index.js`,
-		"default": `./build/components/${comp}/index.js`
+		"default": `./build/components/${comp}/index.js`,
 	}
 })
 
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n")
+
 console.log('✅ package.json exports updated successfully!')
