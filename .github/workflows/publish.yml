@@ -7,6 +7,10 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,7 +26,7 @@ jobs:
       - name: Build all workspaces
         run: npm run build
 
-      - name: Publish React Package
+      - name: Publish React Package with Provenance
         run: |
           cd packages/react
-          npm publish --access public --//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+          npm publish --access public --//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} --provenance
