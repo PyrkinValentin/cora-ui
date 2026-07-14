@@ -1,4 +1,4 @@
-name: Publish to NPM
+name: Publish Workspaces to NPM
 
 on:
   release:
@@ -14,16 +14,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: 'https://npmjs.org'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
+      - name: Build all workspaces
         run: npm run build
 
-      - name: Publish Package
-        run: npm publish --access public
+      - name: Publish child packages to NPM
+        run: npm publish --workspaces --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
