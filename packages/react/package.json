@@ -1,353 +1,354 @@
 {
-  "name": "@cora-ui/react",
-  "version": "1.1.39",
-  "description": "Next-generation, high-performance React 19 UI component kit built on Base UI and Tailwind CSS v4 with native accessibility and zero runtime overhead.",
-  "author": "Cora",
-  "homepage": "https://cora-ui.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PyrkinValentin/cora-ui.git"
-  },
-  "bugs": {
-    "url": "https://github.com/PyrkinValentin/cora-ui/issues"
-  },
-  "type": "module",
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "react19",
-    "nextjs",
-    "cora-ui",
-    "coraui",
-    "base-ui",
-    "tailwind",
-    "tailwindcss",
-    "tailwind-v4",
-    "ui-kit",
-    "design-system",
-    "components",
-    "react-components",
-    "headless-ui",
-    "accessibility",
-    "a11y",
-    "wai-aria",
-    "wcag",
-    "mcp-server",
-    "high-performance"
-  ],
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./build/index.d.ts",
-      "import": "./build/index.js",
-      "default": "./build/index.js"
-    },
-    "./hooks": {
-      "types": "./build/hooks/index.d.ts",
-      "import": "./build/hooks/index.js"
-    },
-    "./utils": {
-      "types": "./build/utils/index.d.ts",
-      "import": "./build/utils/index.js"
-    },
-    "./styles": "./build/styles/styles.css",
-    "./accordion": {
-      "types": "./build/components/accordion/index.d.ts",
-      "import": "./build/components/accordion/index.js",
-      "default": "./build/components/accordion/index.js"
-    },
-    "./alert": {
-      "types": "./build/components/alert/index.d.ts",
-      "import": "./build/components/alert/index.js",
-      "default": "./build/components/alert/index.js"
-    },
-    "./alert-dialog": {
-      "types": "./build/components/alert-dialog/index.d.ts",
-      "import": "./build/components/alert-dialog/index.js",
-      "default": "./build/components/alert-dialog/index.js"
-    },
-    "./autocomplete": {
-      "types": "./build/components/autocomplete/index.d.ts",
-      "import": "./build/components/autocomplete/index.js",
-      "default": "./build/components/autocomplete/index.js"
-    },
-    "./avatar": {
-      "types": "./build/components/avatar/index.d.ts",
-      "import": "./build/components/avatar/index.js",
-      "default": "./build/components/avatar/index.js"
-    },
-    "./avatar-group": {
-      "types": "./build/components/avatar-group/index.d.ts",
-      "import": "./build/components/avatar-group/index.js",
-      "default": "./build/components/avatar-group/index.js"
-    },
-    "./badge": {
-      "types": "./build/components/badge/index.d.ts",
-      "import": "./build/components/badge/index.js",
-      "default": "./build/components/badge/index.js"
-    },
-    "./breadcrumbs": {
-      "types": "./build/components/breadcrumbs/index.d.ts",
-      "import": "./build/components/breadcrumbs/index.js",
-      "default": "./build/components/breadcrumbs/index.js"
-    },
-    "./button": {
-      "types": "./build/components/button/index.d.ts",
-      "import": "./build/components/button/index.js",
-      "default": "./build/components/button/index.js"
-    },
-    "./button-group": {
-      "types": "./build/components/button-group/index.d.ts",
-      "import": "./build/components/button-group/index.js",
-      "default": "./build/components/button-group/index.js"
-    },
-    "./card": {
-      "types": "./build/components/card/index.d.ts",
-      "import": "./build/components/card/index.js",
-      "default": "./build/components/card/index.js"
-    },
-    "./checkbox": {
-      "types": "./build/components/checkbox/index.d.ts",
-      "import": "./build/components/checkbox/index.js",
-      "default": "./build/components/checkbox/index.js"
-    },
-    "./checkbox-group": {
-      "types": "./build/components/checkbox-group/index.d.ts",
-      "import": "./build/components/checkbox-group/index.js",
-      "default": "./build/components/checkbox-group/index.js"
-    },
-    "./chip": {
-      "types": "./build/components/chip/index.d.ts",
-      "import": "./build/components/chip/index.js",
-      "default": "./build/components/chip/index.js"
-    },
-    "./collapsible": {
-      "types": "./build/components/collapsible/index.d.ts",
-      "import": "./build/components/collapsible/index.js",
-      "default": "./build/components/collapsible/index.js"
-    },
-    "./combobox": {
-      "types": "./build/components/combobox/index.d.ts",
-      "import": "./build/components/combobox/index.js",
-      "default": "./build/components/combobox/index.js"
-    },
-    "./context-menu": {
-      "types": "./build/components/context-menu/index.d.ts",
-      "import": "./build/components/context-menu/index.js",
-      "default": "./build/components/context-menu/index.js"
-    },
-    "./dialog": {
-      "types": "./build/components/dialog/index.d.ts",
-      "import": "./build/components/dialog/index.js",
-      "default": "./build/components/dialog/index.js"
-    },
-    "./drawer": {
-      "types": "./build/components/drawer/index.d.ts",
-      "import": "./build/components/drawer/index.js",
-      "default": "./build/components/drawer/index.js"
-    },
-    "./empty": {
-      "types": "./build/components/empty/index.d.ts",
-      "import": "./build/components/empty/index.js",
-      "default": "./build/components/empty/index.js"
-    },
-    "./field": {
-      "types": "./build/components/field/index.d.ts",
-      "import": "./build/components/field/index.js",
-      "default": "./build/components/field/index.js"
-    },
-    "./fieldset": {
-      "types": "./build/components/fieldset/index.d.ts",
-      "import": "./build/components/fieldset/index.js",
-      "default": "./build/components/fieldset/index.js"
-    },
-    "./form": {
-      "types": "./build/components/form/index.d.ts",
-      "import": "./build/components/form/index.js",
-      "default": "./build/components/form/index.js"
-    },
-    "./input": {
-      "types": "./build/components/input/index.d.ts",
-      "import": "./build/components/input/index.js",
-      "default": "./build/components/input/index.js"
-    },
-    "./input-group": {
-      "types": "./build/components/input-group/index.d.ts",
-      "import": "./build/components/input-group/index.js",
-      "default": "./build/components/input-group/index.js"
-    },
-    "./item": {
-      "types": "./build/components/item/index.d.ts",
-      "import": "./build/components/item/index.js",
-      "default": "./build/components/item/index.js"
-    },
-    "./link": {
-      "types": "./build/components/link/index.d.ts",
-      "import": "./build/components/link/index.js",
-      "default": "./build/components/link/index.js"
-    },
-    "./menu": {
-      "types": "./build/components/menu/index.d.ts",
-      "import": "./build/components/menu/index.js",
-      "default": "./build/components/menu/index.js"
-    },
-    "./menubar": {
-      "types": "./build/components/menubar/index.d.ts",
-      "import": "./build/components/menubar/index.js",
-      "default": "./build/components/menubar/index.js"
-    },
-    "./meter": {
-      "types": "./build/components/meter/index.d.ts",
-      "import": "./build/components/meter/index.js",
-      "default": "./build/components/meter/index.js"
-    },
-    "./navigation-menu": {
-      "types": "./build/components/navigation-menu/index.d.ts",
-      "import": "./build/components/navigation-menu/index.js",
-      "default": "./build/components/navigation-menu/index.js"
-    },
-    "./number-field": {
-      "types": "./build/components/number-field/index.d.ts",
-      "import": "./build/components/number-field/index.js",
-      "default": "./build/components/number-field/index.js"
-    },
-    "./otp-field": {
-      "types": "./build/components/otp-field/index.d.ts",
-      "import": "./build/components/otp-field/index.js",
-      "default": "./build/components/otp-field/index.js"
-    },
-    "./pagination": {
-      "types": "./build/components/pagination/index.d.ts",
-      "import": "./build/components/pagination/index.js",
-      "default": "./build/components/pagination/index.js"
-    },
-    "./popover": {
-      "types": "./build/components/popover/index.d.ts",
-      "import": "./build/components/popover/index.js",
-      "default": "./build/components/popover/index.js"
-    },
-    "./preview-card": {
-      "types": "./build/components/preview-card/index.d.ts",
-      "import": "./build/components/preview-card/index.js",
-      "default": "./build/components/preview-card/index.js"
-    },
-    "./progress": {
-      "types": "./build/components/progress/index.d.ts",
-      "import": "./build/components/progress/index.js",
-      "default": "./build/components/progress/index.js"
-    },
-    "./radio": {
-      "types": "./build/components/radio/index.d.ts",
-      "import": "./build/components/radio/index.js",
-      "default": "./build/components/radio/index.js"
-    },
-    "./radio-group": {
-      "types": "./build/components/radio-group/index.d.ts",
-      "import": "./build/components/radio-group/index.js",
-      "default": "./build/components/radio-group/index.js"
-    },
-    "./scroll-area": {
-      "types": "./build/components/scroll-area/index.d.ts",
-      "import": "./build/components/scroll-area/index.js",
-      "default": "./build/components/scroll-area/index.js"
-    },
-    "./select": {
-      "types": "./build/components/select/index.d.ts",
-      "import": "./build/components/select/index.js",
-      "default": "./build/components/select/index.js"
-    },
-    "./separator": {
-      "types": "./build/components/separator/index.d.ts",
-      "import": "./build/components/separator/index.js",
-      "default": "./build/components/separator/index.js"
-    },
-    "./skeleton": {
-      "types": "./build/components/skeleton/index.d.ts",
-      "import": "./build/components/skeleton/index.js",
-      "default": "./build/components/skeleton/index.js"
-    },
-    "./slider": {
-      "types": "./build/components/slider/index.d.ts",
-      "import": "./build/components/slider/index.js",
-      "default": "./build/components/slider/index.js"
-    },
-    "./spinner": {
-      "types": "./build/components/spinner/index.d.ts",
-      "import": "./build/components/spinner/index.js",
-      "default": "./build/components/spinner/index.js"
-    },
-    "./switch": {
-      "types": "./build/components/switch/index.d.ts",
-      "import": "./build/components/switch/index.js",
-      "default": "./build/components/switch/index.js"
-    },
-    "./table": {
-      "types": "./build/components/table/index.d.ts",
-      "import": "./build/components/table/index.js",
-      "default": "./build/components/table/index.js"
-    },
-    "./tabs": {
-      "types": "./build/components/tabs/index.d.ts",
-      "import": "./build/components/tabs/index.js",
-      "default": "./build/components/tabs/index.js"
-    },
-    "./textarea": {
-      "types": "./build/components/textarea/index.d.ts",
-      "import": "./build/components/textarea/index.js",
-      "default": "./build/components/textarea/index.js"
-    },
-    "./textarea-group": {
-      "types": "./build/components/textarea-group/index.d.ts",
-      "import": "./build/components/textarea-group/index.js",
-      "default": "./build/components/textarea-group/index.js"
-    },
-    "./toast": {
-      "types": "./build/components/toast/index.d.ts",
-      "import": "./build/components/toast/index.js",
-      "default": "./build/components/toast/index.js"
-    },
-    "./toggle": {
-      "types": "./build/components/toggle/index.d.ts",
-      "import": "./build/components/toggle/index.js",
-      "default": "./build/components/toggle/index.js"
-    },
-    "./toggle-group": {
-      "types": "./build/components/toggle-group/index.d.ts",
-      "import": "./build/components/toggle-group/index.js",
-      "default": "./build/components/toggle-group/index.js"
-    },
-    "./toolbar": {
-      "types": "./build/components/toolbar/index.d.ts",
-      "import": "./build/components/toolbar/index.js",
-      "default": "./build/components/toolbar/index.js"
-    },
-    "./tooltip": {
-      "types": "./build/components/tooltip/index.d.ts",
-      "import": "./build/components/tooltip/index.js",
-      "default": "./build/components/tooltip/index.js"
-    }
-  },
-  "files": [
-    "build"
-  ],
-  "scripts": {
-    "clean": "rimraf build",
-    "build": "npm run clean && rollup -c && node scripts/update-exports.js"
-  },
-  "peerDependencies": {
-    "react": "^19",
-    "react-dom": "^19",
-    "tailwindcss": "^4"
-  },
-  "dependencies": {
-    "@base-ui/react": "^1.6.0"
-  },
-  "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=22.0.0"
-  }
+	"name": "@cora-ui/react",
+	"version": "1.1.39",
+	"description": "Next-generation, high-performance React 19 UI component kit built on Base UI and Tailwind CSS v4 with native accessibility and zero runtime overhead.",
+	"author": "Cora",
+	"homepage": "https://cora-ui.com",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PyrkinValentin/cora-ui.git"
+	},
+	"bugs": {
+		"url": "https://github.com/PyrkinValentin/cora-ui/issues"
+	},
+	"type": "module",
+	"license": "MIT",
+	"keywords": [
+		"react",
+		"react19",
+		"nextjs",
+		"cora-ui",
+		"coraui",
+		"base-ui",
+		"tailwind",
+		"tailwindcss",
+		"tailwind-v4",
+		"ui-kit",
+		"design-system",
+		"components",
+		"react-components",
+		"headless-ui",
+		"accessibility",
+		"a11y",
+		"wai-aria",
+		"wcag",
+		"mcp-server",
+		"high-performance"
+	],
+	"main": "./build/index.js",
+	"types": "./build/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./build/index.d.ts",
+			"import": "./build/index.js",
+			"default": "./build/index.js"
+		},
+		"./hooks": {
+			"types": "./build/hooks/index.d.ts",
+			"import": "./build/hooks/index.js"
+		},
+		"./utils": {
+			"types": "./build/utils/index.d.ts",
+			"import": "./build/utils/index.js"
+		},
+		"./styles": "./build/styles/styles.css",
+		"./accordion": {
+			"types": "./build/components/accordion/index.d.ts",
+			"import": "./build/components/accordion/index.js",
+			"default": "./build/components/accordion/index.js"
+		},
+		"./alert": {
+			"types": "./build/components/alert/index.d.ts",
+			"import": "./build/components/alert/index.js",
+			"default": "./build/components/alert/index.js"
+		},
+		"./alert-dialog": {
+			"types": "./build/components/alert-dialog/index.d.ts",
+			"import": "./build/components/alert-dialog/index.js",
+			"default": "./build/components/alert-dialog/index.js"
+		},
+		"./autocomplete": {
+			"types": "./build/components/autocomplete/index.d.ts",
+			"import": "./build/components/autocomplete/index.js",
+			"default": "./build/components/autocomplete/index.js"
+		},
+		"./avatar": {
+			"types": "./build/components/avatar/index.d.ts",
+			"import": "./build/components/avatar/index.js",
+			"default": "./build/components/avatar/index.js"
+		},
+		"./avatar-group": {
+			"types": "./build/components/avatar-group/index.d.ts",
+			"import": "./build/components/avatar-group/index.js",
+			"default": "./build/components/avatar-group/index.js"
+		},
+		"./badge": {
+			"types": "./build/components/badge/index.d.ts",
+			"import": "./build/components/badge/index.js",
+			"default": "./build/components/badge/index.js"
+		},
+		"./breadcrumbs": {
+			"types": "./build/components/breadcrumbs/index.d.ts",
+			"import": "./build/components/breadcrumbs/index.js",
+			"default": "./build/components/breadcrumbs/index.js"
+		},
+		"./button": {
+			"types": "./build/components/button/index.d.ts",
+			"import": "./build/components/button/index.js",
+			"default": "./build/components/button/index.js"
+		},
+		"./button-group": {
+			"types": "./build/components/button-group/index.d.ts",
+			"import": "./build/components/button-group/index.js",
+			"default": "./build/components/button-group/index.js"
+		},
+		"./card": {
+			"types": "./build/components/card/index.d.ts",
+			"import": "./build/components/card/index.js",
+			"default": "./build/components/card/index.js"
+		},
+		"./checkbox": {
+			"types": "./build/components/checkbox/index.d.ts",
+			"import": "./build/components/checkbox/index.js",
+			"default": "./build/components/checkbox/index.js"
+		},
+		"./checkbox-group": {
+			"types": "./build/components/checkbox-group/index.d.ts",
+			"import": "./build/components/checkbox-group/index.js",
+			"default": "./build/components/checkbox-group/index.js"
+		},
+		"./chip": {
+			"types": "./build/components/chip/index.d.ts",
+			"import": "./build/components/chip/index.js",
+			"default": "./build/components/chip/index.js"
+		},
+		"./collapsible": {
+			"types": "./build/components/collapsible/index.d.ts",
+			"import": "./build/components/collapsible/index.js",
+			"default": "./build/components/collapsible/index.js"
+		},
+		"./combobox": {
+			"types": "./build/components/combobox/index.d.ts",
+			"import": "./build/components/combobox/index.js",
+			"default": "./build/components/combobox/index.js"
+		},
+		"./context-menu": {
+			"types": "./build/components/context-menu/index.d.ts",
+			"import": "./build/components/context-menu/index.js",
+			"default": "./build/components/context-menu/index.js"
+		},
+		"./dialog": {
+			"types": "./build/components/dialog/index.d.ts",
+			"import": "./build/components/dialog/index.js",
+			"default": "./build/components/dialog/index.js"
+		},
+		"./drawer": {
+			"types": "./build/components/drawer/index.d.ts",
+			"import": "./build/components/drawer/index.js",
+			"default": "./build/components/drawer/index.js"
+		},
+		"./empty": {
+			"types": "./build/components/empty/index.d.ts",
+			"import": "./build/components/empty/index.js",
+			"default": "./build/components/empty/index.js"
+		},
+		"./field": {
+			"types": "./build/components/field/index.d.ts",
+			"import": "./build/components/field/index.js",
+			"default": "./build/components/field/index.js"
+		},
+		"./fieldset": {
+			"types": "./build/components/fieldset/index.d.ts",
+			"import": "./build/components/fieldset/index.js",
+			"default": "./build/components/fieldset/index.js"
+		},
+		"./form": {
+			"types": "./build/components/form/index.d.ts",
+			"import": "./build/components/form/index.js",
+			"default": "./build/components/form/index.js"
+		},
+		"./input": {
+			"types": "./build/components/input/index.d.ts",
+			"import": "./build/components/input/index.js",
+			"default": "./build/components/input/index.js"
+		},
+		"./input-group": {
+			"types": "./build/components/input-group/index.d.ts",
+			"import": "./build/components/input-group/index.js",
+			"default": "./build/components/input-group/index.js"
+		},
+		"./item": {
+			"types": "./build/components/item/index.d.ts",
+			"import": "./build/components/item/index.js",
+			"default": "./build/components/item/index.js"
+		},
+		"./link": {
+			"types": "./build/components/link/index.d.ts",
+			"import": "./build/components/link/index.js",
+			"default": "./build/components/link/index.js"
+		},
+		"./menu": {
+			"types": "./build/components/menu/index.d.ts",
+			"import": "./build/components/menu/index.js",
+			"default": "./build/components/menu/index.js"
+		},
+		"./menubar": {
+			"types": "./build/components/menubar/index.d.ts",
+			"import": "./build/components/menubar/index.js",
+			"default": "./build/components/menubar/index.js"
+		},
+		"./meter": {
+			"types": "./build/components/meter/index.d.ts",
+			"import": "./build/components/meter/index.js",
+			"default": "./build/components/meter/index.js"
+		},
+		"./navigation-menu": {
+			"types": "./build/components/navigation-menu/index.d.ts",
+			"import": "./build/components/navigation-menu/index.js",
+			"default": "./build/components/navigation-menu/index.js"
+		},
+		"./number-field": {
+			"types": "./build/components/number-field/index.d.ts",
+			"import": "./build/components/number-field/index.js",
+			"default": "./build/components/number-field/index.js"
+		},
+		"./otp-field": {
+			"types": "./build/components/otp-field/index.d.ts",
+			"import": "./build/components/otp-field/index.js",
+			"default": "./build/components/otp-field/index.js"
+		},
+		"./pagination": {
+			"types": "./build/components/pagination/index.d.ts",
+			"import": "./build/components/pagination/index.js",
+			"default": "./build/components/pagination/index.js"
+		},
+		"./popover": {
+			"types": "./build/components/popover/index.d.ts",
+			"import": "./build/components/popover/index.js",
+			"default": "./build/components/popover/index.js"
+		},
+		"./preview-card": {
+			"types": "./build/components/preview-card/index.d.ts",
+			"import": "./build/components/preview-card/index.js",
+			"default": "./build/components/preview-card/index.js"
+		},
+		"./progress": {
+			"types": "./build/components/progress/index.d.ts",
+			"import": "./build/components/progress/index.js",
+			"default": "./build/components/progress/index.js"
+		},
+		"./radio": {
+			"types": "./build/components/radio/index.d.ts",
+			"import": "./build/components/radio/index.js",
+			"default": "./build/components/radio/index.js"
+		},
+		"./radio-group": {
+			"types": "./build/components/radio-group/index.d.ts",
+			"import": "./build/components/radio-group/index.js",
+			"default": "./build/components/radio-group/index.js"
+		},
+		"./scroll-area": {
+			"types": "./build/components/scroll-area/index.d.ts",
+			"import": "./build/components/scroll-area/index.js",
+			"default": "./build/components/scroll-area/index.js"
+		},
+		"./select": {
+			"types": "./build/components/select/index.d.ts",
+			"import": "./build/components/select/index.js",
+			"default": "./build/components/select/index.js"
+		},
+		"./separator": {
+			"types": "./build/components/separator/index.d.ts",
+			"import": "./build/components/separator/index.js",
+			"default": "./build/components/separator/index.js"
+		},
+		"./skeleton": {
+			"types": "./build/components/skeleton/index.d.ts",
+			"import": "./build/components/skeleton/index.js",
+			"default": "./build/components/skeleton/index.js"
+		},
+		"./slider": {
+			"types": "./build/components/slider/index.d.ts",
+			"import": "./build/components/slider/index.js",
+			"default": "./build/components/slider/index.js"
+		},
+		"./spinner": {
+			"types": "./build/components/spinner/index.d.ts",
+			"import": "./build/components/spinner/index.js",
+			"default": "./build/components/spinner/index.js"
+		},
+		"./switch": {
+			"types": "./build/components/switch/index.d.ts",
+			"import": "./build/components/switch/index.js",
+			"default": "./build/components/switch/index.js"
+		},
+		"./table": {
+			"types": "./build/components/table/index.d.ts",
+			"import": "./build/components/table/index.js",
+			"default": "./build/components/table/index.js"
+		},
+		"./tabs": {
+			"types": "./build/components/tabs/index.d.ts",
+			"import": "./build/components/tabs/index.js",
+			"default": "./build/components/tabs/index.js"
+		},
+		"./textarea": {
+			"types": "./build/components/textarea/index.d.ts",
+			"import": "./build/components/textarea/index.js",
+			"default": "./build/components/textarea/index.js"
+		},
+		"./textarea-group": {
+			"types": "./build/components/textarea-group/index.d.ts",
+			"import": "./build/components/textarea-group/index.js",
+			"default": "./build/components/textarea-group/index.js"
+		},
+		"./toast": {
+			"types": "./build/components/toast/index.d.ts",
+			"import": "./build/components/toast/index.js",
+			"default": "./build/components/toast/index.js"
+		},
+		"./toggle": {
+			"types": "./build/components/toggle/index.d.ts",
+			"import": "./build/components/toggle/index.js",
+			"default": "./build/components/toggle/index.js"
+		},
+		"./toggle-group": {
+			"types": "./build/components/toggle-group/index.d.ts",
+			"import": "./build/components/toggle-group/index.js",
+			"default": "./build/components/toggle-group/index.js"
+		},
+		"./toolbar": {
+			"types": "./build/components/toolbar/index.d.ts",
+			"import": "./build/components/toolbar/index.js",
+			"default": "./build/components/toolbar/index.js"
+		},
+		"./tooltip": {
+			"types": "./build/components/tooltip/index.d.ts",
+			"import": "./build/components/tooltip/index.js",
+			"default": "./build/components/tooltip/index.js"
+		}
+	},
+	"files": [
+		"build"
+	],
+	"scripts": {
+		"dev": "rollup -c -w",
+		"clean": "rimraf build",
+		"build": "npm run clean && rollup -c && node scripts/update-exports.js"
+	},
+	"peerDependencies": {
+		"react": "^19",
+		"react-dom": "^19",
+		"tailwindcss": "^4"
+	},
+	"dependencies": {
+		"@base-ui/react": "^1.6.0"
+	},
+	"sideEffects": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=22.0.0"
+	}
 }

@@ -1,5 +1,5 @@
 .empty {
-  @apply max-w-xs flex flex-col items-center;
+  @apply z-1 max-w-xs flex flex-col items-center;
 }
 
 .empty__icon {
