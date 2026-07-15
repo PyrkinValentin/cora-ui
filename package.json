@@ -29,7 +29,8 @@
 	},
 	"scripts": {
 		"dev:lib": "npm run dev --workspace=packages/react",
-		"dev:app": "npm run dev --workspace=playground"
+		"dev:app": "npm run dev --workspace=playground",
+		"build": "npm run build --workspaces --if-present"
 	},
 	"engines": {
 		"node": ">=22.0.0"
