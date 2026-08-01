@@ -6,9 +6,6 @@ import type {
 
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
-export type DialogIconState = object
-export type DialogActionsState = object
-
 export type {
 	DialogRootProps,
 	DialogRootState,
@@ -46,7 +43,18 @@ export type DialogPopupProps = BaseDialogPopupProps & {
 	size?: "sm" | "md" | "lg" | "full"
 }
 
-export type DialogIconProps = BaseUIComponentProps<"span", DialogIconState>
+export type DialogIndicatorState = object
+
+export type DialogIndicatorProps = BaseUIComponentProps<"span", DialogIndicatorState> & {
+	/**
+	 * The visual status of the component.
+	 * @default "neutral"
+	 */
+	status?: "neutral" | "info" | "success" | "warning" | "error"
+}
+
+export type DialogActionsState = object
+
 export type DialogActionsProps = BaseUIComponentProps<"div", DialogActionsState>
 
 export type DialogCloseProps = BaseDialogCloseProps & {

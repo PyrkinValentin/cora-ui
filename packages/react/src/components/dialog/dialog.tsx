@@ -7,7 +7,7 @@ import type {
 	DialogBackdropProps,
 	DialogViewportProps,
 	DialogPopupProps,
-	DialogIconProps,
+	DialogIndicatorProps,
 	DialogTitleProps,
 	DialogDescriptionProps,
 	DialogActionsProps,
@@ -15,6 +15,8 @@ import type {
 } from "./dialog.props"
 
 import { toClassNames, toDataAttrs } from "../../utils"
+
+import { STATUS_INDICATORS } from "../../constants"
 
 import { Dialog } from "@base-ui/react/dialog"
 import { X } from "../../icons"
@@ -148,23 +150,27 @@ export const DialogPopup = (props: DialogPopupProps) => {
 }
 
 /**
- * A visual component for icons inside dialogs.
+ * A visual icon representing the status or severity of the dialog.
  * Renders a `<span>` element.
  */
-export const DialogIcon = (props: DialogIconProps) => {
+export const DialogIndicator = (props: DialogIndicatorProps) => {
 	const {
+		status = "neutral",
 		className,
 		children,
 		...restProps
 	} = props
 
+	const Indicator = STATUS_INDICATORS[status]
+
 	return (
 		<Render
 			{...restProps}
+			{...toDataAttrs({ status })}
 			defaultTagName="span"
-			className={toClassNames("dialog__icon", className)}
+			className={toClassNames("dialog__indicator", className)}
 		>
-			{children}
+			{children ?? <Indicator/>}
 		</Render>
 	)
 }

@@ -94,11 +94,31 @@
   }
 }
 
-.dialog__icon {
-  @apply mb-2 size-10 shrink-0 flex items-center justify-center rounded-md bg-neutral-soft text-neutral-soft-foreground;
+.dialog__indicator {
+  @apply mb-2 size-10 shrink-0 flex items-center justify-center rounded-md;
 
   & > svg {
     @apply size-6;
+  }
+
+  &[data-status="neutral"] {
+    @apply bg-neutral-soft text-neutral-soft-foreground;
+  }
+
+  &[data-status="info"] {
+    @apply bg-info-soft text-info-soft-foreground;
+  }
+
+  &[data-status="success"] {
+    @apply bg-success-soft text-success-soft-foreground;
+  }
+
+  &[data-status="warning"] {
+    @apply bg-warning-soft text-warning-soft-foreground;
+  }
+
+  &[data-status="error"] {
+    @apply bg-error-soft text-error-soft-foreground;
   }
 }
 
