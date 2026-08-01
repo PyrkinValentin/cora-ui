@@ -127,7 +127,7 @@
 }
 
 .alert-dialog__description {
-  @apply text-base text-center text-pretty text-muted;
+  @apply text-sm text-center text-pretty text-muted;
 
   .alert-dialog__title + & {
     @apply mt-1;

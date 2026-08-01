@@ -204,7 +204,7 @@
 }
 
 .drawer__description {
-  @apply text-base text-pretty text-muted;
+  @apply text-sm text-pretty text-muted;
 
   .drawer__title + & {
     @apply mt-1;

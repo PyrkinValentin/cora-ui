@@ -7,6 +7,7 @@ import type {
 	DialogBackdropProps,
 	DialogViewportProps,
 	DialogPopupProps,
+	DialogIconProps,
 	DialogTitleProps,
 	DialogDescriptionProps,
 	DialogActionsProps,
@@ -143,6 +144,28 @@ export const DialogPopup = (props: DialogPopupProps) => {
 		>
 			{children}
 		</Dialog.Popup>
+	)
+}
+
+/**
+ * A visual component for icons inside dialogs.
+ * Renders a `<span>` element.
+ */
+export const DialogIcon = (props: DialogIconProps) => {
+	const {
+		className,
+		children,
+		...restProps
+	} = props
+
+	return (
+		<Render
+			{...restProps}
+			defaultTagName="span"
+			className={toClassNames("dialog__icon", className)}
+		>
+			{children}
+		</Render>
 	)
 }
 

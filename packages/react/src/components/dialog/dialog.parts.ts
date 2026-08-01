@@ -7,6 +7,7 @@ export {
 	DialogBackdrop as Backdrop,
 	DialogViewport as Viewport,
 	DialogPopup as Popup,
+	DialogIcon as Icon,
 	DialogTitle as Title,
 	DialogDescription as Description,
 	DialogActions as Actions,

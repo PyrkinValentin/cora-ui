@@ -6,6 +6,7 @@ import type {
 
 import type { BaseUIComponentProps } from "@base-ui/react/internals/types"
 
+export type DialogIconState = object
 export type DialogActionsState = object
 
 export type {
@@ -45,6 +46,7 @@ export type DialogPopupProps = BaseDialogPopupProps & {
 	size?: "sm" | "md" | "lg" | "full"
 }
 
+export type DialogIconProps = BaseUIComponentProps<"span", DialogIconState>
 export type DialogActionsProps = BaseUIComponentProps<"div", DialogActionsState>
 
 export type DialogCloseProps = BaseDialogCloseProps & {

@@ -94,12 +94,20 @@
   }
 }
 
+.dialog__icon {
+  @apply mb-2 size-10 shrink-0 flex items-center justify-center rounded-md bg-neutral-soft text-neutral-soft-foreground;
+
+  & > svg {
+    @apply size-6;
+  }
+}
+
 .dialog__title {
   @apply text-base text-center font-medium text-pretty text-foreground leading-snug;
 }
 
 .dialog__description {
-  @apply text-base text-center text-pretty text-muted;
+  @apply text-sm text-center text-pretty text-muted;
 
   .dialog__title + & {
     @apply mt-1;
