@@ -123,7 +123,6 @@ export const FieldItem = (props: FieldItemProps) => {
 export const FieldError = (props: FieldErrorProps) => {
 	const {
 		className,
-		children,
 		...restProps
 	} = props
 
@@ -131,9 +130,7 @@ export const FieldError = (props: FieldErrorProps) => {
 		<Field.Error
 			{...restProps}
 			className={toClassNames("field__error", className)}
-		>
-			{children}
-		</Field.Error>
+		/>
 	)
 }
 

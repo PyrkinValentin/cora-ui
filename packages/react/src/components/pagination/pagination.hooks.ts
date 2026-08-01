@@ -37,7 +37,7 @@ export const usePaginationSync = (options: UsePaginationSyncOptions) => {
 				createChangeEventDetails(REASONS.pageSync),
 			)
 		}
-	}, [total, page, onPageChange])
+	}, [total, page])
 }
 
 /**
