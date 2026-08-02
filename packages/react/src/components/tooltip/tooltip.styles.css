@@ -23,7 +23,7 @@
 
 .tooltip__popup {
   @apply relative px-3 py-1 max-w-(--available-width) max-h-(--available-height) flex flex-col rounded-lg shadow-lg
-  border border-border bg-overlay text-sm text-pretty text-foreground origin-(--transform-origin) transition
+  border border-border bg-overlay text-xs text-pretty text-foreground origin-(--transform-origin) transition
   motion-reduce:transition-none;
 
   &:focus-visible {
