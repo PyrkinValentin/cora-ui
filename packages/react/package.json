@@ -1,6 +1,6 @@
 {
 	"name": "@cora-ui/react",
-	"version": "1.1.45",
+	"version": "1.1.46",
 	"description": "Next-generation, high-performance React 19 UI component kit built on Base UI and Tailwind CSS v4 with native accessibility and zero runtime overhead.",
 	"author": "Cora",
 	"homepage": "https://cora-ui.com",
@@ -342,7 +342,7 @@
 		"tailwindcss": "^4"
 	},
 	"dependencies": {
-		"@base-ui/react": "^1.6.0"
+		"@base-ui/react": "^1.7.0"
 	},
 	"sideEffects": false,
 	"publishConfig": {
