@@ -1,6 +1,7 @@
 "use client"
 
-import {
+import type {
+	MenuFilterProviderProps,
 	MenuRootProps,
 	MenuTriggerProps,
 	MenuPortalProps,
@@ -27,6 +28,25 @@ import { toClassNames, toDataAttrs } from "../../utils"
 
 import { Menu } from "@base-ui/react/menu"
 import { Check } from "../../icons"
+
+/**
+ * Enables filtering for the menu or submenu it wraps. Add `Menu.Input` to the popup and place
+ * its items in `Menu.List`.
+ * Wrap each searchable submenu in its own provider.
+ * Doesn't render its own HTML element.
+ */
+export const MenuFilterProvider = (props: MenuFilterProviderProps) => {
+	const {
+		children,
+		...restProps
+	} = props
+
+	return (
+		<Menu.FilterProvider {...restProps}>
+			{children}
+		</Menu.FilterProvider>
+	)
+}
 
 /**
  * Groups all parts of the menu.

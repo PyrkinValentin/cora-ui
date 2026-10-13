@@ -35,7 +35,7 @@ import { ChevronDown, X } from "../../icons"
  */
 export const AutocompleteRoot = <Value = unknown>(props: AutocompleteRootProps<Value>) => {
 	const {
-		items = undefined,
+		items,
 		children,
 		...restProps
 	} = props
@@ -43,7 +43,7 @@ export const AutocompleteRoot = <Value = unknown>(props: AutocompleteRootProps<V
 	return (
 		<Autocomplete.Root
 			{...restProps}
-			items={items}
+			items={items as never}
 		>
 			{children}
 		</Autocomplete.Root>

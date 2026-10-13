@@ -1,6 +1,7 @@
 export { createMenuHandle as createHandle } from "./menu.utils"
 
 export {
+	MenuFilterProvider as FilterProvider,
 	MenuRoot as Root,
 	MenuTrigger as Trigger,
 	MenuPortal as Portal,

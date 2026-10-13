@@ -6,6 +6,10 @@ export type {
 } from "@base-ui/react/separator"
 
 export type {
+	MenuFilterProviderProps,
+	MenuFilterProviderState,
+	MenuFilterProviderChangeEventReason,
+	MenuFilterProviderChangeEventDetails,
 	MenuRootProps,
 	MenuRootState,
 	MenuRootActions,
@@ -24,6 +28,12 @@ export type {
 	MenuPopupState,
 	MenuArrowProps,
 	MenuArrowState,
+	MenuInputProps,
+	MenuInputState,
+	MenuClearProps,
+	MenuClearState,
+	MenuEmptyProps,
+	MenuEmptyState,
 	MenuViewportProps,
 	MenuViewportState,
 	MenuItemState,
